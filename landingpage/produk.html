@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Produk CPAP, BiPAP, Masker, dan Diagnostic Sleep terlengkap dari ResMed, Philips, BMC, dan Nox Medical. Garansi resmi, harga terbaik.">
+  <title>Produk — SleepWell | Unified Sleep Healthcare</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    /* ========== Produk Page Specific ========== */
+    .produk-hero {
+      padding: calc(72px + var(--space-16)) 0 var(--space-16);
+      background: linear-gradient(135deg, var(--blue-50) 0%, var(--white) 50%, var(--green-50) 100%);
+    }
+
+    .produk-hero-title {
+      font-size: var(--font-size-4xl);
+      font-weight: 800;
+      color: var(--blue-900);
+      margin-bottom: var(--space-4);
+    }
+
+    .produk-hero-subtitle {
+      font-size: var(--font-size-lg);
+      color: var(--gray-600);
+      max-width: 600px;
+    }
+
+    /* Search & Filters */
+    .filter-section {
+      padding: var(--space-8) 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky;
+      top: 64px;
+      z-index: 100;
+    }
+
+    .filter-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .search-bar {
+      display: flex;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+
+    .search-input {
+      flex: 1;
+      padding: var(--space-3) var(--space-5);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      font-size: var(--font-size-base);
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--blue-500);
+      box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .filter-label {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      padding: var(--space-2) var(--space-4);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-full);
+      background: var(--white);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-tab:hover {
+      border-color: var(--blue-300);
+      color: var(--blue-600);
+    }
+
+    .filter-tab.active {
+      background: var(--blue-600);
+      border-color: var(--blue-600);
+      color: var(--white);
+    }
+
+    .filter-select {
+      padding: var(--space-2) var(--space-4);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      font-size: var(--font-size-sm);
+      font-family: inherit;
+      background: var(--white);
+      cursor: pointer;
+    }
+
+    .result-count {
+      font-size: var(--font-size-sm);
+      color: var(--gray-500);
+      margin-left: auto;
+    }
+
+    /* Products Grid */
+    .produk-section {
+      padding: var(--space-12) 0;
+    }
+
+    .produk-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .produk-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--gray-100);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .produk-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--blue-200);
+    }
+
+    .produk-card-image {
+      position: relative;
+      aspect-ratio: 1;
+      background: var(--gray-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      overflow: hidden;
+    }
+
+    .produk-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .produk-card:hover .produk-card-image img {
+      transform: scale(1.05);
+    }
+
+    .produk-card-badge {
+      position: absolute;
+      top: var(--space-3);
+      left: var(--space-3);
+      padding: var(--space-1) var(--space-3);
+      background: var(--orange-500);
+      color: var(--white);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+    }
+
+    .produk-card-badge.new {
+      background: var(--green-500);
+    }
+
+    .produk-card-badge.exclusive {
+      background: var(--blue-600);
+    }
+
+    .produk-card-vendor {
+      position: absolute;
+      top: var(--space-3);
+      right: var(--space-3);
+      padding: var(--space-1) var(--space-2);
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      color: var(--gray-700);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .produk-card-body {
+      padding: var(--space-5);
+    }
+
+    .produk-card-category {
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      color: var(--blue-600);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-2);
+    }
+
+    .produk-card-name {
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: var(--space-3);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .produk-card-price {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+
+    .produk-price-current {
+      font-size: var(--font-size-lg);
+      font-weight: 800;
+      color: var(--blue-700);
+    }
+
+    .produk-price-original {
+      font-size: var(--font-size-sm);
+      color: var(--gray-400);
+      text-decoration: line-through;
+    }
+
+    .produk-card-actions {
+      display: flex;
+      gap: var(--space-2);
+    }
+
+    .produk-btn {
+      flex: 1;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-lg);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .produk-btn-primary {
+      background: var(--blue-600);
+      color: var(--white);
+    }
+
+    .produk-btn-primary:hover {
+      background: var(--blue-700);
+    }
+
+    .produk-btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+    }
+
+    .produk-btn-whatsapp:hover {
+      background: #128C7E;
+    }
+
+    .produk-btn-detail {
+      background: var(--gray-100);
+      color: var(--gray-700);
+    }
+
+    .produk-btn-detail:hover {
+      background: var(--gray-200);
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: var(--space-16) 0;
+      color: var(--gray-500);
+    }
+
+    .no-results-icon {
+      font-size: 4rem;
+      margin-bottom: var(--space-4);
+      opacity: 0.3;
+    }
+
+    .no-results-text {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .produk-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .produk-hero-title {
+        font-size: var(--font-size-3xl);
+      }
+
+      .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .filter-group {
+        flex-wrap: wrap;
+      }
+
+      .result-count {
+        margin-left: 0;
+      }
+
+      .produk-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .produk-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .search-bar {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVBAR
+       ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <span class="navbar-logo">🌙</span>
+        <span class="navbar-brand-text">SleepWell</span>
+      </a>
+
+      <div class="navbar-links" id="navLinks">
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="produk.html" class="nav-link active">Produk</a>
+        <a href="index.html#services" class="nav-link">Layanan</a>
+        <a href="index.html#screening" class="nav-link">Screening</a>
+        <a href="index.html#booking" class="nav-link">Konsultasi</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+      </div>
+
+      <div class="navbar-actions">
+        <a href="index.html#booking" class="btn btn-primary btn-sm">Booking Sekarang</a>
+        <button class="navbar-toggle" id="navToggle" onclick="toggleNav()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="produk-hero">
+    <div class="container">
+      <h1 class="produk-hero-title">Produk Original Bergaransi</h1>
+      <p class="produk-hero-subtitle">CPAP, BiPAP, Masker, dan Diagnostic devices dari brand terpercaya — ResMed, Philips, BMC, dan Nox Medical.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FILTER & SEARCH
+       ============================================ -->
+  <section class="filter-section">
+    <div class="filter-container">
+      <!-- Search -->
+      <div class="search-bar">
+        <input type="text" class="search-input" id="searchInput" placeholder="🔍 Cari produk (contoh: AirSense, DreamStation, masker...)" oninput="filterProduk()">
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-row">
+        <!-- Brand Filter -->
+        <div class="filter-group">
+          <span class="filter-label">Brand:</span>
+          <div class="filter-tabs" id="brandFilter">
+            <button class="filter-tab active" onclick="setBrand('all', this)">Semua</button>
+            <button class="filter-tab" onclick="setBrand('resmed', this)">ResMed</button>
+            <button class="filter-tab" onclick="setBrand('philips', this)">Philips</button>
+            <button class="filter-tab" onclick="setBrand('bmc', this)">BMC</button>
+            <button class="filter-tab" onclick="setBrand('nox', this)">Nox Medical</button>
+          </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <span class="filter-label">Kategori:</span>
+          <select class="filter-select" id="categoryFilter" onchange="filterProduk()">
+            <option value="all">Semua Kategori</option>
+            <option value="cpap">Auto CPAP</option>
+            <option value="bipap">Auto BiPAP</option>
+            <option value="masker">Masker</option>
+            <option value="diagnostic">Diagnostic</option>
+            <option value="accessories">Aksesoris</option>
+          </select>
+        </div>
+
+        <!-- Sort -->
+        <div class="filter-group">
+          <span class="filter-label">Urutkan:</span>
+          <select class="filter-select" id="sortFilter" onchange="filterProduk()">
+            <option value="popular">Terpopuler</option>
+            <option value="price-low">Harga Terendah</option>
+            <option value="price-high">Harga Tertinggi</option>
+            <option value="name">Nama A-Z</option>
+          </select>
+        </div>
+
+        <span class="result-count" id="resultCount">24 produk</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PRODUCTS GRID
+       ============================================ -->
+  <section class="produk-section">
+    <div class="produk-grid" id="produkGrid">
+      <!-- Products will be rendered by JavaScript -->
+    </div>
+
+    <div class="no-results" id="noResults" style="display:none;">
+      <div class="no-results-icon">🔍</div>
+      <div class="no-results-text">Produk tidak ditemukan</div>
+      <p>Coba kata kunci lain atau ubah filter.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA SECTION
+       ============================================ -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2 class="section-title">Butuh Bantuan Memilih Produk?</h2>
+      <p class="section-subtitle">Tim kami siap membantu Anda menemukan produk yang tepat sesuai kebutuhan terapi.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20butuh%20bantuan%20memilih%20produk%20CPAP" class="btn btn-whatsapp btn-lg" target="_blank">
+          💬 Chat via WhatsApp
+        </a>
+        <a href="index.html#booking" class="btn btn-primary btn-lg">
+          📅 Booking Konsultasi
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="navbar-brand">
+            <span class="navbar-logo">🌙</span>
+            <span class="navbar-brand-text">SleepWell</span>
+          </div>
+          <p class="footer-desc">Unified Sleep Healthcare Platform — Platform kesehatan tidur terpadu pertama di Indonesia.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Produk</h4>
+          <a href="produk.html">Semua Produk</a>
+          <a href="produk.html?brand=resmed">ResMed</a>
+          <a href="produk.html?brand=philips">Philips</a>
+          <a href="produk.html?brand=bmc">BMC</a>
+        </div>
+        <div class="footer-links">
+          <h4>Layanan</h4>
+          <a href="index.html#screening">Screening Gratis</a>
+          <a href="index.html#diagnosis">Home Sleep Test</a>
+          <a href="index.html#booking">Booking Konsultasi</a>
+          <a href="index.html#therapy">Personalized Therapy</a>
+        </div>
+        <div class="footer-links">
+          <h4>Kontak</h4>
+          <a href="https://wa.me/6281234567890">WhatsApp</a>
+          <a href="mailto:info@sleepwell.id">Email</a>
+          <a href="#">Jakarta, Indonesia</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SleepWell — Unified Sleep Healthcare Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20butuh%20informasi%20tentang%20produk%20CPAP" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+    💬
+    <span class="whatsapp-fab-tooltip">Chat via WhatsApp</span>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Product Data
+    const products = [
+      // === RESMED ===
+      {
+        id: 1,
+        name: "ResMed AirSense 11 AutoSet",
+        brand: "resmed",
+        category: "cpap",
+        price: 13500000,
+        originalPrice: 15000000,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/Air10.jpg?v=1777789483",
+        badge: "BEST SELLER",
+        description: "Auto-adjusting CPAP dengan Integrated Humidifier dan Smart Connectivity."
+      },
+      {
+        id: 2,
+        name: "ResMed AirFit F30i Full Face Mask",
+        brand: "resmed",
+        category: "masker",
+        price: 3200000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/F20.jpg?v=1777791982",
+        badge: null,
+        description: "Full face mask dengan Ultra-wide field of view dan quiet air vent."
+      },
+      {
+        id: 3,
+        name: "ResMed AirFit N30i Nasal Mask",
+        brand: "resmed",
+        category: "masker",
+        price: 2400000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/N30i.jpg?v=1777791982",
+        badge: null,
+        description: "Nasal cradle mask dengan top-of-head tube connection."
+      },
+      {
+        id: 4,
+        name: "ResMed AirSense 11 Filter Set (24pcs)",
+        brand: "resmed",
+        category: "accessories",
+        price: 450000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/hypo_as10.png?v=1772166294",
+        badge: null,
+        description: "Hypoallergenic filter untuk AirSense 10/11 — 24 pcs."
+      },
+      {
+        id: 5,
+        name: "ResMed AirCurve 10 VAuto BiLevel",
+        brand: "resmed",
+        category: "bipap",
+        price: 18500000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/AirCurve.jpg?v=1777789568",
+        badge: null,
+        description: "BiLevel device untuk pasien yang membutuhkan tekanan variabel."
+      },
+      {
+        id: 6,
+        name: "ResMed AirFit P10 Nasal Pillow Mask",
+        brand: "resmed",
+        category: "masker",
+        price: 2200000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/P10.jpg?v=1777791440",
+        badge: null,
+        description: "Nasal pillow mask ultra-ringan — 50% lebih ringan dari pendahulunya."
+      },
+      // === PHILIPS ===
+      {
+        id: 7,
+        name: "Philips DreamStation 2 Auto CPAP",
+        brand: "philips",
+        category: "cpap",
+        price: 11200000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/BundleDeal_16.jpg?v=1728466197",
+        badge: "BEST SELLER",
+        description: "Auto CPAP compact dengan Advanced Auto-Adjusting Algorithm."
+      },
+      {
+        id: 8,
+        name: "Philips DreamWear Gel Nasal Pillow",
+        brand: "philips",
+        category: "masker",
+        price: 1800000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/P10.jpg?v=1777791440",
+        badge: null,
+        description: "Nasal pillow mask dengan gel cushion untuk kenyamanan ekstra."
+      },
+      {
+        id: 9,
+        name: "Philips DreamStation GO Travel CPAP",
+        brand: "philips",
+        category: "cpap",
+        price: 8500000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/products/DSGo3copy.jpg?v=1586859168",
+        badge: "TRAVEL",
+        description: "Travel CPAP tercompact — pas di tas kabin pesawat."
+      },
+      // === BMC ===
+      {
+        id: 10,
+        name: "BMC M1 Mini Travel Auto CPAP",
+        brand: "bmc",
+        category: "cpap",
+        price: 4800000,
+        originalPrice: 5500000,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/M1Mini.png?v=1775127523",
+        badge: "HEMAT",
+        description: "Travel auto CPAP terjangkau — hanya 300g, FCC & CE certified."
+      },
+      {
+        id: 11,
+        name: "BMC G3 A20 Auto CPAP",
+        brand: "bmc",
+        category: "cpap",
+        price: 14500000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/BMC-Luna-G3-3.png?v=1777789630",
+        badge: null,
+        description: "Auto CPAP dengan WiFi monitoring, heated humidifier, dan LCD warna."
+      },
+      {
+        id: 12,
+        name: "BMC G3 B25A Auto BiPAP",
+        brand: "bmc",
+        category: "bipap",
+        price: 26000000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/B25F6s.jpg?v=1778943145",
+        badge: null,
+        description: "Auto BiPAP dengan SpO2 monitoring dan heated tube."
+      },
+      {
+        id: 13,
+        name: "BMC F5A+ Full Face Mask",
+        brand: "bmc",
+        category: "masker",
+        price: 2000000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/BMC_F5A.jpg?v=1777794229",
+        badge: null,
+        description: "Full face mask dengan magnetic clip dan 3D headgear."
+      },
+      {
+        id: 14,
+        name: "BMC N5A+ Nasal Mask",
+        brand: "bmc",
+        category: "masker",
+        price: 1500000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/bmc_N5A.jpg?v=1777794229",
+        badge: null,
+        description: "Nasal mask ergonomis dengan silicone cushion lembut."
+      },
+      {
+        id: 15,
+        name: "BMC P6s Nasal Pillow Mask",
+        brand: "bmc",
+        category: "masker",
+        price: 1200000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/BMC_P6s.jpg?v=1777794275",
+        badge: null,
+        description: "Nasal pillow mask dengan 3 ukuran cushion (S/M/L)."
+      },
+      // === NOX MEDICAL ===
+      {
+        id: 16,
+        name: "Nox T3s Home Sleep Test",
+        brand: "nox",
+        category: "diagnostic",
+        price: 0,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/Apnealink_4_2bc8e3e8-e89a-425b-83b5-f298b551eb6e.jpg?v=1787555441",
+        badge: "EKSKLUSIF",
+        description: "Home Sleep Test Level III — record di rumah, analisa oleh RPSGT."
+      },
+      {
+        id: 17,
+        name: "Nox A1s Sleep Diagnostic System",
+        brand: "nox",
+        category: "diagnostic",
+        price: 0,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/ApnealinkSleepScreening1.jpg?v=1710514905",
+        badge: "EKSKLUSIF",
+        description: "Full diagnostic system untuk PSG in-lab — 16 channel recording."
+      },
+      {
+        id: 18,
+        name: "BMC G3 A20 + F5A+ Full Face Mask Bundle",
+        brand: "bmc",
+        category: "cpap",
+        price: 16500000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/G3_F5A_1.jpg?v=1778641684",
+        badge: "BUNDLE",
+        description: "Paket lengkap: BMC G3 A20 Auto CPAP + BMC F5A+ Full Face Mask."
+      },
+      {
+        id: 19,
+        name: "BMC G3 A20 + N5A+ Nasal Mask Bundle",
+        brand: "bmc",
+        category: "cpap",
+        price: 16500000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/G3N5Aplus.jpg?v=1778940380",
+        badge: "BUNDLE",
+        description: "Paket lengkap: BMC G3 A20 Auto CPAP + BMC N5A+ Nasal Mask."
+      },
+      {
+        id: 20,
+        name: "ResMed AirMini AutoTravel CPAP",
+        brand: "resmed",
+        category: "cpap",
+        price: 9800000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/8_d3318743-4e6b-413a-b7b6-9678bc94b0da.png?v=1771831450",
+        badge: "TRAVEL",
+        description: "World's smallest Auto CPAP — sebesar smartphone, hanya 300g."
+      },
+      {
+        id: 21,
+        name: "ResMed AirFit F40 Full Face Mask",
+        brand: "resmed",
+        category: "masker",
+        price: 2800000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/F40.jpg?v=1777791982",
+        badge: "NEW",
+        description: "Full face mask terbaru dengan ActiveFit™ design."
+      },
+      {
+        id: 22,
+        name: "ResMed Lumis 150 VPAP ST",
+        brand: "resmed",
+        category: "bipap",
+        price: 22000000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/products/LumisST3.jpg?v=1668585949",
+        badge: null,
+        description: "VPAP ST untuk pasien dengan respiratory insufficiency."
+      },
+      {
+        id: 23,
+        name: "Philips DreamStation Reusable Filter",
+        brand: "philips",
+        category: "accessories",
+        price: 350000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/products/Filter-DS5.jpg?v=1679489655",
+        badge: null,
+        description: "Reusable foam filter untuk DreamStation 1 & 2."
+      },
+      {
+        id: 24,
+        name: "BMC G3 B25A + P6s Nasal Pillow Bundle",
+        brand: "bmc",
+        category: "bipap",
+        price: 26000000,
+        originalPrice: null,
+        image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/B25P6s.jpg?v=1778941079",
+        badge: "BUNDLE",
+        description: "Paket: BMC G3 B25A Auto BiPAP + BMC P6s Nasal Pillow Mask."
+      }
+    ];
+
+    let currentBrand = 'all';
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      filterProduk();
+    });
+
+    // Set Brand Filter
+    function setBrand(brand, btn) {
+      currentBrand = brand;
+      document.querySelectorAll('#brandFilter .filter-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      filterProduk();
+    }
+
+    // Filter & Render Products
+    function filterProduk() {
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const category = document.getElementById('categoryFilter').value;
+      const sort = document.getElementById('sortFilter').value;
+
+      let filtered = products.filter(p => {
+        const matchBrand = currentBrand === 'all' || p.brand === currentBrand;
+        const matchCategory = category === 'all' || p.category === category;
+        const matchSearch = p.name.toLowerCase().includes(search) ||
+                           p.description.toLowerCase().includes(search) ||
+                           p.brand.toLowerCase().includes(search);
+        return matchBrand && matchCategory && matchSearch;
+      });
+
+      // Sort
+      if (sort === 'price-low') filtered.sort((a, b) => a.price - b.price);
+      else if (sort === 'price-high') filtered.sort((a, b) => b.price - a.price);
+      else if (sort === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+      // Render
+      const grid = document.getElementById('produkGrid');
+      const noResults = document.getElementById('noResults');
+      const count = document.getElementById('resultCount');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResults.style.display = 'block';
+        count.textContent = '0 produk';
+        return;
+      }
+
+      noResults.style.display = 'none';
+      count.textContent = filtered.length + ' produk';
+
+      grid.innerHTML = filtered.map(p => `
+        <div class="produk-card" onclick="window.location.href='produk-detail.html?id=${p.id}'">
+          <div class="produk-card-image">
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+            ${p.badge ? `<span class="produk-card-badge ${p.badge === 'NEW' ? 'new' : p.badge === 'EKSKLUSIF' ? 'exclusive' : ''}">${p.badge}</span>` : ''}
+            <span class="produk-card-vendor">${p.brand.charAt(0).toUpperCase() + p.brand.slice(1)}</span>
+          </div>
+          <div class="produk-card-body">
+            <div class="produk-card-category">${getCategoryLabel(p.category)}</div>
+            <h3 class="produk-card-name">${p.name}</h3>
+            <div class="produk-card-price">
+              ${p.price === 0
+                ? '<span class="produk-price-current">Hubungi Kami</span>'
+                : `<span class="produk-price-current">Rp ${p.price.toLocaleString('id-ID')}</span>
+                   ${p.originalPrice ? `<span class="produk-price-original">Rp ${p.originalPrice.toLocaleString('id-ID')}</span>` : ''}`
+              }
+            </div>
+            <div class="produk-card-actions">
+              <a href="produk-detail.html?id=${p.id}" class="produk-btn produk-btn-detail">Detail</a>
+              <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20${encodeURIComponent(p.name)}" class="produk-btn produk-btn-whatsapp" target="_blank" onclick="event.stopPropagation()">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getCategoryLabel(cat) {
+      const labels = { cpap: 'Auto CPAP', bipap: 'Auto BiPAP', masker: 'Masker', diagnostic: 'Diagnostic', accessories: 'Aksesoris' };
+      return labels[cat] || cat;
+    }
+
+    // Navbar toggle
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
