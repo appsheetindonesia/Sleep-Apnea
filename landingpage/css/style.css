@@ -720,7 +720,7 @@ input, select, textarea {
 
 /* Mobile Menu */
 .mobile-toggle {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 5px;
   padding: var(--space-2);
