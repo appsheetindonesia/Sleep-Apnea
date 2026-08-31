@@ -45,6 +45,7 @@
     initDateMin();
     initLanguageToggle();
     initLazyLoading();
+    initDarkMode();
   });
 
   // ==========================================
@@ -769,6 +770,34 @@
       allImages.forEach(function(img) {
         img.src = img.getAttribute('data-src-webp');
       });
+    }
+  }
+
+  // ==========================================
+  // DARK MODE
+  // ==========================================
+  function initDarkMode() {
+    var darkMode = localStorage.getItem('klinik-kita-dark-mode');
+    if (darkMode === 'true' || (!darkMode && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    // Update toggle button
+    updateDarkModeToggle();
+  }
+
+  function toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+    var isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('klinik-kita-dark-mode', isDark);
+    updateDarkModeToggle();
+  }
+
+  function updateDarkModeToggle() {
+    var toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+      var isDark = document.documentElement.classList.contains('dark');
+      toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
     }
   }
 })();
