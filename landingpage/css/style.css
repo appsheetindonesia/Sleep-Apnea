@@ -572,10 +572,14 @@ input, select, textarea {
 .hero-stats {
   display: flex;
   gap: var(--space-10);
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .hero-stat {
-  text-align: left;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
 }
 
 .hero-stat-number {
@@ -2199,6 +2203,12 @@ input, select, textarea {
   .hero-stats {
     flex-wrap: wrap;
     gap: var(--space-6);
+    justify-content: center;
+  }
+
+  .hero-stat {
+    flex: 1 1 calc(33.33% - var(--space-6));
+    min-width: 100px;
   }
 
   .hero-cta {
@@ -2280,6 +2290,13 @@ input, select, textarea {
 
   .hero-stats {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-stat {
+    flex: none;
+    width: 100%;
+    text-align: center;
   }
 
   .form-row {
