@@ -754,7 +754,6 @@
     <div class="container navbar-inner">
       <a href="index.html" class="navbar-brand">
         <img src="img/logo.png" alt="Klinik Kita" class="navbar-logo-img">
-        <span class="navbar-brand-text">Klinik Kita</span>
       </a>
 
       <div class="navbar-links" id="navLinks">
@@ -801,6 +800,43 @@
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <img src="img/logo.png" alt="Klinik Kita" style="height:36px;">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="index.html" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🏠</span> Beranda
+        </a>
+        <a href="produk.html" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🛒</span> Produk
+        </a>
+        <a href="index.html#services" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🩺</span> Layanan
+        </a>
+        <a href="index.html#screening" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">📋</span> Screening
+        </a>
+        <a href="index.html#booking" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">📅</span> Konsultasi
+        </a>
+        <a href="index.html#faq" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">❓</span> FAQ
+        </a>
+        <div class="mobile-menu-divider"></div>
+        <a href="cart.html" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🛒</span> Keranjang
+        </a>
+        <a href="https://wa.me/6281384626118" class="mobile-menu-cta" target="_blank" onclick="toggleMobileMenu()">
+          💬 Chat WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================================
        HERO
@@ -1414,6 +1450,28 @@
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('active');
     }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      var menu = document.getElementById('mobileMenu');
+      if (menu) {
+        menu.classList.toggle('active');
+        menu.setAttribute('aria-hidden', !menu.classList.contains('active'));
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+      }
+    }
+
+    // Close mobile menu on resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        var menu = document.getElementById('mobileMenu');
+        if (menu && menu.classList.contains('active')) {
+          menu.classList.remove('active');
+          menu.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      }
+    });
 
     // ==========================================
     // COMPARE FEATURE
