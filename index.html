@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unified Sleep Healthcare Platform — Satu-satunya platform di Indonesia yang menyediakan perjalanan lengkap kesehatan tidur: screening gratis, konsultasi dokter spesialis, sleep diagnostic, e-commerce CPAP, dan personalized therapy.">
+  <meta name="keywords" content="sleep apnea, CPAP, BiPAP, screening sleep, home sleep test, Polysomnography, kesehatan tidur, dokter spesialis">
+  <meta name="author" content="Unified Sleep Healthcare">
+  <meta property="og:title" content="Unified Sleep Healthcare Platform">
+  <meta property="og:description" content="Satu-satunya platform di Indonesia yang menyediakan perjalanan lengkap kesehatan tidur.">
+  <meta property="og:type" content="website">
+  <title>SleepWell — Unified Sleep Healthcare Platform</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "Unified Sleep Healthcare Platform",
+    "description": "Platform kesehatan tidur terpadu pertama di Indonesia",
+    "medicalSpecialty": "Pulmonology",
+    "availableService": [
+      {"@type": "MedicalProcedure", "name": "Home Sleep Test"},
+      {"@type": "MedicalProcedure", "name": "Polysomnography"},
+      {"@type": "MedicalTherapy", "name": "CPAP Therapy"},
+      {"@type": "MedicalTherapy", "name": "Personalized Therapy"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <!-- Brand -->
+      <a href="#" class="navbar-brand" aria-label="SleepWell Home">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="20" fill="url(#grad1)"/>
+          <path d="M12 28C12 28 14 18 20 14C26 10 28 12 28 12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M10 26C10 26 16 22 22 22C28 22 30 26 30 26" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="20" cy="12" r="2" fill="white"/>
+          <defs>
+            <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0%" stop-color="#2563eb"/>
+              <stop offset="100%" stop-color="#1e40af"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>SleepWell</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="navbar-menu" role="menubar">
+        <a href="#services" class="navbar-link" role="menuitem">Layanan</a>
+        <a href="#screening" class="navbar-link" role="menuitem">Screening</a>
+        <a href="#diagnosis" class="navbar-link" role="menuitem">Diagnostik</a>
+        <a href="#shop" class="navbar-link" role="menuitem">Shop</a>
+        <a href="#therapy" class="navbar-link" role="menuitem">Terapi</a>
+        <a href="#blog" class="navbar-link" role="menuitem">Blog</a>
+      </div>
+
+      <!-- Actions -->
+      <div class="navbar-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="id" aria-pressed="true">ID</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a href="#booking" class="btn btn-primary btn-sm navbar-cta">Booking Sekarang</a>
+        <button class="mobile-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <span style="font-weight:700; color:var(--blue-700);">SleepWell</span>
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="#services" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🩺</span> Layanan
+        </a>
+        <a href="#screening" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">📋</span> Screening Gratis
+        </a>
+        <a href="#diagnosis" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🔬</span> Diagnostik
+        </a>
+        <a href="#shop" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🛒</span> Shop
+        </a>
+        <a href="#therapy" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">💊</span> Personalized Terapi
+        </a>
+        <a href="#booking" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">📅</span> Konsultasi
+        </a>
+        <a href="#blog" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">📰</span> Blog
+        </a>
+        <div class="mobile-menu-divider"></div>
+        <a href="#booking" class="mobile-menu-cta" onclick="toggleMobileMenu()">Booking Sekarang</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Hero Content -->
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              #1 Platform Kesehatan Tidur di Indonesia
+            </div>
+            <h1 class="hero-title">
+              Tidur Lebih Baik,<br>
+              <span class="highlight">Hidup Lebih Sehat</span><br>
+              dengan <span class="highlight-orange">SleepWell</span>
+            </h1>
+            <p class="hero-description">
+              Satu-satunya platform yang menyediakan perjalanan lengkap kesehatan tidur — dari screening gratis, konsultasi dokter spesialis, sleep diagnostic berstandar internasional, hingga personalized therapy dan monitoring jangka panjang.
+            </p>
+            <div class="hero-cta">
+              <a href="#screening" class="btn btn-primary btn-lg">
+                🩺 Screening Gratis
+              </a>
+              <a href="#shop" class="btn btn-secondary btn-lg">
+                🛒 Beli Produk
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <div class="hero-stat-number" data-target="15000">0</div>
+                <div class="hero-stat-label">Pasien Terlayani</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-number" data-target="138">0</div>
+                <div class="hero-stat-label">Produk Original</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-number" data-target="1000" data-suffix="+">0</div>
+                <div class="hero-stat-label">Google Reviews</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual -->
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-illustration">
+              <!-- Center Circle -->
+              <div class="hero-center-circle">
+                <span class="icon">😴</span>
+                <span class="text">Tidur Sehat<br>Setiap Malam</span>
+              </div>
+
+              <!-- Floating Cards -->
+              <div class="hero-card hero-card-1">
+                <div class="hero-card-icon blue">🩺</div>
+                <div class="hero-card-title">Screening Gratis</div>
+                <div class="hero-card-desc">5 menit, 8 pertanyaan</div>
+              </div>
+              <div class="hero-card hero-card-2">
+                <div class="hero-card-icon green">🔬</div>
+                <div class="hero-card-title">Sleep Test</div>
+                <div class="hero-card-desc">HST & PSG tersedia</div>
+              </div>
+              <div class="hero-card hero-card-3">
+                <div class="hero-card-icon orange">💊</div>
+                <div class="hero-card-title">CPAP Original</div>
+                <div class="hero-card-desc">Philips • ResMed • BMC</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST SIGNALS -->
+    <section class="trust-section" aria-label="Trust signals">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item animate-on-scroll">
+            <div class="trust-icon">⭐</div>
+            <div>
+              <div class="trust-text">4.9/5 Rating</div>
+              <div class="trust-subtext">1000+ Google Reviews</div>
+            </div>
+          </div>
+          <div class="trust-item animate-on-scroll animate-delay-1">
+            <div class="trust-icon">🏥</div>
+            <div>
+              <div class="trust-text">Dokter Spesialis</div>
+              <div class="trust-subtext">Dipercaya ribuan pasien</div>
+            </div>
+          </div>
+          <div class="trust-item animate-on-scroll animate-delay-2">
+            <div class="trust-icon">🔬</div>
+            <div>
+              <div class="trust-text">RPSGT Certified</div>
+              <div class="trust-subtext">Analisa di Singapura</div>
+            </div>
+          </div>
+          <div class="trust-item animate-on-scroll animate-delay-3">
+            <div class="trust-icon">✅</div>
+            <div>
+              <div class="trust-text">Brand Authorized</div>
+              <div class="trust-subtext">Philips • ResMed • Nox</div>
+            </div>
+          </div>
+          <div class="trust-item animate-on-scroll animate-delay-4">
+            <div class="trust-icon">🛡️</div>
+            <div>
+              <div class="trust-text">Asuransi Diterima</div>
+              <div class="trust-subtext">Klaim langsung</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-badge">🩺 Layanan Kami</span>
+          <h2 class="section-title">6 Layanan Kesehatan Tidur Terlengkap</h2>
+          <p class="section-subtitle">Dari edukasi hingga terapi jangka panjang — semua dalam satu platform terintegrasi.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1: Screening -->
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon blue">📋</div>
+            <h3 class="service-title">Screening Gratis</h3>
+            <p class="service-description">Kuesioner STOP-BANG + ESS untuk menentukan risiko sleep apnea Anda. Gratis, cepat, dan hasil instan.</p>
+            <div class="service-features">
+              <div class="service-feature">
+                <span class="check">✓</span> 5 langkah mudah
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> STOP-BANG (8 parameter)
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> ESS (Epworth Sleepiness Scale)
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Rekomendasi personal
+              </div>
+            </div>
+            <a href="#screening" class="service-cta">Mulai Screening →</a>
+          </div>
+
+          <!-- Service 2: Diagnosis -->
+          <div class="service-card animate-on-scroll animate-delay-1">
+            <div class="service-icon green">🔬</div>
+            <h3 class="service-title">Sleep Diagnostic</h3>
+            <p class="service-description">Home Sleep Test (HST) dan In-Lab PSG dengan standar internasional. Dianalisa oleh RPSGT bersertifikat.</p>
+            <div class="service-features">
+              <div class="service-feature">
+                <span class="check">✓</span> Home Sleep Test (HST)
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Polysomnography (PSG) Tipe 1-4
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Nox A1s & T3s System
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Hasil dalam 7 hari
+              </div>
+            </div>
+            <a href="#diagnosis" class="service-cta">Pelajari Lebih Lanjut →</a>
+          </div>
+
+          <!-- Service 3: Consultation -->
+          <div class="service-card animate-on-scroll animate-delay-2">
+            <div class="service-icon orange">👨‍⚕️</div>
+            <h3 class="service-title">Konsultasi Dokter</h3>
+            <p class="service-description">Konsultasi dengan dokter spesialis paru yang berpengalaman. Booking online atau same-day appointment.</p>
+            <div class="service-features">
+              <div class="service-feature">
+                <span class="check">✓</span> Dokter spesialis paru
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Same-day appointment
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Asuransi diterima
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Booking online 24/7
+              </div>
+            </div>
+            <a href="#booking" class="service-cta">Booking Konsultasi →</a>
+          </div>
+
+          <!-- Service 4: E-commerce -->
+          <div class="service-card animate-on-scroll animate-delay-3">
+            <div class="service-icon purple">🛒</div>
+            <h3 class="service-title">E-commerce Original</h3>
+            <p class="service-description">138+ produk original dari brand terbaik dunia. CPAP, BiPAP, masker, spare parts — semua bergaransi.</p>
+            <div class="service-features">
+              <div class="service-feature">
+                <span class="check">✓</span> 4 brand authorized
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Bundle deals hemat hingga 15%
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Pengiriman seluruh Indonesia
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Multiple payment methods
+              </div>
+            </div>
+            <a href="#shop" class="service-cta">Belanja Sekarang →</a>
+          </div>
+
+          <!-- Service 5: Therapy -->
+          <div class="service-card animate-on-scroll animate-delay-4">
+            <div class="service-icon pink">💊</div>
+            <h3 class="service-title">Personalized Therapy</h3>
+            <p class="service-description">Setting CPAP yang dikustomisasi untuk Anda. Mask fitting, therapy data review, dan monitoring berkala.</p>
+            <div class="service-features">
+              <div class="service-feature">
+                <span class="check">✓</span> Custom CPAP setting
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Mask fitting assessment
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Therapy data review
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Sewa & trial tersedia
+              </div>
+            </div>
+            <a href="#therapy" class="service-cta">Pelajari Terapi →</a>
+          </div>
+
+          <!-- Service 6: Support -->
+          <div class="service-card animate-on-scroll animate-delay-5">
+            <div class="service-icon cyan">💬</div>
+            <h3 class="service-title">Support & Retensi</h3>
+            <p class="service-description">Dukungan 24/7 via WhatsApp, pengingat servis berkala, repeat purchase otomatis, dan loyalty program.</p>
+            <div class="service-features">
+              <div class="service-feature">
+                <span class="check">✓</span> WhatsApp support 24/7
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Servis & kalibrasi
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Repeat purchase reminder
+              </div>
+              <div class="service-feature">
+                <span class="check">✓</span> Loyalty points
+              </div>
+            </div>
+            <a href="https://wa.me/6281234567890" class="service-cta">Chat WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREENING SECTION -->
+    <section class="section screening-section" id="screening">
+      <div class="container">
+        <div class="screening-grid">
+          <!-- Info -->
+          <div class="screening-info animate-on-scroll">
+            <span class="section-badge" style="background:rgba(255,255,255,0.15); color:#fff;">🩺 Screening Gratis</span>
+            <h2>Apakah Anda Berisiko<br>Sleep Apnea?</h2>
+            <p>40% penduduk Indonesia mendengkur — dan 10% di antaranya berisiko mengalami Sleep Apnea. Ketahui risiko Anda dalam 5 menit dengan kuesioner medis standar internasional.</p>
+
+            <div class="screening-steps">
+              <div class="screening-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Data Diri</h4>
+                  <p>Isi data dasar Anda (nama, usia, berat badan, lingkar leher)</p>
+                </div>
+              </div>
+              <div class="screening-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>STOP-BANG (8 Pertanyaan)</h4>
+                  <p>Kuesioner medis untuk menentukan risiko Sleep Apnea</p>
+                </div>
+              </div>
+              <div class="screening-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>ESS (Tingkat Kantuk)</h4>
+                  <p>Epworth Sleepiness Scale — ukur tingkat kantuk siang hari</p>
+                </div>
+              </div>
+              <div class="screening-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Hasil & Rekomendasi</h4>
+                  <p>Dashboard visual dengan skor, level risiko, dan rekomendasi tindak lanjut</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wizard -->
+          <div class="screening-wizard animate-on-scroll animate-delay-2" id="screeningWizard">
+            <div class="wizard-header">
+              <h3 class="wizard-title">🩺 Screening Sleep Apnea</h3>
+              <span class="wizard-step-indicator" id="stepIndicator">Langkah 1 dari 6</span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="wizard-progress" id="wizardProgress">
+              <div class="wizard-progress-step active"></div>
+              <div class="wizard-progress-step"></div>
+              <div class="wizard-progress-step"></div>
+              <div class="wizard-progress-step"></div>
+              <div class="wizard-progress-step"></div>
+              <div class="wizard-progress-step"></div>
+            </div>
+
+            <!-- Step Container -->
+            <div id="wizardSteps">
+              <!-- Step 1: Data Diri -->
+              <div class="wizard-step active" data-step="1">
+                <div class="wizard-form-group">
+                  <label class="wizard-label" for="screenName">Nama Lengkap *</label>
+                  <input type="text" id="screenName" class="wizard-input" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="wizard-input-group">
+                  <div class="wizard-form-group">
+                    <label class="wizard-label" for="screenEmail">Email *</label>
+                    <input type="email" id="screenEmail" class="wizard-input" placeholder="email@contoh.com" required>
+                  </div>
+                  <div class="wizard-form-group">
+                    <label class="wizard-label" for="screenPhone">Telepon *</label>
+                    <input type="tel" id="screenPhone" class="wizard-input" placeholder="08xxxxxxxxxx" required>
+                  </div>
+                </div>
+                <div class="wizard-input-group">
+                  <div class="wizard-form-group">
+                    <label class="wizard-label" for="screenAge">Usia *</label>
+                    <input type="number" id="screenAge" class="wizard-input" placeholder="Tahun" min="18" max="100" required>
+                  </div>
+                  <div class="wizard-form-group">
+                    <label class="wizard-label" for="screenGender">Jenis Kelamin *</label>
+                    <select id="screenGender" class="wizard-input" required>
+                      <option value="">Pilih</option>
+                      <option value="laki-laki">Laki-laki</option>
+                      <option value="perempuan">Perempuan</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="wizard-input-group">
+                  <div class="wizard-form-group">
+                    <label class="wizard-label" for="screenHeight">Tinggi (cm) *</label>
+                    <input type="number" id="screenHeight" class="wizard-input" placeholder="cm" min="100" max="250" required>
+                  </div>
+                  <div class="wizard-form-group">
+                    <label class="wizard-label" for="screenWeight">Berat (kg) *</label>
+                    <input type="number" id="screenWeight" class="wizard-input" placeholder="kg" min="30" max="300" required>
+                  </div>
+                </div>
+                <div class="wizard-form-group">
+                  <label class="wizard-label" for="screenNeck">Lingkar Leher (cm) *</label>
+                  <input type="number" id="screenNeck" class="wizard-input" placeholder="cm" min="20" max="60" required>
+                </div>
+                <div class="wizard-nav">
+                  <div></div>
+                  <button class="btn btn-primary" onclick="nextStep(2)">Lanjut →</button>
+                </div>
+              </div>
+
+              <!-- Step 2: STOP-BANG Q1-Q2 -->
+              <div class="wizard-step" data-step="2" style="display:none;">
+                <div class="wizard-question">
+                  <p>S — <strong>S</strong>noring: Apakah Anda mendengkur keras?</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectOption(this, 'q1', 'yes')">Ya</button>
+                    <button class="wizard-option" onclick="selectOption(this, 'q1', 'no')">Tidak</button>
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>T — <strong>T</strong>ired: Apakah Anda sering merasa lelah atau mengantuk di siang hari?</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectOption(this, 'q2', 'yes')">Ya</button>
+                    <button class="wizard-option" onclick="selectOption(this, 'q2', 'no')">Tidak</button>
+                  </div>
+                </div>
+                <div class="wizard-nav">
+                  <button class="btn btn-ghost" onclick="prevStep(1)">← Kembali</button>
+                  <button class="btn btn-primary" onclick="nextStep(3)">Lanjut →</button>
+                </div>
+              </div>
+
+              <!-- Step 3: STOP-BANG Q3-Q4 -->
+              <div class="wizard-step" data-step="3" style="display:none;">
+                <div class="wizard-question">
+                  <p>O — <strong>O</strong>bserved: Apakah seseorang pernah mengamati Anda berhenti bernapas saat tidur?</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectOption(this, 'q3', 'yes')">Ya</button>
+                    <button class="wizard-option" onclick="selectOption(this, 'q3', 'no')">Tidak</button>
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>P — <strong>P</strong>ressure: Apakah Anda memiliki riwayat tekanan darah tinggi (hipertensi)?</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectOption(this, 'q4', 'yes')">Ya</button>
+                    <button class="wizard-option" onclick="selectOption(this, 'q4', 'no')">Tidak</button>
+                  </div>
+                </div>
+                <div class="wizard-nav">
+                  <button class="btn btn-ghost" onclick="prevStep(2)">← Kembali</button>
+                  <button class="btn btn-primary" onclick="nextStep(4)">Lanjut →</button>
+                </div>
+              </div>
+
+              <!-- Step 4: STOP-BANG Q5-Q8 (Auto-calculated) -->
+              <div class="wizard-step" data-step="4" style="display:none;">
+                <div class="wizard-question">
+                  <p>B — <strong>B</strong>MI: Berat badan Anda (auto-calculated)</p>
+                  <div id="bmiDisplay" style="padding: 0.75rem 1rem; background: var(--blue-50); border-radius: 0.5rem; font-weight: 600; color: var(--blue-700);">
+                    Menghitung...
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>A — <strong>A</strong>ge: Usia Anda ≥ 50 tahun?</p>
+                  <div id="ageDisplay" style="padding: 0.75rem 1rem; background: var(--gray-50); border-radius: 0.5rem; font-weight: 600;">
+                    Memeriksa...
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>N — <strong>N</strong>eck: Lingkar leher Anda > 40cm (laki-laki) atau > 38cm (perempuan)?</p>
+                  <div id="neckDisplay" style="padding: 0.75rem 1rem; background: var(--gray-50); border-radius: 0.5rem; font-weight: 600;">
+                    Memeriksa...
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>G — <strong>G</strong>ender: Jenis kelamin Anda?</p>
+                  <div id="genderDisplay" style="padding: 0.75rem 1rem; background: var(--gray-50); border-radius: 0.5rem; font-weight: 600;">
+                    Memeriksa...
+                  </div>
+                </div>
+                <div class="wizard-nav">
+                  <button class="btn btn-ghost" onclick="prevStep(3)">← Kembali</button>
+                  <button class="btn btn-primary" onclick="nextStep(5)">Lanjut ke ESS →</button>
+                </div>
+              </div>
+
+              <!-- Step 5: ESS -->
+              <div class="wizard-step" data-step="5" style="display:none;">
+                <p style="font-size:0.875rem; color:var(--gray-500); margin-bottom:1.5rem;">
+                  <strong>Epworth Sleepiness Scale (ESS)</strong> — Seberapa besar kemungkinan Anda tertidur atau mengantuk dalam situasi berikut? (0 = Tidak pernah, 1 = Ringan, 2 = Sedang, 3 = Parah)
+                </p>
+                <div class="wizard-question" id="essContainer">
+                  <p>1. Duduk dan membaca</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectESS(this, 0, 0)">0</button>
+                    <button class="wizard-option" onclick="selectESS(this, 0, 1)">1</button>
+                    <button class="wizard-option" onclick="selectESS(this, 0, 2)">2</button>
+                    <button class="wizard-option" onclick="selectESS(this, 0, 3)">3</button>
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>2. Menonton TV</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectESS(this, 1, 0)">0</button>
+                    <button class="wizard-option" onclick="selectESS(this, 1, 1)">1</button>
+                    <button class="wizard-option" onclick="selectESS(this, 1, 2)">2</button>
+                    <button class="wizard-option" onclick="selectESS(this, 1, 3)">3</button>
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>3. Duduk diam di tempat umum (bioskop, rapat)</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectESS(this, 2, 0)">0</button>
+                    <button class="wizard-option" onclick="selectESS(this, 2, 1)">1</button>
+                    <button class="wizard-option" onclick="selectESS(this, 2, 2)">2</button>
+                    <button class="wizard-option" onclick="selectESS(this, 2, 3)">3</button>
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>4. Sebagai penumpang dalam mobil selama 1 jam tanpa berhenti</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectESS(this, 3, 0)">0</button>
+                    <button class="wizard-option" onclick="selectESS(this, 3, 1)">1</button>
+                    <button class="wizard-option" onclick="selectESS(this, 3, 2)">2</button>
+                    <button class="wizard-option" onclick="selectESS(this, 3, 3)">3</button>
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>5. Berbaring siang hari untuk istirahat</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectESS(this, 4, 0)">0</button>
+                    <button class="wizard-option" onclick="selectESS(this, 4, 1)">1</button>
+                    <button class="wizard-option" onclick="selectESS(this, 4, 2)">2</button>
+                    <button class="wizard-option" onclick="selectESS(this, 4, 3)">3</button>
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>6. Duduk dan berbicara dengan seseorang</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectESS(this, 5, 0)">0</button>
+                    <button class="wizard-option" onclick="selectESS(this, 5, 1)">1</button>
+                    <button class="wizard-option" onclick="selectESS(this, 5, 2)">2</button>
+                    <button class="wizard-option" onclick="selectESS(this, 5, 3)">3</button>
+                  </div>
+                </div>
+                <div class="wizard-question">
+                  <p>7. Duduk diam setelah makan tanpa alkohol</p>
+                  <div class="wizard-options">
+                    <button class="wizard-option" onclick="selectESS(this, 6, 0)">0</button>
+                    <button class="wizard-option" onclick="selectESS(this, 6, 1)">1</button>
+                    <button class="wizard-option" onclick="selectESS(this, 6, 2)">2</button>
+                    <button class="wizard-option" onclick="selectESS(this, 6, 3)">3</button>
+                  </div>
+                </div>
+                <div class="wizard-nav">
+                  <button class="btn btn-ghost" onclick="prevStep(4)">← Kembali</button>
+                  <button class="btn btn-primary" onclick="showResults()">Lihat Hasil →</button>
+                </div>
+              </div>
+
+              <!-- Step 6: Results -->
+              <div class="wizard-step" data-step="6" style="display:none;">
+                <div style="text-align:center; margin-bottom:2rem;">
+                  <div style="font-size:3rem; margin-bottom:0.5rem;">📊</div>
+                  <h3 style="font-size:1.5rem; font-weight:800; margin-bottom:0.25rem;">Hasil Screening Anda</h3>
+                  <p style="font-size:0.875rem; color:var(--gray-400);">Berdasarkan jawaban yang diberikan</p>
+                </div>
+
+                <!-- Score Cards -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+                  <div style="text-align:center; padding:1.5rem; background:var(--blue-50); border-radius:1rem;">
+                    <div style="font-size:0.75rem; font-weight:600; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.25rem;">STOP-BANG Score</div>
+                    <div style="font-size:2.5rem; font-weight:800; color:var(--blue-700);" id="stopbangScore">0/8</div>
+                  </div>
+                  <div style="text-align:center; padding:1.5rem; background:var(--orange-100); border-radius:1rem;">
+                    <div style="font-size:0.75rem; font-weight:600; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.25rem;">ESS Score</div>
+                    <div style="font-size:2.5rem; font-weight:800; color:var(--orange-600);" id="essScore">0/21</div>
+                  </div>
+                </div>
+
+                <!-- Risk Level -->
+                <div style="text-align:center; padding:1.5rem; border-radius:1rem; margin-bottom:1.5rem;" id="riskCard">
+                  <div style="font-size:0.75rem; font-weight:600; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem;">Level Risiko Anda</div>
+                  <div style="font-size:1.5rem; font-weight:800;" id="riskLevel">—</div>
+                </div>
+
+                <!-- Recommendation -->
+                <div style="padding:1.5rem; background:var(--green-50); border-radius:1rem; border-left:4px solid var(--green-500); margin-bottom:1.5rem;">
+                  <div style="font-size:0.75rem; font-weight:600; color:var(--green-700); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem;">Rekomendasi</div>
+                  <p style="font-size:0.9375rem; color:var(--gray-700); line-height:1.6;" id="recommendation">—</p>
+                </div>
+
+                <!-- Actions -->
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                  <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20telah%20melakukan%20screening%20sleep%20apnea.%20Saya%20ingin%20konsultasi%20lebih%20lanjut." class="btn btn-whatsapp" style="flex:1;" target="_blank" rel="noopener">
+                    💬 Konsultasi via WhatsApp
+                  </a>
+                  <button class="btn btn-secondary" style="flex:1;" onclick="resetScreening()">🔄 Screening Baru</button>
+                </div>
+
+                <p class="wizard-disclaimer">⚠️ Hasil screening ini BUKAN diagnosis medis. Silakan konsultasikan dengan dokter spesialis untuk diagnosis yang tepat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="section products-section" id="shop">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-badge">🛒 E-Commerce</span>
+          <h2 class="section-title">Produk Original Bergaransi</h2>
+          <p class="section-subtitle">138+ produk dari 4 brand authorized dunia — CPAP, BiPAP, masker, spare parts, dan bundle deals.</p>
+        </div>
+
+        <!-- Brand Tabs -->
+        <div class="brand-tabs animate-on-scroll">
+          <button class="brand-tab active" onclick="filterProducts('all', this)">Semua</button>
+          <button class="brand-tab" onclick="filterProducts('resmed', this)">ResMed</button>
+          <button class="brand-tab" onclick="filterProducts('philips', this)">Philips</button>
+          <button class="brand-tab" onclick="filterProducts('nox', this)">Nox Medical</button>
+          <button class="brand-tab" onclick="filterProducts('bmc', this)">BMC</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Product 1 -->
+          <div class="product-card animate-on-scroll" data-brand="resmed">
+            <div class="product-image">
+              <span class="product-image-placeholder">💨</span>
+              <span class="product-vendor">ResMed</span>
+            </div>
+            <div class="product-info">
+              <span class="product-type">Auto CPAP</span>
+              <h3 class="product-name">ResMed AirSense 11 AutoSet</h3>
+              <div class="product-pricing">
+                <span class="product-price">Rp 13.500.000</span>
+                <span class="product-original-price">Rp 15.000.000</span>
+              </div>
+              <div class="product-actions">
+                <a href="#" class="product-btn product-btn-primary">Beli</a>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20ResMed%20AirSense%2011" class="product-btn product-btn-whatsapp" target="_blank">Tanya</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card animate-on-scroll animate-delay-1" data-brand="philips">
+            <div class="product-image">
+              <span class="product-image-placeholder">💨</span>
+              <span class="product-vendor">Philips</span>
+              <span class="product-badge">BEST SELLER</span>
+            </div>
+            <div class="product-info">
+              <span class="product-type">Auto CPAP</span>
+              <h3 class="product-name">Philips DreamStation 2 Auto CPAP</h3>
+              <div class="product-pricing">
+                <span class="product-price">Rp 11.200.000</span>
+              </div>
+              <div class="product-actions">
+                <a href="#" class="product-btn product-btn-primary">Beli</a>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20Philips%20DreamStation%202" class="product-btn product-btn-whatsapp" target="_blank">Tanya</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card animate-on-scroll animate-delay-2" data-brand="bmc">
+            <div class="product-image">
+              <span class="product-image-placeholder">💨</span>
+              <span class="product-vendor">BMC</span>
+            </div>
+            <div class="product-info">
+              <span class="product-type">Travel CPAP</span>
+              <h3 class="product-name">BMC M1 Mini Travel CPAP</h3>
+              <div class="product-pricing">
+                <span class="product-price">Rp 4.800.000</span>
+                <span class="product-original-price">Rp 5.500.000</span>
+              </div>
+              <div class="product-actions">
+                <a href="#" class="product-btn product-btn-primary">Beli</a>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20BMC%20M1%20Mini" class="product-btn product-btn-whatsapp" target="_blank">Tanya</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="product-card animate-on-scroll animate-delay-3" data-brand="resmed">
+            <div class="product-image">
+              <span class="product-image-placeholder">😷</span>
+              <span class="product-vendor">ResMed</span>
+            </div>
+            <div class="product-info">
+              <span class="product-type">Masker</span>
+              <h3 class="product-name">ResMed AirFit F30i Full Face Mask</h3>
+              <div class="product-pricing">
+                <span class="product-price">Rp 3.200.000</span>
+              </div>
+              <div class="product-actions">
+                <a href="#" class="product-btn product-btn-primary">Beli</a>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20ResMed%20AirFit%20F30i" class="product-btn product-btn-whatsapp" target="_blank">Tanya</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="product-card animate-on-scroll" data-brand="nox">
+            <div class="product-image">
+              <span class="product-image-placeholder">🔬</span>
+              <span class="product-vendor">Nox Medical</span>
+              <span class="product-badge">EKSKLUSIF</span>
+            </div>
+            <div class="product-info">
+              <span class="product-type">Diagnostic</span>
+              <h3 class="product-name">Nox A1s Sleep Diagnostic System</h3>
+              <div class="product-pricing">
+                <span class="product-price">Hubungi Kami</span>
+              </div>
+              <div class="product-actions">
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20info%20tentang%20Nox%20A1s" class="product-btn product-btn-whatsapp" style="flex:1;" target="_blank">Tanya via WhatsApp</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="product-card animate-on-scroll animate-delay-1" data-brand="resmed">
+            <div class="product-image">
+              <span class="product-image-placeholder">😷</span>
+              <span class="product-vendor">ResMed</span>
+            </div>
+            <div class="product-info">
+              <span class="product-type">Masker</span>
+              <h3 class="product-name">ResMed AirFit N30i Nasal Mask</h3>
+              <div class="product-pricing">
+                <span class="product-price">Rp 2.400.000</span>
+              </div>
+              <div class="product-actions">
+                <a href="#" class="product-btn product-btn-primary">Beli</a>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20ResMed%20AirFit%20N30i" class="product-btn product-btn-whatsapp" target="_blank">Tanya</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="product-card animate-on-scroll animate-delay-2" data-brand="philips">
+            <div class="product-image">
+              <span class="product-image-placeholder">😷</span>
+              <span class="product-vendor">Philips</span>
+            </div>
+            <div class="product-info">
+              <span class="product-type">Masker</span>
+              <h3 class="product-name">Philips DreamWear Gel Nasal Pillow</h3>
+              <div class="product-pricing">
+                <span class="product-price">Rp 1.800.000</span>
+              </div>
+              <div class="product-actions">
+                <a href="#" class="product-btn product-btn-primary">Beli</a>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20Philips%20DreamWear" class="product-btn product-btn-whatsapp" target="_blank">Tanya</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="product-card animate-on-scroll animate-delay-3" data-brand="resmed">
+            <div class="product-image">
+              <span class="product-image-placeholder">🔄</span>
+              <span class="product-vendor">ResMed</span>
+            </div>
+            <div class="product-info">
+              <span class="product-type">Spare Parts</span>
+              <h3 class="product-name">ResMed AirSense 11 Filter Set (24pcs)</h3>
+              <div class="product-pricing">
+                <span class="product-price">Rp 450.000</span>
+              </div>
+              <div class="product-actions">
+                <a href="#" class="product-btn product-btn-primary">Beli</a>
+                <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20beli%20filter%20ResMed%20AirSense%2011" class="product-btn product-btn-whatsapp" target="_blank">Tanya</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View All -->
+        <div style="text-align:center; margin-top:var(--space-10);" class="animate-on-scroll">
+          <a href="#" class="btn btn-secondary btn-lg">Lihat Semua 138+ Produk →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUNDLE DEALS SECTION -->
+    <section class="section bundles-section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-badge" style="background:var(--orange-100); color:var(--orange-600);">🔥 Bundle Deals</span>
+          <h2 class="section-title">Paket Hemat & Terlengkap</h2>
+          <p class="section-subtitle">Hemat hingga 15% dengan paket bundling — lengkap untuk memulai terapi Anda.</p>
+        </div>
+
+        <div class="bundles-grid">
+          <!-- Bundle 1: Starter -->
+          <div class="bundle-card animate-on-scroll">
+            <div class="bundle-icon">📦</div>
+            <h3 class="bundle-title">Paket Starter</h3>
+            <p style="font-size:0.875rem; color:var(--gray-500); margin-bottom:1.5rem;">Cocok untuk pasien baru yang baru memulai terapi CPAP.</p>
+            <div class="bundle-price">
+              <span class="bundle-current">Rp 14.500.000</span>
+              <span class="bundle-original">Rp 16.200.000</span>
+              <span class="bundle-save">Hemat 10%</span>
+            </div>
+            <div class="bundle-items">
+              <div class="bundle-item"><span class="icon">✅</span> ResMed AirSense 11 AutoSet</div>
+              <div class="bundle-item"><span class="icon">✅</span> Masker AirFit N30i (Nasal)</div>
+              <div class="bundle-item"><span class="icon">✅</span> Filter Set (12 pcs)</div>
+              <div class="bundle-item"><span class="icon">✅</span> Humidifier Chamber</div>
+              <div class="bundle-item"><span class="icon">✅</span> Free Mask Fitting</div>
+            </div>
+            <a href="#" class="btn btn-secondary" style="width:100%;">Pilih Paket</a>
+          </div>
+
+          <!-- Bundle 2: Premium (Featured) -->
+          <div class="bundle-card featured animate-on-scroll animate-delay-1">
+            <div class="bundle-popular">🔥 PALING LARIS</div>
+            <div class="bundle-icon">💎</div>
+            <h3 class="bundle-title">Paket Premium</h3>
+            <p style="font-size:0.875rem; color:var(--gray-500); margin-bottom:1.5rem;">Paket lengkap dengan masker pilihan dan layanan terbaik.</p>
+            <div class="bundle-price">
+              <span class="bundle-current">Rp 18.800.000</span>
+              <span class="bundle-original">Rp 21.500.000</span>
+              <span class="bundle-save">Hemat 13%</span>
+            </div>
+            <div class="bundle-items">
+              <div class="bundle-item"><span class="icon">✅</span> ResMed AirSense 11 AutoSet</div>
+              <div class="bundle-item"><span class="icon">✅</span> Masker AirFit F30i (Full Face)</div>
+              <div class="bundle-item"><span class="icon">✅</span> Masker AirFit N30i (Nasal)</div>
+              <div class="bundle-item"><span class="icon">✅</span> Filter Set (24 pcs)</div>
+              <div class="bundle-item"><span class="icon">✅</span> Humidifier Chamber</div>
+              <div class="bundle-item"><span class="icon">✅</span> Free Mask Fitting</div>
+              <div class="bundle-item"><span class="icon">✅</span> Free Therapy Data Review</div>
+              <div class="bundle-item"><span class="icon">✅</span> Free Service (1x)</div>
+            </div>
+            <a href="#" class="btn btn-primary" style="width:100%;">Pilih Paket Premium</a>
+          </div>
+
+          <!-- Bundle 3: Travel -->
+          <div class="bundle-card animate-on-scroll animate-delay-2">
+            <div class="bundle-icon">✈️</div>
+            <h3 class="bundle-title">Paket Travel</h3>
+            <p style="font-size:0.875rem; color:var(--gray-500); margin-bottom:1.5rem;">Ringkas dan ringan — ideal untuk pasien yang sering bepergian.</p>
+            <div class="bundle-price">
+              <span class="bundle-current">Rp 6.900.000</span>
+              <span class="bundle-original">Rp 7.800.000</span>
+              <span class="bundle-save">Hemat 12%</span>
+            </div>
+            <div class="bundle-items">
+              <div class="bundle-item"><span class="icon">✅</span> BMC M1 Mini Travel CPAP</div>
+              <div class="bundle-item"><span class="icon">✅</span> Masker BMD Mini Nasal</div>
+              <div class="bundle-item"><span class="icon">✅</span> Travel Bag</div>
+              <div class="bundle-item"><span class="icon">✅</span> Filter Set (6 pcs)</div>
+              <div class="bundle-item"><span class="icon">✅</span> Free Mask Fitting</div>
+            </div>
+            <a href="#" class="btn btn-secondary" style="width:100%;">Pilih Paket</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIAGNOSIS SECTION -->
+    <section class="section diagnosis-section" id="diagnosis">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-badge">🔬 Diagnostik</span>
+          <h2 class="section-title">Sleep Diagnostic Berstandar Internasional</h2>
+          <p class="section-subtitle">Home Sleep Test (HST) dan Polysomnography (PSG) — dianalisa oleh RPSGT bersertifikat AASM di Singapura.</p>
+        </div>
+
+        <div class="diagnosis-grid">
+          <!-- HST -->
+          <div class="diagnosis-card animate-on-scroll">
+            <div class="diagnosis-icon blue">🏠</div>
+            <h3 class="diagnosis-title">Home Sleep Test (HST)</h3>
+            <p class="diagnosis-description">Pemeriksaan tidur di rumah Anda sendiri — nyaman, praktis, dan akurat. Cukup pasang alat sebelum tidur, dan kembalikan keesokan harinya.</p>
+            <div class="diagnosis-features">
+              <div class="diagnosis-feature"><span class="dot"></span> 6 parameter diukur</div>
+              <div class="diagnosis-feature"><span class="dot"></span> Set-up 30 menit</div>
+              <div class="diagnosis-feature"><span class="dot"></span> RPSGT analisa</div>
+              <div class="diagnosis-feature"><span class="dot"></span> Hasil 7 hari</div>
+              <div class="diagnosis-feature"><span class="dot"></span> Breathing effort</div>
+              <div class="diagnosis-feature"><span class="dot"></span> O2 saturation</div>
+              <div class="diagnosis-feature"><span class="dot"></span> Respiratory events</div>
+              <div class="diagnosis-feature"><span class="dot"></span> Pulse rate</div>
+            </div>
+            <div class="diagnosis-cta">
+              <a href="#booking" class="btn btn-primary">Booking HST</a>
+              <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20info%20tentang%20Home%20Sleep%20Test" class="btn btn-whatsapp" target="_blank">Tanya via WA</a>
+            </div>
+          </div>
+
+          <!-- PSG -->
+          <div class="diagnosis-card animate-on-scroll animate-delay-1">
+            <div class="diagnosis-icon green">🏥</div>
+            <h3 class="diagnosis-title">In-Lab Polysomnography (PSG)</h3>
+            <p class="diagnosis-description">Pemeriksaan kualitas tidur menyeluruh di klinik — standar emas untuk diagnosis Sleep Apnea. Tersedia 4 tipe sesuai kebutuhan medis.</p>
+            <div class="diagnosis-features">
+              <div class="diagnosis-feature"><span class="dot"></span> PSG Tipe 1 (Full)</div>
+              <div class="diagnosis-feature"><span class="dot"></span> PSG Tipe 2 (Portable)</div>
+              <div class="diagnosis-feature"><span class="dot"></span> PSG Tipe 3 (Limited)</div>
+              <div class="diagnosis-feature"><span class="dot"></span> PSG Tipe 4 (Basic)</div>
+              <div class="diagnosis-feature"><span class="dot"></span> Nox A1s System</div>
+              <div class="diagnosis-feature"><span class="dot"></span> Nox T3s System</div>
+              <div class="diagnosis-feature"><span class="dot"></span> SOMNOmedics</div>
+              <div class="diagnosis-feature"><span class="dot"></span> AASM Standard</div>
+            </div>
+            <div class="diagnosis-cta">
+              <a href="#booking" class="btn btn-primary">Booking PSG</a>
+              <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20info%20tentang%20Polysomnography" class="btn btn-whatsapp" target="_blank">Tanya via WA</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONALIZED THERAPY SECTION -->
+    <section class="section therapy-section" id="therapy">
+      <div class="container">
+        <div class="therapy-grid">
+          <!-- Content -->
+          <div class="therapy-content animate-on-scroll">
+            <span class="section-badge">💊 Personalized Therapy</span>
+            <h2>Auto CPAP Bukan <span style="color:var(--blue-600);">One-Size-Fits-All</span></h2>
+            <p>Setiap pasien memiliki kebutuhan unik. Setting CPAP harus dikustomisasi berdasarkan data tidur Anda, kondisi medis, dan kenyamanan personal.</p>
+
+            <div class="therapy-features">
+              <div class="therapy-feature">
+                <div class="therapy-feature-icon blue">🎯</div>
+                <div class="therapy-feature-text">
+                  <h4>Custom Setting</h4>
+                  <p>CPAP setting dikustomisasi berdasarkan data sleep test dan kondisi medis Anda.</p>
+                </div>
+              </div>
+              <div class="therapy-feature">
+                <div class="therapy-feature-icon green">😷</div>
+                <div class="therapy-feature-text">
+                  <h4>Mask Fitting Assessment</h4>
+                  <p>Assessment wajah, kebiasaan tidur, dan pola napas untuk menentukan masker terbaik.</p>
+                </div>
+              </div>
+              <div class="therapy-feature">
+                <div class="therapy-feature-icon orange">📊</div>
+                <div class="therapy-feature-text">
+                  <h4>Therapy Data Review</h4>
+                  <p>Review berkala untuk monitor progress, optimasi setting, dan pastikan terapi efektif.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
+              <a href="#booking" class="btn btn-primary btn-lg">Booking Mask Fitting</a>
+              <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20info%20tentang%20Personalized%20Therapy" class="btn btn-whatsapp btn-lg" target="_blank">💬 Konsultasi</a>
+            </div>
+          </div>
+
+          <!-- Visual -->
+          <div class="animate-on-scroll animate-delay-2" style="display:flex; flex-direction:column; gap:1.5rem;">
+            <!-- Stat Card 1 -->
+            <div style="background:var(--blue-50); border-radius:1rem; padding:1.5rem 2rem; display:flex; align-items:center; gap:1.5rem;">
+              <div style="font-size:2.5rem;">🎯</div>
+              <div>
+                <div style="font-size:2rem; font-weight:800; color:var(--blue-700);">94%</div>
+                <div style="font-size:0.875rem; color:var(--gray-500);">Tingkat keberhasilan terapi dengan personalized setting</div>
+              </div>
+            </div>
+            <!-- Stat Card 2 -->
+            <div style="background:var(--green-50); border-radius:1rem; padding:1.5rem 2rem; display:flex; align-items:center; gap:1.5rem;">
+              <div style="font-size:2.5rem;">😷</div>
+              <div>
+                <div style="font-size:2rem; font-weight:800; color:var(--green-700);">30+</div>
+                <div style="font-size:0.875rem; color:var(--gray-500);">Tipe masker tersedia untuk mask fitting assessment</div>
+              </div>
+            </div>
+            <!-- Stat Card 3 -->
+            <div style="background:var(--orange-100); border-radius:1rem; padding:1.5rem 2rem; display:flex; align-items:center; gap:1.5rem;">
+              <div style="font-size:2.5rem;">📊</div>
+              <div>
+                <div style="font-size:2rem; font-weight:800; color:var(--orange-600);">24/7</div>
+                <div style="font-size:0.875rem; color:var(--gray-500);">Therapy data monitoring dan support via WhatsApp</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section class="section booking-section" id="booking">
+      <div class="container">
+        <div class="booking-grid">
+          <!-- Info -->
+          <div class="booking-info animate-on-scroll">
+            <span class="section-badge" style="background:rgba(255,255,255,0.15); color:#fff;">📅 Booking</span>
+            <h2>Booking Konsultasi &<br>Layanan Anda</h2>
+            <p>Pilih layanan yang Anda butuhkan dan booking online 24/7. Atau hubungi kami via WhatsApp untuk konsultasi cepat.</p>
+
+            <div class="booking-options">
+              <div class="booking-option">
+                <div class="booking-option-icon">👨‍⚕️</div>
+                <div class="booking-option-text">
+                  <h4>Konsultasi Dokter Spesialis</h4>
+                  <p>Same-day appointment tersedia • Asuransi diterima</p>
+                </div>
+              </div>
+              <div class="booking-option">
+                <div class="booking-option-icon">🏠</div>
+                <div class="booking-option-text">
+                  <h4>Home Sleep Test (HST)</h4>
+                  <p>Pemeriksaan tidur di rumah • Hasil 7 hari</p>
+                </div>
+              </div>
+              <div class="booking-option">
+                <div class="booking-option-icon">😷</div>
+                <div class="booking-option-text">
+                  <h4>Mask Fitting Assessment</h4>
+                  <p>Temukan masker terbaik untuk Anda</p>
+                </div>
+              </div>
+              <div class="booking-option">
+                <div class="booking-option-icon">🔧</div>
+                <div class="booking-option-text">
+                  <h4>Service & Kalibrasi</h4>
+                  <p>Tanpa reservasi: datang sebelum jam 10.00</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick WhatsApp -->
+            <div style="margin-top:2rem; padding:1.5rem; background:rgba(255,255,255,0.1); border-radius:1rem;">
+              <div style="font-weight:600; margin-bottom:0.75rem;">💬 Butuh Bantuan Cepat?</div>
+              <p style="font-size:0.875rem; color:rgba(255,255,255,0.6); margin-bottom:1rem;">Hubungi kami langsung via WhatsApp untuk booking instan.</p>
+              <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20booking%20konsultasi" class="btn btn-whatsapp" target="_blank">
+                💬 Chat WhatsApp Sekarang
+              </a>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="booking-form-card animate-on-scroll animate-delay-2">
+            <h3 class="booking-form-title">📅 Formulir Booking</h3>
+
+            <form id="bookingForm" onsubmit="handleBooking(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="bookName">Nama Lengkap *</label>
+                  <input type="text" id="bookName" class="form-input" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="bookPhone">Telepon *</label>
+                  <input type="tel" id="bookPhone" class="form-input" placeholder="08xxxxxxxxxx" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bookEmail">Email</label>
+                <input type="email" id="bookEmail" class="form-input" placeholder="email@contoh.com">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Jenis Layanan *</label>
+                <select id="bookService" class="form-input" required>
+                  <option value="">Pilih layanan</option>
+                  <option value="consultation">Konsultasi Dokter Spesialis</option>
+                  <option value="hst">Home Sleep Test (HST)</option>
+                  <option value="psg">Polysomnography (PSG)</option>
+                  <option value="mask-fitting">Mask Fitting Assessment</option>
+                  <option value="therapy-review">Therapy Data Review</option>
+                  <option value="service">Service & Kalibrasi</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Keluhan Utama</label>
+                <div class="complaint-tags">
+                  <span class="complaint-tag" onclick="toggleComplaint(this)">😤 Mendengkur Keras</span>
+                  <span class="complaint-tag" onclick="toggleComplaint(this)">😰 Henti Napas</span>
+                  <span class="complaint-tag" onclick="toggleComplaint(this)">😴 Kelelahan</span>
+                  <span class="complaint-tag" onclick="toggleComplaint(this)">🌙 Sering Terbangun</span>
+                  <span class="complaint-tag" onclick="toggleComplaint(this)">💊 Ganti Masker</span>
+                  <span class="complaint-tag" onclick="toggleComplaint(this)">🔧 Servis Alat</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="bookDate">Tanggal *</label>
+                  <input type="date" id="bookDate" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="bookTime">Jam</label>
+                  <select id="bookTime" class="form-input">
+                    <option value="">Pilih jam</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bookInsurance">Asuransi (opsional)</label>
+                <input type="text" id="bookInsurance" class="form-input" placeholder="Nama provider asuransi">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="bookNotes">Catatan Tambahan</label>
+                <textarea id="bookNotes" class="form-input" rows="3" placeholder="Informasi tambahan yang perlu kami ketahui..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+                📅 Booking Sekarang
+              </button>
+
+              <p style="font-size:0.75rem; color:var(--gray-400); text-align:center; margin-top:0.75rem;">
+                Kami akan mengkonfirmasi booking Anda via WhatsApp dalam 1×24 jam.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-badge">⭐ Testimoni</span>
+          <h2 class="section-title">Apa Kata Mereka?</h2>
+          <p class="section-subtitle">Lebih dari 1000+ pasien mempercayakan kesehatan tidur mereka kepada kami.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card animate-on-scroll">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Awalnya saya ragu pakai CPAP, tapi setelah didampingi oleh tim SleepWell, saya merasakan perubahan luar biasa. Tidur jadi nyenyak, tidak lagi mengantuk di siang hari. Terima kasih SleepWell!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">BS</div>
+              <div>
+                <div class="testimonial-name">Budi Santoso</div>
+                <div class="testimonial-meta">Pengguna CPAP 2 tahun • Jakarta Selatan</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card animate-on-scroll animate-delay-1">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Screening online-nya sangat membantu! Saya tidak tahu kalau mendengkur itu berbahaya. Setelah screening, saya langsung booking sleep test dan ternyata memang ada sleep apnea. Sekarang sudah pakai CPAP dan kualitas hidup membaik."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SR</div>
+              <div>
+                <div class="testimonial-name">Siti Rahayu</div>
+                <div class="testimonial-meta">Pasien Sleep Apnea • Bandung</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card animate-on-scroll animate-delay-2">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Sebagai dokter, saya sangat terbantu dengan platform ini untuk merujuk pasien. Semua terintegrasi — dari screening, sleep test, sampai therapy. Pasien juga senang karena semuanya bisa diakses dari satu tempat."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AF</div>
+              <div>
+                <div class="testimonial-name">Dr. Ahmad Fauzi, Sp.P</div>
+                <div class="testimonial-meta">Dokter Spesialis Paru • Jakarta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG PREVIEW SECTION -->
+    <section class="section blog-section" id="blog">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-badge">📰 Blog & Edukasi</span>
+          <h2 class="section-title">Artikel Kesehatan Tidur</h2>
+          <p class="section-subtitle">Informasi medis yang akurat, ditulis oleh dokter dan RPSGT bersertifikat.</p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Blog 1 -->
+          <div class="blog-card animate-on-scroll">
+            <div class="blog-image">📄</div>
+            <div class="blog-content">
+              <span class="blog-category">Sleep Health</span>
+              <h3 class="blog-title">7 Bahaya Sleep Apnea yang Sering Diabaikan</h3>
+              <p class="blog-excerpt">Sleep Apnea tidak hanya menyebabkan mendengkur — tapi juga hipertensi, diabetes, stroke, dan penyakit jantung. Ketahui tanda-tandanya.</p>
+              <div class="blog-meta">
+                <span>28 Agustus 2026</span>
+                <a href="#" class="blog-read-more">Baca →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog 2 -->
+          <div class="blog-card animate-on-scroll animate-delay-1">
+            <div class="blog-image">📄</div>
+            <div class="blog-content">
+              <span class="blog-category">CPAP Therapy</span>
+              <h3 class="blog-title">Panduan Lengkap Memilih Masker CPAP yang Tepat</h3>
+              <p class="blog-excerpt">Nasal, Full Face, atau Nasal Pillow? Temukan masker yang sesuai dengan kebiasaan tidur dan kondisi medis Anda.</p>
+              <div class="blog-meta">
+                <span>25 Agustus 2026</span>
+                <a href="#" class="blog-read-more">Baca →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog 3 -->
+          <div class="blog-card animate-on-scroll animate-delay-2">
+            <div class="blog-image">📄</div>
+            <div class="blog-content">
+              <span class="blog-category">Conditions & Risks</span>
+              <h3 class="blog-title">STOP-BANG: Kuesioner Screening yang Bisa Selamatkan Hidup Anda</h3>
+              <p class="blog-excerpt">8 pertanyaan sederhana yang bisa menentukan apakah Anda berisiko mengalami Sleep Apnea. Gratis, cepat, dan akurat.</p>
+              <div class="blog-meta">
+                <span>20 Agustus 2026</span>
+                <a href="#" class="blog-read-more">Baca →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:var(--space-10);" class="animate-on-scroll">
+          <a href="#" class="btn btn-secondary btn-lg">Lihat Semua Artikel →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-badge">❓ FAQ</span>
+          <h2 class="section-title">Pertanyaan Umum</h2>
+          <p class="section-subtitle">Jawaban atas pertanyaan yang paling sering ditanyakan tentang sleep apnea dan layanan kami.</p>
+        </div>
+
+        <div class="faq-container animate-on-scroll">
+          <div class="faq-item open">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Apa itu Sleep Apnea?
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Sleep Apnea adalah gangguan tidur yang menyebabkan napas berhenti berulang kali selama tidur. Tipe yang paling umum adalah Obstructive Sleep Apnea (OSA), di mana saluran napas tersumbat secara parsial atau total. Gejala utamanya termasuk mendengkur keras, kelelahan di siang hari, dan henti napas saat tidur. Jika tidak ditangani, Sleep Apnea dapat menyebabkan hipertensi, diabetes, stroke, dan penyakit jantung.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Bagaimana cara kerja screening online?
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Screening kami menggunakan kuesioner medis standar internasional: STOP-BANG (8 pertanyaan untuk menentukan risiko Sleep Apnea) dan ESS (Epworth Sleepiness Scale untuk mengukur tingkat kantuk siang hari). Prosesnya hanya membutuhkan 5 menit, dan Anda akan mendapatkan hasil skor risiko beserta rekomendasi tindak lanjut. Screening ini GRATIS dan tidak menggantikan diagnosis medis.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Berapa biaya Home Sleep Test (HST)?
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Biaya HST bervariasi tergantung jenis paket yang dipilih. Silakan hubungi kami via WhatsApp untuk informasi harga terkini dan promo yang berlaku. HST juga dapat diclaim melalui asuransi kesehatan tertentu — hubungi kami untuk informasi lengkap.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Apakah produk CPAP yang dijual original?
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Ya, semua produk kami adalah original dan bergaransi resmi dari distributor. Kami adalah authorized distributor untuk Philips Respironics, ResMed, Nox Medical, dan BMC. Setiap produk dilengkapi dengan kartu garansi resmi dan sertifikat keaslian.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Apakah bisa beli dengan asuransi?
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Ya, kami menerima beberapa provider asuransi kesehatan. Untuk konsultasi dokter dan sleep test, klaim asuransi dapat dilakukan langsung di klinik. Untuk pembelian produk, silakan hubungi tim kami untuk informasi prosedur klaim.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Bagaimana cara merawat alat CPAP?
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Perawatan CPAP meliputi: (1) Bersihkan masker setiap hari dengan sabun ringan, (2) Ganti filter bulanan atau sesuai rekomendasi, (3) Bersihkan humidifier chamber seminggu sekali, (4) Ganti mask cushion setiap 3-6 bulan, (5) Servis & kalibrasi alat setahun sekali. Kami menyediakan layanan servis dan pengingat otomatis untuk Anda.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Bisa sewa CPAP sebelum beli?
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Ya! Kami menyediakan program sewa (rental) dan trial untuk pasien yang ingin mencoba terapi CPAP sebelum memutuskan untuk membeli. Hubungi kami via WhatsApp untuk informasi ketersediaan dan tarif sewa.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-content animate-on-scroll">
+          <h2 class="cta-title">Mulai Perjalanan Kesehatan Tidur Anda</h2>
+          <p class="cta-description">Jangan biarkan sleep apnea mengganggu kualitas hidup Anda. Mulai dengan screening gratis dan temukan solusi terbaik untuk tidur yang lebih baik.</p>
+          <div class="cta-buttons">
+            <a href="#screening" class="btn btn-primary btn-lg">🩺 Screening Gratis</a>
+            <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20konsultasi%20tentang%20kesehatan%20tidur" class="btn btn-whatsapp btn-lg" target="_blank">💬 Chat WhatsApp</a>
+            <a href="#booking" class="btn btn-lg" style="background:rgba(255,255,255,0.15); color:white; border:2px solid rgba(255,255,255,0.3);">📅 Booking Konsultasi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="18" cy="18" r="18" fill="url(#grad2)"/>
+              <path d="M10 26C10 26 12 17 18 13C24 9 26 11 26 11" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 24C8 24 14 20 20 20C26 20 28 24 28 24" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="18" cy="10" r="1.5" fill="white"/>
+              <defs>
+                <linearGradient id="grad2" x1="0" y1="0" x2="36" y2="36">
+                  <stop offset="0%" stop-color="#2563eb"/>
+                  <stop offset="100%" stop-color="#1e40af"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            SleepWell
+          </div>
+          <p class="footer-description">
+            Unified Sleep Healthcare Platform — platform kesehatan tidur terpadu pertama di Indonesia. Dari edukasi, screening, diagnostik, hingga personalized therapy.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="YouTube">🎬</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+          </div>
+        </div>
+
+        <!-- Links: Layanan -->
+        <div class="footer-column">
+          <h4>Layanan</h4>
+          <div class="footer-links">
+            <a href="#screening">Screening Gratis</a>
+            <a href="#diagnosis">Home Sleep Test</a>
+            <a href="#diagnosis">Polysomnography</a>
+            <a href="#booking">Konsultasi Dokter</a>
+            <a href="#therapy">Personalized Therapy</a>
+            <a href="#therapy">Mask Fitting</a>
+          </div>
+        </div>
+
+        <!-- Links: Shop -->
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <div class="footer-links">
+            <a href="#shop">Semua Produk</a>
+            <a href="#shop">Auto CPAP</a>
+            <a href="#shop">Masker</a>
+            <a href="#shop">Spare Parts</a>
+            <a href="#shop">Bundle Deals</a>
+            <a href="#shop">Rental & Trial</a>
+          </div>
+        </div>
+
+        <!-- Links: Brand -->
+        <div class="footer-column">
+          <h4>Brand</h4>
+          <div class="footer-links">
+            <a href="#shop">Philips Respironics</a>
+            <a href="#shop">ResMed</a>
+            <a href="#shop">Nox Medical</a>
+            <a href="#shop">BMC</a>
+            <a href="#shop">SOMNOmedics</a>
+          </div>
+        </div>
+
+        <!-- Links: Perusahaan -->
+        <div class="footer-column">
+          <h4>Perusahaan</h4>
+          <div class="footer-links">
+            <a href="#">Tentang Kami</a>
+            <a href="#blog">Blog</a>
+            <a href="#">Karir</a>
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 SleepWell — Unified Sleep Healthcare Platform. All rights reserved.</p>
+        <div class="footer-certifications">
+          <span class="footer-cert">🏥 Authorized Distributor</span>
+          <span class="footer-cert">🔬 RPSGT Certified</span>
+          <span class="footer-cert">🛡️ PDP Compliant</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       WHATSAPP FAB
+       ============================================ -->
+  <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20butuh%20informasi%20tentang%20kesehatan%20tidur" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+    💬
+    <span class="whatsapp-fab-tooltip">Chat via WhatsApp</span>
+  </a>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
