@@ -745,6 +745,7 @@ input, select, textarea {
   display: flex;
   align-items: center;
   padding-top: 72px;
+  padding-bottom: var(--space-16);
   overflow: hidden;
   background: linear-gradient(135deg, var(--blue-50) 0%, var(--white) 50%, var(--green-50) 100%);
 }
@@ -812,6 +813,7 @@ input, select, textarea {
   line-height: 1.1;
   color: var(--gray-900);
   margin-bottom: var(--space-6);
+  margin-top: var(--space-8);
 }
 
 .hero-title .highlight {
