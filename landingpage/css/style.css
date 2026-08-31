@@ -2676,12 +2676,14 @@ input, select, textarea {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--transition-slow);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.mobile-menu.open {
+.mobile-menu.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: all;
 }
 
@@ -2696,11 +2698,50 @@ input, select, textarea {
   padding: var(--space-6);
   overflow-y: auto;
   transform: translateX(100%);
-  transition: transform var(--transition-slow);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
 }
 
-.mobile-menu.open .mobile-menu-content {
+.mobile-menu.active .mobile-menu-content {
   transform: translateX(0);
+}
+
+/* Stagger animation for menu items */
+.mobile-menu.active .mobile-menu-link,
+.mobile-menu.active .mobile-menu-cta {
+  animation: slideInRight 0.4s ease forwards;
+  opacity: 0;
+}
+
+.mobile-menu.active .mobile-menu-link:nth-child(1) { animation-delay: 0.1s; }
+.mobile-menu.active .mobile-menu-link:nth-child(2) { animation-delay: 0.15s; }
+.mobile-menu.active .mobile-menu-link:nth-child(3) { animation-delay: 0.2s; }
+.mobile-menu.active .mobile-menu-link:nth-child(4) { animation-delay: 0.25s; }
+.mobile-menu.active .mobile-menu-link:nth-child(5) { animation-delay: 0.3s; }
+.mobile-menu.active .mobile-menu-link:nth-child(6) { animation-delay: 0.35s; }
+.mobile-menu.active .mobile-menu-link:nth-child(7) { animation-delay: 0.4s; }
+.mobile-menu.active .mobile-menu-link:nth-child(8) { animation-delay: 0.45s; }
+.mobile-menu.active .mobile-menu-cta { animation-delay: 0.5s; }
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Dark mode mobile menu */
+.dark .mobile-menu-content {
+  background: var(--gray-50);
+}
+
+.dark .mobile-menu-close {
+  background: var(--gray-100);
+  color: var(--gray-600);
 }
 
 .mobile-menu-header {
