@@ -720,20 +720,39 @@ input, select, textarea {
 
 /* Mobile Menu */
 .mobile-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   padding: var(--space-2);
   background: none;
+  cursor: pointer;
+  border: none;
 }
 
 .mobile-toggle span {
   display: block;
-  width: 22px;
-  height: 2px;
+  width: 24px;
+  height: 3px;
   background: var(--gray-700);
   border-radius: 2px;
-  transition: all var(--transition-fast);
+  transition: all 0.3s ease;
+}
+
+.mobile-toggle:hover span {
+  background: var(--teal-500);
+}
+
+/* Hamburger animation when open */
+.mobile-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* ============================================
