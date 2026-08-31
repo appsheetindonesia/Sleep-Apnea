@@ -2712,34 +2712,38 @@ input, select, textarea {
 
 /* Dark Mode Logo Styles */
 .dark .navbar-logo-img {
-  filter: brightness(1.2) contrast(1.1);
+  content: url('../img/logo-dark.svg');
+  filter: drop-shadow(0 2px 8px rgba(0, 188, 212, 0.4));
 }
 
 .dark .navbar-brand:hover .navbar-logo-img {
-  filter: brightness(1.4) contrast(1.1) drop-shadow(0 4px 12px rgba(0, 188, 212, 0.6));
+  filter: drop-shadow(0 4px 16px rgba(0, 188, 212, 0.7));
+  transform: scale(1.05);
 }
 
 .dark .hero-center-circle {
-  background: var(--gray-800);
-  box-shadow: 0 20px 60px rgba(0, 188, 212, 0.4), 0 0 0 8px rgba(0, 188, 212, 0.2);
+  background: radial-gradient(circle, #1a2a3a 0%, #0d1b2a 100%);
+  box-shadow: 0 0 40px rgba(0, 188, 212, 0.4), 0 0 80px rgba(0, 188, 212, 0.2), inset 0 0 20px rgba(0, 188, 212, 0.1);
 }
 
 .dark .hero-logo {
-  filter: brightness(1.3) drop-shadow(0 4px 8px rgba(0, 188, 212, 0.3));
+  filter: drop-shadow(0 4px 12px rgba(0, 188, 212, 0.5));
 }
 
 .dark .hero-logo:hover {
-  filter: brightness(1.5) drop-shadow(0 8px 16px rgba(0, 188, 212, 0.6));
+  filter: drop-shadow(0 8px 24px rgba(0, 188, 212, 0.8));
 }
 
 /* Footer Logo Dark Mode */
 .dark .footer-logo img {
-  filter: brightness(1.2) invert(0.1);
+  content: url('../img/logo-dark.svg');
+  filter: drop-shadow(0 2px 6px rgba(0, 188, 212, 0.3));
 }
 
 /* Mobile Menu Logo Dark Mode */
 .dark .mobile-menu-header img {
-  filter: brightness(1.3);
+  content: url('../img/logo-dark.svg');
+  filter: drop-shadow(0 2px 6px rgba(0, 188, 212, 0.3));
 }
 
 .dark .nav-link {
