@@ -227,6 +227,37 @@
     </div>
   </nav>
 
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <img src="img/logo.png" alt="Klinik Kita" style="height:36px;">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="index.html" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🏠</span> Beranda
+        </a>
+        <a href="produk.html" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🛒</span> Produk
+        </a>
+        <a href="bundle-deals.html" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">📦</span> Bundle Deals
+        </a>
+        <a href="index.html#services" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">🩺</span> Layanan
+        </a>
+        <a href="index.html#screening" class="mobile-menu-link" onclick="toggleMobileMenu()">
+          <span class="icon">📋</span> Screening
+        </a>
+        <div class="mobile-menu-divider"></div>
+        <a href="https://wa.me/6281384626118" class="mobile-menu-cta" target="_blank" onclick="toggleMobileMenu()">
+          💬 Chat WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- HERO -->
   <section class="cart-hero">
     <div class="container">
@@ -517,11 +548,68 @@
       toast.textContent = message;
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2500);
-    }
-
-    function toggleNav() {
+    }    function toggleNav() {
       document.getElementById('navLinks').classList.toggle('active');
     }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      var menu = document.getElementById('mobileMenu');
+      if (menu) {
+        menu.classList.toggle('active');
+        menu.setAttribute('aria-hidden', !menu.classList.contains('active'));
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+      }
+    }
+
+    // Close mobile menu on resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        var menu = document.getElementById('mobileMenu');
+        if (menu && menu.classList.contains('active')) {
+          menu.classList.remove('active');
+          menu.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+      }
+    }
+
+    // Close mobile menu on resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        var menu = document.getElementById("mobileMenu");
+        if (menu && menu.classList.contains("active")) {
+          menu.classList.remove("active");
+          menu.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+      }
+    });
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      var menu = document.getElementById("mobileMenu");
+      if (menu) {
+        menu.classList.toggle("active");
+        menu.setAttribute("aria-hidden", !menu.classList.contains("active"));
+        document.body.style.overflow = menu.classList.contains("active") ? "hidden" : "";
+      }
+    }
+
+    // Close mobile menu on resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        var menu = document.getElementById("mobileMenu");
+        if (menu && menu.classList.contains("active")) {
+          menu.classList.remove("active");
+          menu.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+      }
+    });
 
     // Initialize
     document.addEventListener('DOMContentLoaded', renderCart);
