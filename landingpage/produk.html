@@ -826,7 +826,39 @@
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
       filterProduk();
+      initLazyLoad();
     });
+
+    // Lazy Loading for Dynamic Images
+    function initLazyLoad() {
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var img = entry.target;
+              if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+              }
+              img.addEventListener('load', function() {
+                img.classList.add('loaded');
+              });
+              if (img.complete) img.classList.add('loaded');
+              observer.unobserve(img);
+            }
+          });
+        }, { rootMargin: '100px 0px', threshold: 0.01 });
+
+        document.querySelectorAll('.lazy-img').forEach(function(img) {
+          observer.observe(img);
+        });
+      } else {
+        document.querySelectorAll('.lazy-img').forEach(function(img) {
+          if (img.dataset.src) img.src = img.dataset.src;
+          img.classList.add('loaded');
+        });
+      }
+    }
 
     // Set Brand Filter
     function setBrand(brand, btn) {
@@ -874,7 +906,7 @@
       grid.innerHTML = filtered.map(p => `
         <div class="produk-card" onclick="window.location.href='produk-detail.html?id=${p.id}'">
           <div class="produk-card-image">
-            <img src="${p.image}" alt="${p.name}" loading="lazy">
+            <img data-src="${p.image}" alt="${p.name}" loading="lazy" class="lazy-img">
             ${p.badge ? `<span class="produk-card-badge ${p.badge === 'NEW' ? 'new' : p.badge === 'EKSKLUSIF' ? 'exclusive' : ''}">${p.badge}</span>` : ''}
             <span class="produk-card-vendor">${p.brand.charAt(0).toUpperCase() + p.brand.slice(1)}</span>
           </div>
@@ -895,6 +927,9 @@
           </div>
         </div>
       `).join('');
+
+      // Re-initialize lazy loading for new images
+      initLazyLoad();
     }
 
     function getCategoryLabel(cat) {

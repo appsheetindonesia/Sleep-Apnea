@@ -44,6 +44,7 @@
     initCounterAnimation();
     initDateMin();
     initLanguageToggle();
+    initLazyLoading();
   });
 
   // ==========================================
@@ -709,5 +710,65 @@
         console.log('Language switched to:', lang);
       });
     });
+  }
+
+  // ==========================================
+  // LAZY LOADING & WEBP OPTIMIZATION
+  // ==========================================
+  function initLazyLoading() {
+    // Detect WebP support
+    var webpSupported = false;
+    var webpTest = new Image();
+    webpTest.onload = function() {
+      webpSupported = (webpTest.width > 0) && (webpTest.height > 0);
+      if (webpSupported) {
+        document.documentElement.classList.add('webp');
+      } else {
+        document.documentElement.classList.add('no-webp');
+      }
+    };
+    webpTest.src = 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdFgYA';
+
+    // Intersection Observer for lazy loading images
+    var lazyImages = document.querySelectorAll('img[loading="lazy"], .produk-card-image img, .product-img, .detail-main-image img');
+
+    if ('IntersectionObserver' in window) {
+      var imageObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var img = entry.target;
+            // Add loaded class for skeleton removal
+            img.addEventListener('load', function() {
+              img.classList.add('loaded');
+            });
+            // If already cached
+            if (img.complete) {
+              img.classList.add('loaded');
+            }
+            imageObserver.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '100px 0px', // Start loading 100px before visible
+        threshold: 0.01
+      });
+
+      lazyImages.forEach(function(img) {
+        imageObserver.observe(img);
+      });
+    } else {
+      // Fallback: load all images immediately
+      lazyImages.forEach(function(img) {
+        img.classList.add('loaded');
+      });
+    }
+
+    // Convert images to WebP if supported (for self-hosted images)
+    if (webpSupported) {
+      var allImages = document.querySelectorAll('img[data-src-webp]');
+      allImages.forEach(function(img) {
+        img.src = img.getAttribute('data-src-webp');
+      });
+    }
   }
 })();
