@@ -774,33 +774,22 @@
   }
 
   // ==========================================
-  // THEME MODE (Light / Dark / Auto)
+  // THEME MODE (Light / Dark)
   // ==========================================
-  
-  // Night hours: 6 PM (18) to 6 AM (6)
-  var DARK_START_HOUR = 18;
-  var DARK_END_HOUR = 6;
-  var currentTheme = 'auto';
-
-  function isNightTime() {
-    var hour = new Date().getHours();
-    return hour >= DARK_START_HOUR || hour < DARK_END_HOUR;
-  }
+  var currentTheme = 'light';
 
   function initDarkMode() {
-    var savedTheme = localStorage.getItem('klinik-kita-theme') || 'auto';
-    currentTheme = savedTheme;
+    var savedTheme = localStorage.getItem('klinik-kita-theme');
+    
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      currentTheme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      currentTheme = 'light';
+    }
 
-    applyTheme(savedTheme);
     updateThemeUI();
-
-    // Check every minute for auto mode
-    setInterval(function() {
-      if (currentTheme === 'auto') {
-        applyTheme('auto');
-        updateThemeUI();
-      }
-    }, 60000);
 
     // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
@@ -811,30 +800,16 @@
     });
   }
 
-  function applyTheme(theme) {
-    var shouldBeDark = false;
+  function setTheme(theme) {
+    currentTheme = theme;
+    localStorage.setItem('klinik-kita-theme', theme);
     
     if (theme === 'dark') {
-      shouldBeDark = true;
-    } else if (theme === 'light') {
-      shouldBeDark = false;
-    } else if (theme === 'auto') {
-      shouldBeDark = isNightTime();
-    } else if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      shouldBeDark = true;
-    }
-
-    if (shouldBeDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }
-
-  function setTheme(theme) {
-    currentTheme = theme;
-    localStorage.setItem('klinik-kita-theme', theme);
-    applyTheme(theme);
+    
     updateThemeUI();
     closeThemeDropdown();
   }
@@ -862,12 +837,15 @@
       btnIcon.textContent = isDark ? '🌙' : '☀️';
     }
 
-    // Update active states
-    ['light', 'dark', 'auto'].forEach(function(t) {
-      var option = document.getElementById('theme' + t.charAt(0).toUpperCase() + t.slice(1));
-      if (option) {
-        option.classList.toggle('active', t === currentTheme);
-      }
-    });
+    // Update active states - only light and dark
+    var lightOption = document.getElementById('themeLight');
+    var darkOption = document.getElementById('themeDark');
+    
+    if (lightOption) {
+      lightOption.classList.toggle('active', currentTheme === 'light');
+    }
+    if (darkOption) {
+      darkOption.classList.toggle('active', currentTheme === 'dark');
+    }
   }
 })();
