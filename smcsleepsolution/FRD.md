@@ -1,0 +1,356 @@
+# Functional Requirements Document (FRD)
+## SMC Sleep Solution — smcsleepsolution.com
+
+**Versi Dokumen:** 1.0  
+**Tanggal:** 31 Agustus 2026  
+**Penulis:** Tim Business Analysis  
+**Status:** Draft
+
+---
+
+## 1. Pendahuluan
+
+### 1.1 Tujuan Dokumen
+Dokumen ini mendefinisikan secara rinci semua kebutuhan fungsional dari website smcsleepsolution.com, termasuk perilaku sistem, aturan bisnis, input/output, dan skenario penggunaan untuk setiap modul.
+
+### 1.2 Ruang Lingkup
+Dokumen ini mencakup:
+- Modul Landing Page (Homepage)
+- Modul Screening Online (Aplikasi SMC)
+- Modul Katalog Produk
+- Modul Integrasi WhatsApp
+- Modul Admin Panel (backend)
+
+---
+
+## 2. Modul Landing Page (Homepage)
+
+### 2.1 Hero Section
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| FR-HP-01 | Statistik Tampil | Menampilkan angka "40% Penduduk Indonesia Mendengkur" dan "10% berisiko Sleep Apnea" dengan animasi counter | P0 |
+| FR-HP-02 | CTA Screening | Tombol "Mulai Screening Gratis" → navigasi ke halaman screening | P0 |
+| FR-HP-03 | CTA WhatsApp | Tombol "Chat Us Now" → buka WhatsApp Business dengan pre-filled message | P0 |
+| FR-HP-04 | Background Visual | Hero image/illustration Sleep Apnea yang relevan | P0 |
+
+### 2.2 Section Edukasi Sleep Apnea
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| FR-ED-01 | Definisi | Penjelasan Sleep Apnea dalam bahasa Indonesia yang mudah dipahami | P0 |
+| FR-ED-02 | Tipe Gangguan | Daftar 6 tipe gangguan tidur dengan ikon dan deskripsi singkat | P0 |
+| FR-ED-03 | Link "Learn More" | Tombol untuk expand/buka section detail tiap tipe gangguan | P1 |
+| FR-ED-04 | Ilustrasi Animasi | Ilustrasi cara kerja Sleep Apnea (udara tersumbat) | P1 |
+
+### 2.3 Section Katalog Produk
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| FR-KP-01 | Carousel Produk | Horizontal scroll produk CPAP, BiPAP, masker dengan gambar | P0 |
+| FR-KP-02 | Detail Produk | Klik produk → modal/page detail: nama, gambar, deskripsi | P0 |
+| FR-KP-03 | Filter Kategori | Filter: Semua, CPAP, BiPAP, Masker | P1 |
+| FR-KP-04 | CTA Tanya | Setiap produk ada tombol "Tanya Produk" → WhatsApp | P0 |
+| FR-KP-05 | Badge Distributor | Label "Distributor Resmi Philips Respironics" | P0 |
+
+### 2.4 Section Layanan SMC
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| FR-LY-01 | 3 Layanan | Card layout: (1) Sleep Diagnostik Test, (2) Service/Kalibrasi, (3) Sewa | P0 |
+| FR-LY-02 | Detail PSG | Penjelasan 4 tipe PSG (Tipe 1-4) dengan perbedaan | P0 |
+| FR-LY-03 | Booking Layanan | Tombol "Selengkapnya" → WhatsApp/booking form | P0 |
+| FR-LY-04 | Gambar Layanan | Ikon/gambar untuk setiap layanan | P1 |
+
+### 2.5 Section Bahaya Mendengkur
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| FR-BH-01 | Daftar Dampak | 8 dampak kesehatan mendengkur dengan ikon | P0 |
+| FR-BH-02 | Animasi | Animasi scroll-triggered untuk dampak kesehatan | P2 |
+| FR-BH-03 | CTA ke Screening | Tombol "Cek Risiko Anda" → screening | P0 |
+
+### 2.6 Section Polysomnografi
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| FR-PS-01 | Penjelasan PSG | Apa itu PSG dan apa yang bisa diketahui | P0 |
+| FR-PS-02 | Parameter Tidur | 7 parameter yang diukur: Kedalaman tidur, Sleep Apnea, Saturasi O₂, Posisi tidur, Limb movement, Snoring, Heart Rate | P0 |
+| FR-PS-03 | Siapa yang Perlu | 7 kategori orang yang memerlukan pemeriksaan | P0 |
+
+### 2.7 Footer
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| FR-FT-01 | Info Perusahaan | Alamat, no. telepon, email, jam operasional | P0 |
+| FR-FT-02 | Link Cepat | Screening, Produk, Layanan, Kontak | P0 |
+| FR-FT-03 | Social Media | Instagram, Facebook, LinkedIn | P1 |
+| FR-FT-04 | WhatsApp FAB | Floating Action Button WhatsApp di semua halaman | P0 |
+
+---
+
+## 3. Modul Screening Online (Aplikasi SMC)
+
+### 3.1 Overview Alur
+```
+Step 1: Data Diri
+    │
+    ▼
+Step 2: STOP-BANG Q1 (Snoring)
+    │
+    ▼
+Step 3: STOP-BANG Q2-Q4 (Tired, Observed, Pressure)
+    │
+    ▼
+Step 4: STOP-BANG Q5-Q8 (BMI, Age, Neck, Gender)
+    │
+    ▼
+Step 5: ESS (Epworth Sleepiness Scale) - 7 skenario
+    │
+    ▼
+Step 6: Hasil & Rekomendasi
+```
+
+### 3.2 Step 1: Data Diri
+
+| ID | FR | Deskripsi | Validasi | Prioritas |
+|----|-----|-----------|----------|-----------|
+| SCR-01 | Nama Lengkap | Input text, wajib diisi | Min 2 karakter | P0 |
+| SCR-02 | Email | Input email, wajib diisi | Format email valid | P0 |
+| SCR-03 | No. Telepon | Input telpon, wajib diisi | Format Indonesia (08xx / +62) | P0 |
+| SCR-04 | Usia | Input angka, wajib diisi | 18–100 tahun | P0 |
+| SCR-05 | Jenis Kelamin | Dropdown/Radio: Laki-laki, Perempuan | Wajib dipilih | P0 |
+| SCR-06 | Tinggi Badan | Input angka (cm) | 100–250 cm | P0 |
+| SCR-07 | Berat Badan | Input angka (kg) | 30–300 kg | P0 |
+| SCR-08 | Lingkar Leher | Input angka (cm) | 20–60 cm | P0 |
+| SCR-09 | Tekanan Darah | Input text (sistole/diastole) | Format: 120/80 | P1 |
+
+### 3.3 Step 2-5: STOP-BANG Questionnaire
+
+| ID | FR | Pertanyaan | Tipe Jawaban | Skor | Prioritas |
+|----|-----|-----------|-------------|------|-----------|
+| SB-01 | Snoring | Apakah Anda mendengkur keras? | Ya/Tidak | Ya=1, Tidak=0 | P0 |
+| SB-02 | Tired | Apakah Anda sering merasa lelah/kelelahan di siang hari? | Ya/Tidak | Ya=1, Tidak=0 | P0 |
+| SB-03 | Observed | Pernahkah seseorang mengamati Anda berhenti bernapas saat tidur? | Ya/Tidak | Ya=1, Tidak=0 | P0 |
+| SB-04 | Pressure | Apakah Anda memiliki riwayat tekanan darah tinggi? | Ya/Tidak | Ya=1, Tidak=0 | P0 |
+| SB-05 | BMI | Apakah BMI Anda > 35? | Auto-calculate | >35=1, ≤35=0 | P0 |
+| SB-06 | Age | Apakah usia Anda > 50 tahun? | Auto-calculate | >50=1, ≤50=0 | P0 |
+| SB-07 | Neck | Apakah lingkar leher Anda > 40cm (pria) / > 38cm (wanita)? | Auto-calculate | Ya=1, Tidak=0 | P0 |
+| SB-08 | Gender | Apakah Anda laki-laki? | Dari data diri | Laki-laki=1, Perempuan=0 | P0 |
+
+### 3.4 Step 5: ESS (Epworth Sleepiness Scale)
+
+| ID | FR | Skenario | Skala | Prioritas |
+|----|-----|---------|-------|-----------|
+| ESS-01 | Membaca | Kemungkinan Anda tertidur saat membaca | 0=Tidak Pernah, 1=Sedikit, 2=Sedang, 3=Tinggi | P0 |
+| ESS-02 | Menonton TV | Kemungkinan Anda tertidur saat menonton TV | 0–3 | P0 |
+| ESS-03 | Di tempat umum | Kemungkinan Anda tertidur saat duduk diam di tempat umum | 0–3 | P0 |
+| ESS-04 | Sebagai penumpang | Kemungkinan Anda tertidur sebagai penumpang dalam perjalanan 1 jam | 0–3 | P0 |
+| ESS-05 | Berbaring siang | Kemungkinan Anda tertidur saat berbaring di siang hari | 0–3 | P0 |
+| ESS-06 | Duduk bicara | Kemungkinan Anda tertidur saat duduk dan bicara dengan seseorang | 0–3 | P0 |
+| ESS-07 | Setelah makan | Kemungkinan Anda tertidur setelah makan tanpa minum alkohol | 0–3 | P0 |
+
+### 3.5 Step 6: Hasil & Rekomendasi
+
+| ID | FR | Deskripsi | Aturan | Prioritas |
+|----|-----|-----------|--------|-----------|
+| RES-01 | Hitung STOP-BANG | Total skor 0-8 | formula: jumlah semua jawaban "Ya" | P0 |
+| RES-02 | Hitung ESS | Total skor 0-21 | formula: jumlah semua skenario | P0 |
+| RES-03 | Kategorisasi Risiko | 3 level risiko | SB 0-2: Rendah, SB 3-4: Sedang, SB 5-8: Tinggi | P0 |
+| RES-04 | Interpretasi ESS | 3 level kantuk | ESS 0-10: Normal, ESS 11-14: Berlebihan, ESS 15-24: Sangat Berlebihan | P0 |
+| RES-05 | Tampilan Hasil | Dashboard visual | Gauge/bullet chart untuk STOP-BANG + ESS | P0 |
+| RES-06 | Rekomendasi | Tindak lanjut berdasarkan risiko | Lihat tabel rekomendasi di bawah | P0 |
+| RES-07 | Simpan Data | POST data ke backend | Validasi & simpan ke database | P0 |
+| RES-08 | WhatsApp Redirect | Tombol "Konsultasi Sekarang" | Pre-filled message dengan nama + skor | P0 |
+
+### 3.6 Tabel Rekomendasi
+
+| Risiko STOP-BANG | ESS Normal (0-10) | ESS Berlebihan (11-14) | ESS Sangat Berlebihan (15-24) |
+|-----------------|-------------------|----------------------|------------------------------|
+| **Rendah (0-2)** | Tips kesehatan tidur, jaga pola hidup sehat | Disarankan konsultasi dokter | Sangat disarankan konsultasi dokter |
+| **Sedang (3-4)** | Disarankan konsultasi dokter | **Mendesak: Booking Sleep Test** | **Mendesak: Booking Sleep Test** |
+| **Tinggi (5-8)** | **Mendesak: Booking Sleep Test** | **Mendesak: Booking Sleep Test + Konsultasi** | **PRIORITAS: Booking Sleep Test + Konsultasi** |
+
+---
+
+## 4. Modul Katalog Produk
+
+### 4.1 Daftar Produk
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| CAT-01 | Grid View | Tampilan grid 3 kolom (desktop), 2 kolom (tablet), 1 kolom (mobile) | P0 |
+| CAT-02 | Gambar Produk | Lazy loading, aspect ratio 4:3, fallback placeholder | P0 |
+| CAT-03 | Info Produk | Nama produk, tipe (CPAP/BiPAP/Masker), merek | P0 |
+| CAT-04 | CTA WhatsApp | "Tanya Harga" → WhatsApp dengan nama produk | P0 |
+| CAT-05 | Detail Modal | Klik card → modal dengan deskripsi lengkap + spesifikasi | P1 |
+| CAT-06 | Sort | Sort: Default, Nama A-Z, Kategori | P2 |
+
+### 4.2 Daftar Produk yang Tampil
+
+| No | Produk | Kategori | Merek |
+|----|--------|----------|-------|
+| 1 | CPAP Auto DreamStation | CPAP | Philips Respironics |
+| 2 | BiPAP Auto DreamStation | BiPAP | Philips Respironics |
+| 3 | DreamWear Nasal Mask | Masker | Philips Respironics |
+| 4 | DreamWear Nasal Pillow Mask | Masker | Philips Respironics |
+| 5 | DreamWear Wisp Nasal Mask | Masker | Philips Respironics |
+| 6 | Wisp Nasal Mask | Masker | Philips Respironics |
+| 7 | Amara View Mask | Masker | Philips Respironics |
+| 8 | Amara View & DreamWear Full | Masker | Philips Respironics |
+
+---
+
+## 5. Modul Integrasi WhatsApp
+
+### 5.1 Floating Action Button
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| WA-01 | Posisi | Pojok kanan bawah, fixed position | P0 |
+| WA-02 | Animasi | Pulse animation untuk menarik perhatian | P1 |
+| WA-03 | Hover | Tooltip "Chat Kami di WhatsApp" | P1 |
+| WA-04 | Mobile | Tidak mengganggu konten di mobile | P0 |
+
+### 5.2 Pre-filled Messages
+
+| Konteks | Template Pesan | Prioritas |
+|---------|---------------|-----------|
+| Umum | "Halo SMC Sleep Solution, saya ingin bertanya tentang layanan Anda." | P0 |
+| Screening Rendah | "Halo, saya telah melakukan screening dan hasil risiko saya RENDAH. Mohon tips kesehatan tidur." | P0 |
+| Screening Sedang | "Halo, saya telah melakukan screening dan hasil risiko saya SEDANG. Saya ingin konsultasi." | P0 |
+| Screening Tinggi | "Halo, saya telah melakukan screening dan hasil risiko saya TINGGI. Saya ingin segera booking Sleep Test." | P0 |
+| Produk | "Halo, saya tertarik dengan [NAMA PRODUK]. Mohon informasi harga dan ketersediaan." | P0 |
+| Servis | "Halo, saya ingin menjadwalkan servis/kalibrasi alat CPAP saya." | P0 |
+| Sewa | "Halo, saya ingin menyewa alat CPAP. Mohon informasi." | P0 |
+
+---
+
+## 6. Modul Admin Panel
+
+### 6.1 Manajemen Screening
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| ADM-01 | Dashboard | Jumlah screening per hari/minggu/bulan, grafik tren | P0 |
+| ADM-02 | Daftar Responden | Tabel: nama, email, telepon, risiko, tanggal, status follow-up | P0 |
+| ADM-03 | Filter & Search | Filter: risiko, tanggal, status. Search: nama/email | P0 |
+| ADM-04 | Export CSV | Export daftar responden ke CSV | P1 |
+| ADM-05 | Detail Responden | Klik → detail lengkap jawaban screening + hasil | P0 |
+| ADM-06 | Status Follow-up | Update status: Baru → Dihubungi → Konsultasi → Selesai | P1 |
+| ADM-07 | Notifikasi | Email notifikasi saat ada screening risiko TINGGI | P1 |
+
+### 6.2 Manajemen Produk
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| ADM-08 | CRUD Produk | Tambah, edit, hapus produk dengan gambar | P1 |
+| ADM-09 | Upload Gambar | Upload multiple gambar, auto-resize, compress | P1 |
+| ADM-10 | Kategori | Manajemen kategori produk (CPAP, BiPAP, Masker) | P2 |
+
+### 6.3 Pengaturan
+
+| ID | FR | Deskripsi | Prioritas |
+|----|-----|-----------|-----------|
+| ADM-11 | WhatsApp Number | Konfigurasi nomor WhatsApp Business | P0 |
+| ADM-12 | Template Pesan | Edit template pre-filled message | P1 |
+| ADM-13 | User Management | Tambah admin, role-based access | P1 |
+
+---
+
+## 7. Aturan Bisnis (Business Rules)
+
+| ID | Aturan | Deskripsi |
+|----|--------|-----------|
+| BR-01 | Validasi Usia | Screening hanya untuk usia 18+ tahun |
+| BR-02 | Data Wajib | Semua field data diri wajib diisi sebelum lanjut |
+| BR-03 | BMI Otomatis | BMI dihitung otomatis dari tinggi dan berat badan |
+| BR-04 | Skor Tidak Bisa Diubah | Setelah screening selesai, skor tidak bisa diubah |
+| BR-05 | Disclaimer Medis | Hasil screening BUKAN diagnosis medis, hanya indikasi risiko |
+| BR-06 | Satu Screening/Email | Email yang sama tidak boleh melakukan screening lebih dari 1x dalam 30 hari |
+| BR-07 | Data Retention | Data screening disimpan selama 2 tahun, lalu diarsipkan |
+| BR-08 | Consent | Pengguna harus menyetujui pemrosesan data sebelum screening dimulai |
+
+---
+
+## 8. Skenario Penggunaan (Use Cases)
+
+### UC-01: Pasien melakukan screening Sleep Apnea
+```
+Actor: Pasien
+Precondition: Membuka halaman screening
+Main Flow:
+  1. Sistem menampilkan form data diri
+  2. Pasien mengisi nama, email, telepon, usia, jenis kelamin
+  3. Pasien mengisi tinggi badan, berat badan, lingkar leher
+  4. Sistem menghitung BMI otomatis
+  5. Sistem menampilkan pertanyaan STOP-BANG
+  6. Pasien menjawab 8 pertanyaan (beberapa auto-calculated)
+  7. Sistem menampilkan 7 skenario ESS
+  8. Pasien menilai setiap skenario (0-3)
+  9. Sistem menghitung total skor STOP-BANG dan ESS
+  10. Sistem menampilkan hasil risiko + rekomendasi
+  11. Pasien mengklik "Konsultasi Sekarang"
+  12. Sistem redirect ke WhatsApp dengan pre-filled message
+Alternative Flow:
+  5a. Pasien tidak mengisi salah satu field → Sistem menampilkan error message
+  10a. Risiko TINGGI → Sistem tampilkan pesan prioritas + tombol booking
+Postcondition: Data screening tersimpan di database
+```
+
+### UC-02: Pengunjung melihat produk
+```
+Actor: Pengunjung
+Precondition: Membuka homepage
+Main Flow:
+  1. Pengunjung scroll ke section produk
+  2. Sistem menampilkan carousel/grid produk
+  3. Pengunjung mengklik salah satu produk
+  4. Sistem menampilkan detail produk
+  5. Pengunjung mengklik "Tanya Produk"
+  6. Sistem redirect ke WhatsApp dengan nama produk
+Postcondition: N/A
+```
+
+### UC-03: Admin mengelola leads screening
+```
+Actor: Admin
+Precondition: Login ke admin panel
+Main Flow:
+  1. Admin membuka dashboard screening
+  2. Sistem menampilkan grafik tren dan daftar responden terbaru
+  3. Admin melihat responden dengan risiko TINGGI (highlight)
+  4. Admin mengklik responden untuk melihat detail
+  5. Admin mengupdate status follow-up
+  6. Admin menghubungi responden via telepon
+Postcondition: Status follow-up terupdate
+```
+
+---
+
+## 9. Aturan Error Handling
+
+| Error | Pesan | Aksi |
+|-------|-------|------|
+| Field wajib kosong | "[Field] wajib diisi" | Highlight field merah |
+| Email format salah | "Masukkan format email yang valid" | Highlight field merah |
+| Telepon format salah | "Masukkan nomor telepon yang valid (08xx)" | Highlight field merah |
+| Usia < 18 | "Screening ini hanya untuk usia 18+ tahun" | Disable tombol lanjut |
+| Server error | "Terjadi kesalahan. Silakan coba lagi." | Tombol retry |
+| WhatsApp gagal | "Gagal membuka WhatsApp. Silakan hubungi 08xx" | Tampilkan nomor |
+
+---
+
+## 10. Glossary
+
+| Istilah | Definisi |
+|---------|----------|
+| STOP-BANG | Kuesioner 8 pertanyaan untuk skrining risiko Sleep Apnea |
+| ESS | Epworth Sleepiness Scale — pengukuran tingkat kantuk di siang hari |
+| Screening | Proses skrining awal untuk mengidentifikasi risiko |
+| Lead | Pengunjung yang telah melakukan screening dan berpotensi menjadi pasien |
+| Follow-up | Tindak lanjut terhadap lead yang sudah terkumpul |
+| PSG | Polysomnography — pemeriksaan kualitas tidur menyeluruh |
+| CPAP | Continuous Positive Airway Pressure |
+| BiPAP | Bilevel Positive Airway Pressure |
+| AHI | Apnea-Hypopnea Index |
