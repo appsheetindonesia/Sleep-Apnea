@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bundle Deals CPAP hemat hingga 15%! Paket lengkap ResMed, Philips, BMC dengan harga spesial. Bandingkan dan hitung penghematan Anda.">
+  <title>Bundle Deals — SleepWell | Hemat Hingga 15%</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    /* ========== Bundle Deals Page ========== */
+    .bundle-hero {
+      padding: calc(72px + var(--space-16)) 0 var(--space-16);
+      background: linear-gradient(135deg, #fff7ed 0%, #fffbeb 50%, #fef3c7 100%);
+      text-align: center;
+    }
+
+    .bundle-hero-badge {
+      display: inline-block;
+      padding: var(--space-2) var(--space-5);
+      background: var(--orange-100);
+      color: var(--orange-700);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+    }
+
+    .bundle-hero-title {
+      font-size: var(--font-size-5xl);
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: var(--space-4);
+      line-height: 1.1;
+    }
+
+    .bundle-hero-title span {
+      color: var(--orange-600);
+    }
+
+    .bundle-hero-subtitle {
+      font-size: var(--font-size-lg);
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+    }
+
+    .bundle-hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .bundle-hero-stat {
+      text-align: center;
+    }
+
+    .bundle-hero-stat-number {
+      font-size: var(--font-size-3xl);
+      font-weight: 800;
+      color: var(--orange-600);
+    }
+
+    .bundle-hero-stat-label {
+      font-size: var(--font-size-sm);
+      color: var(--gray-500);
+    }
+
+    /* Calculator Section */
+    .calculator-section {
+      padding: var(--space-16) 0;
+      background: var(--white);
+    }
+
+    .calculator-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .calculator-card {
+      background: var(--gray-50);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      border: 2px solid var(--gray-100);
+    }
+
+    .calculator-title {
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: var(--space-6);
+      text-align: center;
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+
+    .calc-input-group {
+      margin-bottom: var(--space-4);
+    }
+
+    .calc-label {
+      display: block;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: var(--space-2);
+    }
+
+    .calc-select,
+    .calc-input {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      font-size: var(--font-size-base);
+      font-family: inherit;
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .calc-select:focus,
+    .calc-input:focus {
+      outline: none;
+      border-color: var(--orange-500);
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    }
+
+    .calc-result {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      color: var(--white);
+      text-align: center;
+      margin-top: var(--space-6);
+    }
+
+    .calc-result-label {
+      font-size: var(--font-size-sm);
+      opacity: 0.9;
+      margin-bottom: var(--space-2);
+    }
+
+    .calc-result-save {
+      font-size: var(--font-size-4xl);
+      font-weight: 800;
+      margin-bottom: var(--space-2);
+    }
+
+    .calc-result-detail {
+      font-size: var(--font-size-sm);
+      opacity: 0.8;
+    }
+
+    .calc-result-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-size: var(--font-size-sm);
+    }
+
+    .calc-result-row:last-child {
+      border-bottom: none;
+      font-weight: 700;
+      font-size: var(--font-size-base);
+    }
+
+    /* Comparison Table */
+    .comparison-section {
+      padding: var(--space-16) 0;
+      background: var(--gray-50);
+    }
+
+    .comparison-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      overflow-x: auto;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      min-width: 800px;
+    }
+
+    .comparison-table thead {
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+      color: var(--white);
+    }
+
+    .comparison-table th {
+      padding: var(--space-4) var(--space-5);
+      text-align: left;
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+    }
+
+    .comparison-table th:first-child {
+      border-radius: var(--radius-xl) 0 0 0;
+    }
+
+    .comparison-table th:last-child {
+      border-radius: 0 var(--radius-xl) 0 0;
+    }
+
+    .comparison-table td {
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--gray-100);
+      font-size: var(--font-size-sm);
+    }
+
+    .comparison-table tbody tr:hover {
+      background: var(--orange-50);
+    }
+
+    .comparison-table .highlight {
+      background: var(--orange-50);
+      font-weight: 700;
+    }
+
+    .comparison-table .price-cell {
+      font-weight: 700;
+      color: var(--blue-700);
+    }
+
+    .comparison-table .save-cell {
+      font-weight: 700;
+      color: var(--green-600);
+    }
+
+    .comparison-table .badge {
+      display: inline-block;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+    }
+
+    .badge-popular {
+      background: var(--orange-100);
+      color: var(--orange-700);
+    }
+
+    .badge-best {
+      background: var(--green-100);
+      color: var(--green-700);
+    }
+
+    /* Bundle Cards */
+    .bundles-detail-section {
+      padding: var(--space-16) 0;
+    }
+
+    .bundles-detail-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .bundle-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .bundle-detail-card {
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 2px solid var(--gray-100);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .bundle-detail-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .bundle-detail-card.featured {
+      border-color: var(--orange-400);
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+    }
+
+    .bundle-detail-popular {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: var(--white);
+      text-align: center;
+      padding: var(--space-2);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .bundle-detail-header {
+      padding: var(--space-8) var(--space-6) var(--space-4);
+      text-align: center;
+    }
+
+    .bundle-detail-card.featured .bundle-detail-header {
+      padding-top: calc(var(--space-8) + 32px);
+    }
+
+    .bundle-detail-icon {
+      font-size: 3rem;
+      margin-bottom: var(--space-3);
+    }
+
+    .bundle-detail-name {
+      font-size: var(--font-size-xl);
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: var(--space-2);
+    }
+
+    .bundle-detail-tagline {
+      font-size: var(--font-size-sm);
+      color: var(--gray-500);
+      margin-bottom: var(--space-4);
+    }
+
+    .bundle-detail-price {
+      margin-bottom: var(--space-6);
+    }
+
+    .bundle-detail-current {
+      font-size: var(--font-size-3xl);
+      font-weight: 800;
+      color: var(--blue-700);
+    }
+
+    .bundle-detail-original {
+      font-size: var(--font-size-base);
+      color: var(--gray-400);
+      text-decoration: line-through;
+      display: block;
+      margin-top: var(--space-1);
+    }
+
+    .bundle-detail-save-badge {
+      display: inline-block;
+      margin-top: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      background: var(--green-100);
+      color: var(--green-700);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+    }
+
+    .bundle-detail-items {
+      padding: 0 var(--space-6) var(--space-6);
+    }
+
+    .bundle-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .bundle-detail-item:last-child {
+      border-bottom: none;
+    }
+
+    .bundle-detail-item-icon {
+      color: var(--green-500);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .bundle-detail-item-text {
+      font-size: var(--font-size-sm);
+      color: var(--gray-700);
+    }
+
+    .bundle-detail-item-price {
+      margin-left: auto;
+      font-size: var(--font-size-xs);
+      color: var(--gray-400);
+      text-decoration: line-through;
+      flex-shrink: 0;
+    }
+
+    .bundle-detail-footer {
+      padding: 0 var(--space-6) var(--space-6);
+    }
+
+    .bundle-detail-btn {
+      display: block;
+      width: 100%;
+      padding: var(--space-4);
+      border-radius: var(--radius-xl);
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .bundle-detail-btn-primary {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: var(--white);
+    }
+
+    .bundle-detail-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+    }
+
+    .bundle-detail-btn-secondary {
+      background: var(--blue-600);
+      color: var(--white);
+    }
+
+    .bundle-detail-btn-secondary:hover {
+      background: var(--blue-700);
+    }
+
+    /* CTA Section */
+    .bundle-cta-section {
+      padding: var(--space-16) 0;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-800));
+      color: var(--white);
+      text-align: center;
+    }
+
+    .bundle-cta-title {
+      font-size: var(--font-size-3xl);
+      font-weight: 800;
+      margin-bottom: var(--space-4);
+    }
+
+    .bundle-cta-subtitle {
+      font-size: var(--font-size-lg);
+      opacity: 0.9;
+      margin-bottom: var(--space-8);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .bundle-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .bundle-cta-btn {
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-xl);
+      font-size: var(--font-size-base);
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .bundle-cta-btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+    }
+
+    .bundle-cta-btn-whatsapp:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+    }
+
+    .bundle-cta-btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .bundle-cta-btn-outline:hover {
+      background: var(--white);
+      color: var(--blue-700);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .bundle-detail-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bundle-hero-title {
+        font-size: var(--font-size-3xl);
+      }
+
+      .calculator-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bundle-hero-stats {
+        gap: var(--space-4);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVBAR
+       ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <span class="navbar-logo">🌙</span>
+        <span class="navbar-brand-text">SleepWell</span>
+      </a>
+
+      <div class="navbar-links" id="navLinks">
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="produk.html" class="nav-link">Produk</a>
+        <a href="bundle-deals.html" class="nav-link active">Bundle Deals</a>
+        <a href="index.html#services" class="nav-link">Layanan</a>
+        <a href="index.html#screening" class="nav-link">Screening</a>
+        <a href="index.html#booking" class="nav-link">Konsultasi</a>
+      </div>
+
+      <div class="navbar-actions">
+        <a href="index.html#booking" class="btn btn-primary btn-sm">Booking Sekarang</a>
+        <button class="navbar-toggle" id="navToggle" onclick="toggleNav()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="bundle-hero">
+    <div class="container">
+      <span class="bundle-hero-badge">🔥 PROMO TERBATAS</span>
+      <h1 class="bundle-hero-title">Bundle Deals <span>Hemat Hingga 15%</span></h1>
+      <p class="bundle-hero-subtitle">Paket lengkap CPAP + Masker dengan harga spesial. Lebih murah dibeli terpisah!</p>
+      <div class="bundle-hero-stats">
+        <div class="bundle-hero-stat">
+          <div class="bundle-hero-stat-number">15%</div>
+          <div class="bundle-hero-stat-label">Maks. Penghematan</div>
+        </div>
+        <div class="bundle-hero-stat">
+          <div class="bundle-hero-stat-number">6</div>
+          <div class="bundle-hero-stat-label">Paket Tersedia</div>
+        </div>
+        <div class="bundle-hero-stat">
+          <div class="bundle-hero-stat-number">2 Tahun</div>
+          <div class="bundle-hero-stat-label">Garansi Resmi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SAVINGS CALCULATOR
+       ============================================ -->
+  <section class="calculator-section">
+    <div class="calculator-container">
+      <h2 class="section-title text-center">🧮 Hitung Penghematan Anda</h2>
+      <p class="section-subtitle text-center" style="margin-bottom:var(--space-8);">Pilih bundle dan lihat berapa yang Anda hemat!</p>
+
+      <div class="calculator-card">
+        <div class="calculator-grid">
+          <div>
+            <div class="calc-input-group">
+              <label class="calc-label">Pilih Bundle</label>
+              <select class="calc-select" id="calcBundle" onchange="updateCalculator()">
+                <option value="starter">Paket Starter — CPAP + Nasal Mask</option>
+                <option value="premium" selected>Paket Premium — CPAP + Full Face Mask ⭐</option>
+                <option value="travel">Paket Travel — Mini CPAP + Mask</option>
+                <option value="bipap">Paket BiPAP — BiPAP + Mask</option>
+                <option value="family">Paket Family — 2x CPAP Bundle</option>
+                <option value="diagnostic">Paket Diagnostic — HST + CPAP</option>
+              </select>
+            </div>
+
+            <div class="calc-input-group">
+              <label class="calc-label">Metode Pembayaran</label>
+              <select class="calc-select" id="calcPayment" onchange="updateCalculator()">
+                <option value="full">Bayar Full (Transfer)</option>
+                <option value="cc">Credit Card (3x cicilan 0%)</option>
+                <option value="installment">Cicilan 6x (0%)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="calc-input-group">
+              <label class="calc-label">Harga Beli Terpisah</label>
+              <input type="text" class="calc-input" id="calcSeparate" readonly>
+            </div>
+
+            <div class="calc-input-group">
+              <label class="calc-label">Harga Bundle</label>
+              <input type="text" class="calc-input" id="calcBundlePrice" readonly>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-result" id="calcResult">
+          <div class="calc-result-label">Total Penghematan Anda</div>
+          <div class="calc-result-save" id="calcSaveAmount">Rp 2.450.000</div>
+          <div class="calc-result-detail" id="calcSavePercent">Hemat 12% dari harga beli terpisah</div>
+          <div style="margin-top:var(--space-4); padding-top:var(--space-4); border-top:1px solid rgba(255,255,255,0.2);">
+            <div class="calc-result-row">
+              <span>Harga Beli Terpisah</span>
+              <span id="calcResultSeparate">Rp 17.400.000</span>
+            </div>
+            <div class="calc-result-row">
+              <span>Harga Bundle</span>
+              <span id="calcResultBundle">Rp 14.950.000</span>
+            </div>
+            <div class="calc-result-row">
+              <span>Total Hemat</span>
+              <span id="calcResultSave">Rp 2.450.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       COMPARISON TABLE
+       ============================================ -->
+  <section class="comparison-section">
+    <div class="comparison-container">
+      <h2 class="section-title text-center">📊 Bandingkan Semua Bundle</h2>
+      <p class="section-subtitle text-center" style="margin-bottom:var(--space-8);">Temukan paket yang paling sesuai dengan kebutuhan Anda.</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Bundle</th>
+            <th>Device</th>
+            <th>Masker</th>
+            <th>Aksesoris</th>
+            <th>Harga Terpisah</th>
+            <th>Harga Bundle</th>
+            <th>Hemat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Starter</strong><br><span class="badge badge-popular">Populer</span></td>
+            <td>ResMed AirSense 11</td>
+            <td>AirFit N30i (Nasal)</td>
+            <td>Filter + Chamber</td>
+            <td class="price-cell">Rp 16.150.000</td>
+            <td class="price-cell">Rp 14.500.000</td>
+            <td class="save-cell">Rp 1.650.000 (10%)</td>
+          </tr>
+          <tr class="highlight">
+            <td><strong>Premium</strong><br><span class="badge badge-best">⭐ Best Value</span></td>
+            <td>ResMed AirSense 11</td>
+            <td>AirFit F30i (Full Face)</td>
+            <td>Filter + Chamber + Tubing</td>
+            <td class="price-cell">Rp 17.150.000</td>
+            <td class="price-cell">Rp 14.950.000</td>
+            <td class="save-cell">Rp 2.200.000 (13%)</td>
+          </tr>
+          <tr>
+            <td><strong>Travel</strong></td>
+            <td>BMC M1 Mini</td>
+            <td>BMC P6s (Nasal Pillow)</td>
+            <td>Travel Case</td>
+            <td class="price-cell">Rp 6.000.000</td>
+            <td class="price-cell">Rp 5.200.000</td>
+            <td class="save-cell">Rp 800.000 (13%)</td>
+          </tr>
+          <tr>
+            <td><strong>BiPAP</strong></td>
+            <td>BMC G3 B25A</td>
+            <td>BMC F5A+ (Full Face)</td>
+            <td>Filter + Chamber</td>
+            <td class="price-cell">Rp 28.000.000</td>
+            <td class="price-cell">Rp 26.000.000</td>
+            <td class="save-cell">Rp 2.000.000 (7%)</td>
+          </tr>
+          <tr>
+            <td><strong>Family</strong><br><span class="badge badge-populer">2x Device</span></td>
+            <td>2x AirSense 11</td>
+            <td>N30i + F30i</td>
+            <td>2x Filter + Chamber</td>
+            <td class="price-cell">Rp 33.300.000</td>
+            <td class="price-cell">Rp 28.500.000</td>
+            <td class="save-cell">Rp 4.800.000 (14%)</td>
+          </tr>
+          <tr>
+            <td><strong>Diagnostic</strong></td>
+            <td>Nox T3s HST</td>
+            <td>—</td>
+            <td>CPAP Bundle (sewa)</td>
+            <td class="price-cell">Rp 15.000.000</td>
+            <td class="price-cell">Rp 12.750.000</td>
+            <td class="save-cell">Rp 2.250.000 (15%)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================
+       BUNDLE CARDS DETAIL
+       ============================================ -->
+  <section class="bundles-detail-section">
+    <div class="bundles-detail-container">
+      <h2 class="section-title text-center">📦 Pilih Paket Anda</h2>
+      <p class="section-subtitle text-center" style="margin-bottom:var(--space-8);">Setiap bundle sudah termasuk konsultasi gratis dan pendampingan terapi.</p>
+
+      <div class="bundle-detail-grid">
+        <!-- Starter Bundle -->
+        <div class="bundle-detail-card">
+          <div class="bundle-detail-header">
+            <div class="bundle-detail-icon">📦</div>
+            <h3 class="bundle-detail-name">Paket Starter</h3>
+            <p class="bundle-detail-tagline">Cocok untuk pemula yang butuh setup lengkap</p>
+            <div class="bundle-detail-price">
+              <span class="bundle-detail-current">Rp 14.500.000</span>
+              <span class="bundle-detail-original">Rp 16.150.000</span>
+              <span class="bundle-detail-save-badge">Hemat Rp 1.650.000</span>
+            </div>
+          </div>
+          <div class="bundle-detail-items">
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">ResMed AirSense 11 AutoSet</span>
+              <span class="bundle-detail-item-price">Rp 13.500.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">ResMed AirFit N30i Nasal Mask</span>
+              <span class="bundle-detail-item-price">Rp 2.400.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">Filter Set (12 pcs)</span>
+              <span class="bundle-detail-item-price">Rp 250.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">Humidifier Water Chamber</span>
+              <span class="bundle-detail-item-price">Rp 350.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">Konsultasi Gratis + Fitting</span>
+            </div>
+          </div>
+          <div class="bundle-detail-footer">
+            <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20beli%20Paket%20Starter%20CPAP" class="bundle-detail-btn bundle-detail-btn-secondary" target="_blank">
+              💬 Pilih Paket Ini
+            </a>
+          </div>
+        </div>
+
+        <!-- Premium Bundle (Featured) -->
+        <div class="bundle-detail-card featured">
+          <div class="bundle-detail-popular">⭐ BEST VALUE — PALING BANYAK DIPILIH</div>
+          <div class="bundle-detail-header">
+            <div class="bundle-detail-icon">👑</div>
+            <h3 class="bundle-detail-name">Paket Premium</h3>
+            <p class="bundle-detail-tagline">Paket terlengkap untuk terapi optimal</p>
+            <div class="bundle-detail-price">
+              <span class="bundle-detail-current">Rp 14.950.000</span>
+              <span class="bundle-detail-original">Rp 17.150.000</span>
+              <span class="bundle-detail-save-badge">Hemat Rp 2.200.000 (13%)</span>
+            </div>
+          </div>
+          <div class="bundle-detail-items">
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">ResMed AirSense 11 AutoSet</span>
+              <span class="bundle-detail-item-price">Rp 13.500.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">ResMed AirFit F30i Full Face Mask</span>
+              <span class="bundle-detail-item-price">Rp 3.200.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">Filter Set (24 pcs)</span>
+              <span class="bundle-detail-item-price">Rp 450.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">Humidifier Water Chamber</span>
+              <span class="bundle-detail-item-price">Rp 350.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">ClimateLine Heated Tube</span>
+              <span class="bundle-detail-item-price">Rp 650.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">Konsultasi Gratis + Fitting + Follow-up 2 minggu</span>
+            </div>
+          </div>
+          <div class="bundle-detail-footer">
+            <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20beli%20Paket%20Premium%20CPAP" class="bundle-detail-btn bundle-detail-btn-primary" target="_blank">
+              🔥 Pilih Paket Ini
+            </a>
+          </div>
+        </div>
+
+        <!-- Travel Bundle -->
+        <div class="bundle-detail-card">
+          <div class="bundle-detail-header">
+            <div class="bundle-detail-icon">✈️</div>
+            <h3 class="bundle-detail-name">Paket Travel</h3>
+            <p class="bundle-detail-tagline">Ringan & compact, cocok untuk traveler</p>
+            <div class="bundle-detail-price">
+              <span class="bundle-detail-current">Rp 5.200.000</span>
+              <span class="bundle-detail-original">Rp 6.000.000</span>
+              <span class="bundle-detail-save-badge">Hemat Rp 800.000 (13%)</span>
+            </div>
+          </div>
+          <div class="bundle-detail-items">
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">BMC M1 Mini Travel Auto CPAP</span>
+              <span class="bundle-detail-item-price">Rp 4.800.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">BMC P6s Nasal Pillow Mask</span>
+              <span class="bundle-detail-item-price">Rp 1.200.000</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">Travel Case Premium</span>
+            </div>
+            <div class="bundle-detail-item">
+              <span class="bundle-detail-item-icon">✓</span>
+              <span class="bundle-detail-item-text">Konsultasi Gratis + Fitting</span>
+            </div>
+          </div>
+          <div class="bundle-detail-footer">
+            <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20beli%20Paket%20Travel%20CPAP" class="bundle-detail-btn bundle-detail-btn-secondary" target="_blank">
+              💬 Pilih Paket Ini
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA
+       ============================================ -->
+  <section class="bundle-cta-section">
+    <div class="container">
+      <h2 class="bundle-cta-title">Masih Ragu? Konsultasi Gratis Dulu!</h2>
+      <p class="bundle-cta-subtitle">Tim kami akan membantu Anda memilih bundle yang paling sesuai dengan kebutuhan dan budget Anda.</p>
+      <div class="bundle-cta-buttons">
+        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20konsultasi%20tentang%20Bundle%20Deals" class="bundle-cta-btn bundle-cta-btn-whatsapp" target="_blank">
+          💬 Chat via WhatsApp
+        </a>
+        <a href="index.html#booking" class="bundle-cta-btn bundle-cta-btn-outline">
+          📅 Booking Konsultasi
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="navbar-brand">
+            <span class="navbar-logo">🌙</span>
+            <span class="navbar-brand-text">SleepWell</span>
+          </div>
+          <p class="footer-desc">Unified Sleep Healthcare Platform — Platform kesehatan tidur terpadu pertama di Indonesia.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Produk</h4>
+          <a href="produk.html">Semua Produk</a>
+          <a href="bundle-deals.html">Bundle Deals</a>
+          <a href="produk.html?brand=resmed">ResMed</a>
+          <a href="produk.html?brand=philips">Philips</a>
+        </div>
+        <div class="footer-links">
+          <h4>Layanan</h4>
+          <a href="index.html#screening">Screening Gratis</a>
+          <a href="index.html#diagnosis">Home Sleep Test</a>
+          <a href="index.html#booking">Booking Konsultasi</a>
+          <a href="index.html#therapy">Personalized Therapy</a>
+        </div>
+        <div class="footer-links">
+          <h4>Kontak</h4>
+          <a href="https://wa.me/6281234567890">WhatsApp</a>
+          <a href="mailto:info@sleepwell.id">Email</a>
+          <a href="#">Jakarta, Indonesia</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SleepWell — Unified Sleep Healthcare Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20butuh%20informasi%20tentang%20Bundle%20Deals" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+    💬
+    <span class="whatsapp-fab-tooltip">Chat via WhatsApp</span>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Bundle Data
+    const bundles = {
+      starter: {
+        name: 'Paket Starter',
+        separate: 16150000,
+        bundle: 14500000,
+        save: 1650000,
+        percent: 10
+      },
+      premium: {
+        name: 'Paket Premium',
+        separate: 17150000,
+        bundle: 14950000,
+        save: 2200000,
+        percent: 13
+      },
+      travel: {
+        name: 'Paket Travel',
+        separate: 6000000,
+        bundle: 5200000,
+        save: 800000,
+        percent: 13
+      },
+      bipap: {
+        name: 'Paket BiPAP',
+        separate: 28000000,
+        bundle: 26000000,
+        save: 2000000,
+        percent: 7
+      },
+      family: {
+        name: 'Paket Family',
+        separate: 33300000,
+        bundle: 28500000,
+        save: 4800000,
+        percent: 14
+      },
+      diagnostic: {
+        name: 'Paket Diagnostic',
+        separate: 15000000,
+        bundle: 12750000,
+        save: 2250000,
+        percent: 15
+      }
+    };
+
+    function updateCalculator() {
+      const bundleKey = document.getElementById('calcBundle').value;
+      const payment = document.getElementById('calcPayment').value;
+      const bundle = bundles[bundleKey];
+
+      let bundlePrice = bundle.bundle;
+      let paymentNote = '';
+
+      if (payment === 'cc') {
+        paymentNote = 'Cicilan 3x Rp ' + Math.ceil(bundlePrice / 3).toLocaleString('id-ID') + '/bulan';
+      } else if (payment === 'installment') {
+        paymentNote = 'Cicilan 6x Rp ' + Math.ceil(bundlePrice / 6).toLocaleString('id-ID') + '/bulan';
+      } else {
+        paymentNote = 'Bayar langsung (Transfer/Bank)';
+      }
+
+      document.getElementById('calcSeparate').value = 'Rp ' + bundle.separate.toLocaleString('id-ID');
+      document.getElementById('calcBundlePrice').value = 'Rp ' + bundlePrice.toLocaleString('id-ID') + ' — ' + paymentNote;
+      document.getElementById('calcSaveAmount').textContent = 'Rp ' + bundle.save.toLocaleString('id-ID');
+      document.getElementById('calcSavePercent').textContent = 'Hemat ' + bundle.percent + '% dari harga beli terpisah';
+      document.getElementById('calcResultSeparate').textContent = 'Rp ' + bundle.separate.toLocaleString('id-ID');
+      document.getElementById('calcResultBundle').textContent = 'Rp ' + bundlePrice.toLocaleString('id-ID');
+      document.getElementById('calcResultSave').textContent = 'Rp ' + bundle.save.toLocaleString('id-ID');
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCalculator();
+    });
+
+    // Navbar toggle
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
