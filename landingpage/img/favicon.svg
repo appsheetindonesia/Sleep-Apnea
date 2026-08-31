@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="favGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00bcd4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00838f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="favGradient2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4dd0e1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00acc1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#0d1b3e"/>
+  
+  <!-- Logo Icon - Simplified for favicon -->
+  <g transform="translate(12, 8) scale(0.8)">
+    <!-- Left leaf -->
+    <path d="M 20 25 Q 10 18, 12 8 Q 14 2, 22 5 Q 28 8, 25 18 Q 24 22, 20 25 Z" 
+          fill="url(#favGradient)" opacity="0.9"/>
+    
+    <!-- Right leaf -->
+    <path d="M 22 22 Q 28 12, 35 10 Q 42 8, 40 18 Q 38 25, 30 28 Q 25 30, 22 22 Z" 
+          fill="url(#favGradient2)"/>
+    
+    <!-- Center stem -->
+    <path d="M 21 26 Q 23 30, 26 33 Q 28 36, 26 40 Q 24 44, 22 40 Q 20 36, 21 30 Z" 
+          fill="url(#favGradient)" opacity="0.85"/>
+    
+    <!-- Small accent -->
+    <path d="M 18 28 Q 15 25, 16 20 Q 18 17, 20 20 Q 23 24, 18 28 Z" 
+          fill="#4dd0e1" opacity="0.7"/>
+  </g>
+  
+  <!-- "K" text -->
+  <text x="32" y="58" 
+        font-family="'Plus Jakarta Sans', Arial, sans-serif" 
+        font-size="14" 
+        font-weight="800" 
+        fill="#ffffff" 
+        text-anchor="middle">K</text>
+</svg>
