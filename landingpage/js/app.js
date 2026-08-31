@@ -774,12 +774,13 @@
   }
 
   // ==========================================
-  // DARK MODE (with Scheduling)
+  // THEME MODE (Light / Dark / Auto)
   // ==========================================
   
   // Night hours: 6 PM (18) to 6 AM (6)
   var DARK_START_HOUR = 18;
   var DARK_END_HOUR = 6;
+  var currentTheme = 'auto';
 
   function isNightTime() {
     var hour = new Date().getHours();
@@ -787,90 +788,86 @@
   }
 
   function initDarkMode() {
-    var darkMode = localStorage.getItem('klinik-kita-dark-mode');
-    var scheduleMode = localStorage.getItem('klinik-kita-dark-schedule');
+    var savedTheme = localStorage.getItem('klinik-kita-theme') || 'auto';
+    currentTheme = savedTheme;
 
-    // Check if schedule mode is enabled (default: true)
-    var useSchedule = scheduleMode !== 'false';
+    applyTheme(savedTheme);
+    updateThemeUI();
 
-    if (darkMode === 'true') {
-      // User manually set dark mode
-      document.documentElement.classList.add('dark');
-    } else if (darkMode === 'false') {
-      // User manually set light mode
-      document.documentElement.classList.remove('dark');
-    } else if (useSchedule && isNightTime()) {
-      // Auto dark mode at night
-      document.documentElement.classList.add('dark');
-    } else if (!darkMode && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // System preference
-      document.documentElement.classList.add('dark');
-    }
-
-    // Update toggle button
-    updateDarkModeToggle();
-
-    // Check every minute for schedule
-    if (useSchedule) {
-      setInterval(function() {
-        var shouldBeDark = isNightTime();
-        var isDark = document.documentElement.classList.contains('dark');
-        if (shouldBeDark && !isDark && !localStorage.getItem('klinik-kita-dark-mode')) {
-          document.documentElement.classList.add('dark');
-          updateDarkModeToggle();
-        } else if (!shouldBeDark && isDark && !localStorage.getItem('klinik-kita-dark-mode')) {
-          document.documentElement.classList.remove('dark');
-          updateDarkModeToggle();
-        }
-      }, 60000); // Check every minute
-    }
-  }
-
-  function toggleDarkMode() {
-    document.documentElement.classList.toggle('dark');
-    var isDark = document.documentElement.classList.contains('dark');
-    localStorage.setItem('klinik-kita-dark-mode', isDark);
-    updateDarkModeToggle();
-  }
-
-  function toggleDarkSchedule() {
-    var scheduleMode = localStorage.getItem('klinik-kita-dark-schedule');
-    var useSchedule = scheduleMode !== 'false';
-    localStorage.setItem('klinik-kita-dark-schedule', !useSchedule);
-
-    // Update UI
-    var scheduleBtn = document.getElementById('darkScheduleBtn');
-    if (scheduleBtn) {
-      scheduleBtn.textContent = !useSchedule ? '🕐 Scheduled: ON' : '🕐 Scheduled: OFF';
-      scheduleBtn.classList.toggle('active', !useSchedule);
-    }
-
-    // If turning on schedule, apply current time setting
-    if (!useSchedule) {
-      if (isNightTime()) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.removeItem('klinik-kita-dark-mode');
+    // Check every minute for auto mode
+    setInterval(function() {
+      if (currentTheme === 'auto') {
+        applyTheme('auto');
+        updateThemeUI();
       }
-      updateDarkModeToggle();
+    }, 60000);
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      var selector = document.querySelector('.theme-selector');
+      if (selector && !selector.contains(e.target)) {
+        closeThemeDropdown();
+      }
+    });
+  }
+
+  function applyTheme(theme) {
+    var shouldBeDark = false;
+    
+    if (theme === 'dark') {
+      shouldBeDark = true;
+    } else if (theme === 'light') {
+      shouldBeDark = false;
+    } else if (theme === 'auto') {
+      shouldBeDark = isNightTime();
+    } else if (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      shouldBeDark = true;
+    }
+
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
   }
 
-  function updateDarkModeToggle() {
-    var toggle = document.getElementById('darkModeToggle');
-    if (toggle) {
-      var isDark = document.documentElement.classList.contains('dark');
-      toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  function setTheme(theme) {
+    currentTheme = theme;
+    localStorage.setItem('klinik-kita-theme', theme);
+    applyTheme(theme);
+    updateThemeUI();
+    closeThemeDropdown();
+  }
+
+  function toggleThemeDropdown() {
+    var dropdown = document.getElementById('themeDropdown');
+    if (dropdown) {
+      dropdown.classList.toggle('active');
+    }
+  }
+
+  function closeThemeDropdown() {
+    var dropdown = document.getElementById('themeDropdown');
+    if (dropdown) {
+      dropdown.classList.remove('active');
+    }
+  }
+
+  function updateThemeUI() {
+    var isDark = document.documentElement.classList.contains('dark');
+    
+    // Update button icon
+    var btnIcon = document.getElementById('themeBtnIcon');
+    if (btnIcon) {
+      btnIcon.textContent = isDark ? '🌙' : '☀️';
     }
 
-    // Update schedule button
-    var scheduleBtn = document.getElementById('darkScheduleBtn');
-    if (scheduleBtn) {
-      var scheduleMode = localStorage.getItem('klinik-kita-dark-schedule');
-      var useSchedule = scheduleMode !== 'false';
-      scheduleBtn.textContent = useSchedule ? '🕐 Scheduled: ON' : '🕐 Scheduled: OFF';
-      scheduleBtn.classList.toggle('active', useSchedule);
-    }
+    // Update active states
+    ['light', 'dark', 'auto'].forEach(function(t) {
+      var option = document.getElementById('theme' + t.charAt(0).toUpperCase() + t.slice(1));
+      if (option) {
+        option.classList.toggle('active', t === currentTheme);
+      }
+    });
   }
 })();

@@ -513,79 +513,171 @@ input, select, textarea {
   gap: var(--space-3);
 }
 
-/* Dark Mode Toggle */
-.dark-toggle {
-  width: 44px;
-  height: 24px;
-  background: var(--gray-200);
-  border: none;
-  border-radius: var(--radius-full);
-  cursor: pointer;
+/* Theme Mode Selector */
+.theme-selector {
   position: relative;
-  transition: background 0.3s ease;
-  padding: 0;
 }
 
-.dark-toggle::after {
-  content: '☀️';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 20px;
-  height: 20px;
-  background: var(--white);
-  border-radius: 50%;
-  transition: transform 0.3s ease, background 0.3s ease;
+.theme-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  box-shadow: var(--shadow-sm);
-}
-
-.dark .dark-toggle {
-  background: var(--blue-600);
-}
-
-.dark .dark-toggle::after {
-  content: '🌙';
-  transform: translateX(20px);
-  background: var(--blue-900);
-}
-
-/* Dark Schedule Button */
-.dark-schedule-btn {
-  padding: var(--space-1) var(--space-3);
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
   background: var(--gray-100);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-xs);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
   font-weight: 600;
-  color: var(--gray-600);
+  color: var(--gray-700);
   cursor: pointer;
   transition: all 0.2s;
   white-space: nowrap;
 }
 
-.dark-schedule-btn:hover {
+.theme-btn:hover {
   background: var(--gray-200);
-  border-color: var(--gray-300);
+  border-color: var(--teal-400);
 }
 
-.dark-schedule-btn.active {
-  background: var(--teal-500);
-  border-color: var(--teal-500);
-  color: var(--white);
-}
-
-.dark .dark-schedule-btn {
+.dark .theme-btn {
   background: var(--gray-100);
   border-color: var(--gray-200);
+  color: var(--gray-600);
 }
 
-.dark .dark-schedule-btn.active {
-  background: var(--teal-600);
-  border-color: var(--teal-600);
+.theme-btn-icon {
+  font-size: var(--font-size-lg);
+}
+
+/* Theme Dropdown */
+.theme-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  min-width: 200px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.theme-dropdown.active {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.theme-dropdown-header {
+  padding: var(--space-3) var(--space-4);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-100);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dark .theme-dropdown-header {
+  background: var(--gray-100);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.theme-option:hover {
+  background: var(--gray-50);
+}
+
+.dark .theme-option:hover {
+  background: var(--gray-100);
+}
+
+.theme-option.active {
+  background: var(--teal-50);
+}
+
+.dark .theme-option.active {
+  background: rgba(0, 188, 212, 0.1);
+}
+
+.theme-option-icon {
+  font-size: 1.25rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  border-radius: var(--radius-md);
+}
+
+.dark .theme-option-icon {
+  background: var(--gray-100);
+}
+
+.theme-option.active .theme-option-icon {
+  background: var(--teal-100);
+}
+
+.dark .theme-option.active .theme-option-icon {
+  background: rgba(0, 188, 212, 0.2);
+}
+
+.theme-option-text {
+  flex: 1;
+}
+
+.theme-option-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.dark .theme-option-title {
+  color: var(--gray-700);
+}
+
+.theme-option-desc {
+  font-size: var(--font-size-xs);
+  color: var(--gray-500);
+}
+
+.theme-option-check {
+  color: var(--teal-500);
+  font-weight: 700;
+  opacity: 0;
+}
+
+.theme-option.active .theme-option-check {
+  opacity: 1;
+}
+
+.theme-dropdown-divider {
+  height: 1px;
+  background: var(--gray-100);
+}
+
+.dark .theme-dropdown-divider {
+  background: var(--gray-100);
 }
 
 .navbar-cta {

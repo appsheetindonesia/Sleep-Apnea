@@ -75,6 +75,41 @@
           <button class="lang-btn active" data-lang="id" aria-pressed="true">ID</button>
           <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
+        <div class="theme-selector">
+          <button class="theme-btn" onclick="toggleThemeDropdown()" aria-label="Theme settings">
+            <span class="theme-btn-icon" id="themeBtnIcon">☀️</span>
+            <span id="themeBtnText">Theme</span>
+            <span>▾</span>
+          </button>
+          <div class="theme-dropdown" id="themeDropdown">
+            <div class="theme-dropdown-header">Mode Tampilan</div>
+            <button class="theme-option" onclick="setTheme('light')" id="themeLight">
+              <span class="theme-option-icon">☀️</span>
+              <span class="theme-option-text">
+                <span class="theme-option-title">Light Mode</span>
+                <span class="theme-option-desc">Mode terang untuk siang hari</span>
+              </span>
+              <span class="theme-option-check">✓</span>
+            </button>
+            <button class="theme-option" onclick="setTheme('dark')" id="themeDark">
+              <span class="theme-option-icon">🌙</span>
+              <span class="theme-option-text">
+                <span class="theme-option-title">Dark Mode</span>
+                <span class="theme-option-desc">Mode gelap untuk malam hari</span>
+              </span>
+              <span class="theme-option-check">✓</span>
+            </button>
+            <div class="theme-dropdown-divider"></div>
+            <button class="theme-option" onclick="setTheme('auto')" id="themeAuto">
+              <span class="theme-option-icon">🕐</span>
+              <span class="theme-option-text">
+                <span class="theme-option-title">Auto (Scheduled)</span>
+                <span class="theme-option-desc">Otomatis 6PM-6AM</span>
+              </span>
+              <span class="theme-option-check">✓</span>
+            </button>
+          </div>
+        </div>
         <a href="#booking" class="btn btn-primary btn-sm navbar-cta">Booking Sekarang</a>
         <button class="mobile-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">
           <span></span><span></span><span></span>
