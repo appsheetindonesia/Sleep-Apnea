@@ -371,6 +371,365 @@
         flex-direction: column;
       }
     }
+
+    /* ========== Compare Feature ========== */
+    .compare-checkbox {
+      position: absolute;
+      top: var(--space-3);
+      left: var(--space-3);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: var(--space-1) var(--space-2);
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      color: var(--gray-600);
+      cursor: pointer;
+      border: 2px solid var(--gray-200);
+      transition: all 0.2s;
+    }
+
+    .compare-checkbox:hover {
+      border-color: var(--blue-400);
+      color: var(--blue-600);
+    }
+
+    .compare-checkbox.checked {
+      background: var(--blue-600);
+      border-color: var(--blue-600);
+      color: var(--white);
+    }
+
+    .compare-checkbox input {
+      display: none;
+    }
+
+    .produk-card-badge {
+      left: var(--space-3);
+    }
+
+    /* Compare Drawer */
+    .compare-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: 2px solid var(--blue-500);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .compare-drawer.active {
+      transform: translateY(0);
+    }
+
+    .compare-drawer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .compare-drawer-items {
+      display: flex;
+      gap: var(--space-4);
+      flex: 1;
+    }
+
+    .compare-drawer-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-2) var(--space-3);
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+    }
+
+    .compare-drawer-item-img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+    }
+
+    .compare-drawer-item-name {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--gray-800);
+      max-width: 150px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .compare-drawer-item-remove {
+      background: none;
+      border: none;
+      color: var(--gray-400);
+      cursor: pointer;
+      font-size: var(--font-size-lg);
+      padding: 0;
+      line-height: 1;
+    }
+
+    .compare-drawer-item-remove:hover {
+      color: var(--red-500);
+    }
+
+    .compare-drawer-slot {
+      width: 50px;
+      height: 50px;
+      border: 2px dashed var(--gray-300);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      font-size: var(--font-size-xl);
+    }
+
+    .compare-drawer-actions {
+      display: flex;
+      gap: var(--space-3);
+      flex-shrink: 0;
+    }
+
+    .compare-btn {
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-lg);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .compare-btn-primary {
+      background: var(--blue-600);
+      color: var(--white);
+    }
+
+    .compare-btn-primary:hover {
+      background: var(--blue-700);
+    }
+
+    .compare-btn-primary:disabled {
+      background: var(--gray-300);
+      cursor: not-allowed;
+    }
+
+    .compare-btn-secondary {
+      background: var(--gray-100);
+      color: var(--gray-600);
+    }
+
+    .compare-btn-secondary:hover {
+      background: var(--gray-200);
+    }
+
+    /* Compare Modal */
+    .compare-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 2000;
+      padding: var(--space-8);
+      overflow-y: auto;
+    }
+
+    .compare-modal-overlay.active {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .compare-modal {
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      width: 100%;
+      max-width: 1000px;
+      overflow: hidden;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .compare-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-5) var(--space-6);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .compare-modal-title {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+
+    .compare-modal-close {
+      background: none;
+      border: none;
+      font-size: var(--font-size-2xl);
+      color: var(--gray-400);
+      cursor: pointer;
+      padding: var(--space-1);
+    }
+
+    .compare-modal-close:hover {
+      color: var(--gray-700);
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .compare-table th {
+      padding: var(--space-4) var(--space-5);
+      text-align: center;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+      width: 25%;
+    }
+
+    .compare-table th:first-child {
+      text-align: left;
+      background: var(--white);
+    }
+
+    .compare-table td {
+      padding: var(--space-3) var(--space-5);
+      border-bottom: 1px solid var(--gray-100);
+      text-align: center;
+      font-size: var(--font-size-sm);
+      color: var(--gray-700);
+      vertical-align: top;
+    }
+
+    .compare-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: var(--gray-600);
+      background: var(--gray-50);
+    }
+
+    .compare-table tr:hover td {
+      background: var(--blue-50);
+    }
+
+    .compare-table tr:hover td:first-child {
+      background: var(--blue-50);
+    }
+
+    .compare-product-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: var(--space-2);
+    }
+
+    .compare-product-name {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: var(--space-1);
+    }
+
+    .compare-product-price {
+      font-size: var(--font-size-base);
+      font-weight: 800;
+      color: var(--blue-700);
+    }
+
+    .compare-product-brand {
+      display: inline-block;
+      padding: var(--space-1) var(--space-2);
+      background: var(--gray-100);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      color: var(--gray-600);
+      margin-bottom: var(--space-2);
+    }
+
+    .compare-check {
+      color: var(--green-500);
+      font-weight: 700;
+    }
+
+    .compare-cross {
+      color: var(--gray-300);
+    }
+
+    .compare-best {
+      background: var(--green-50);
+      font-weight: 700;
+      color: var(--green-700);
+    }
+
+    /* Compare Badge */
+    .compare-badge {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue-600);
+      color: var(--white);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      z-index: 999;
+      animation: pulse 2s infinite;
+    }
+
+    .compare-badge.active {
+      display: block;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    @media (max-width: 768px) {
+      .compare-drawer-inner {
+        flex-direction: column;
+      }
+
+      .compare-drawer-items {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .compare-modal-overlay {
+        padding: var(--space-4);
+      }
+
+      .compare-table {
+        font-size: var(--font-size-xs);
+      }
+    }
   </style>
 </head>
 <body>
@@ -540,6 +899,39 @@
       </div>
     </div>
   </footer>
+
+  <!-- Compare Drawer -->
+  <div class="compare-drawer" id="compareDrawer">
+    <div class="compare-drawer-inner">
+      <div class="compare-drawer-items" id="compareDrawerItems">
+        <!-- Compare items rendered by JS -->
+      </div>
+      <div class="compare-drawer-actions">
+        <button class="compare-btn compare-btn-secondary" onclick="clearCompare()">Hapus Semua</button>
+        <button class="compare-btn compare-btn-primary" id="compareBtn" onclick="openCompareModal()" disabled>Bandingkan (0/3)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compare Badge -->
+  <div class="compare-badge" id="compareBadge">
+    📊 <span id="compareBadgeCount">0</span> produk dipilih — <a href="#" onclick="openCompareModal(); return false;" style="color:white; text-decoration:underline;">Bandingkan sekarang</a>
+  </div>
+
+  <!-- Compare Modal -->
+  <div class="compare-modal-overlay" id="compareModal">
+    <div class="compare-modal">
+      <div class="compare-modal-header">
+        <h2 class="compare-modal-title">📊 Perbandingan Produk</h2>
+        <button class="compare-modal-close" onclick="closeCompareModal()">✕</button>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="compare-table" id="compareTable">
+          <!-- Rendered by JS -->
+        </table>
+      </div>
+    </div>
+  </div>
 
   <!-- WhatsApp FAB -->
   <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20butuh%20informasi%20tentang%20produk%20CPAP" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
@@ -906,6 +1298,10 @@
       grid.innerHTML = filtered.map(p => `
         <div class="produk-card" onclick="window.location.href='produk-detail.html?id=${p.id}'">
           <div class="produk-card-image">
+            <label class="compare-checkbox ${compareList.includes(p.id) ? 'checked' : ''}" data-id="${p.id}" onclick="toggleCompare(${p.id}, event)">
+              <input type="checkbox" ${compareList.includes(p.id) ? 'checked' : ''}>
+              📊 Bandingkan
+            </label>
             <img data-src="${p.image}" alt="${p.name}" loading="lazy" class="lazy-img">
             ${p.badge ? `<span class="produk-card-badge ${p.badge === 'NEW' ? 'new' : p.badge === 'EKSKLUSIF' ? 'exclusive' : ''}">${p.badge}</span>` : ''}
             <span class="produk-card-vendor">${p.brand.charAt(0).toUpperCase() + p.brand.slice(1)}</span>
@@ -941,6 +1337,179 @@
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('active');
     }
+
+    // ==========================================
+    // COMPARE FEATURE
+    // ==========================================
+    let compareList = [];
+    const MAX_COMPARE = 3;
+
+    // Add compare checkbox to product cards
+    function toggleCompare(productId, event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      const idx = compareList.indexOf(productId);
+      if (idx > -1) {
+        compareList.splice(idx, 1);
+      } else {
+        if (compareList.length >= MAX_COMPARE) {
+          alert('Maksimal 3 produk untuk dibandingkan!');
+          return;
+        }
+        compareList.push(productId);
+      }
+
+      updateCompareUI();
+    }
+
+    function updateCompareUI() {
+      // Update checkboxes
+      document.querySelectorAll('.compare-checkbox').forEach(cb => {
+        const id = parseInt(cb.dataset.id);
+        if (compareList.includes(id)) {
+          cb.classList.add('checked');
+          cb.querySelector('input').checked = true;
+        } else {
+          cb.classList.remove('checked');
+          cb.querySelector('input').checked = false;
+        }
+      });
+
+      // Update drawer
+      const drawer = document.getElementById('compareDrawer');
+      const drawerItems = document.getElementById('compareDrawerItems');
+      const compareBtn = document.getElementById('compareBtn');
+      const badge = document.getElementById('compareBadge');
+      const badgeCount = document.getElementById('compareBadgeCount');
+
+      if (compareList.length > 0) {
+        drawer.classList.add('active');
+        badge.classList.add('active');
+        badgeCount.textContent = compareList.length;
+      } else {
+        drawer.classList.remove('active');
+        badge.classList.remove('active');
+      }
+
+      compareBtn.disabled = compareList.length < 2;
+      compareBtn.textContent = `Bandingkan (${compareList.length}/${MAX_COMPARE})`;
+
+      // Render drawer items
+      let html = '';
+      compareList.forEach(id => {
+        const p = products.find(pr => pr.id === id);
+        if (p) {
+          html += `
+            <div class="compare-drawer-item">
+              <img src="${p.image}" alt="${p.name}" class="compare-drawer-item-img">
+              <span class="compare-drawer-item-name">${p.name}</span>
+              <button class="compare-drawer-item-remove" onclick="toggleCompare(${p.id}, event)">✕</button>
+            </div>`;
+        }
+      });
+      // Add empty slots
+      for (let i = compareList.length; i < MAX_COMPARE; i++) {
+        html += `<div class="compare-drawer-slot">+</div>`;
+      }
+      drawerItems.innerHTML = html;
+    }
+
+    function clearCompare() {
+      compareList = [];
+      updateCompareUI();
+    }
+
+    function openCompareModal() {
+      if (compareList.length < 2) {
+        alert('Pilih minimal 2 produk untuk dibandingkan!');
+        return;
+      }
+
+      const modal = document.getElementById('compareModal');
+      const table = document.getElementById('compareTable');
+
+      const compareProducts = compareList.map(id => products.find(p => p.id === id)).filter(Boolean);
+
+      // Get all spec keys
+      const allSpecKeys = new Set();
+      compareProducts.forEach(p => {
+        if (p.specs) Object.keys(p.specs).forEach(k => allSpecKeys.add(k));
+      });
+
+      // Build table
+      let html = '<thead><tr><th></th>';
+      compareProducts.forEach(p => {
+        html += `<th>
+          <img src="${p.image}" alt="${p.name}" class="compare-product-img">
+          <div class="compare-product-brand">${p.brand}</div>
+          <div class="compare-product-name">${p.name}</div>
+          <div class="compare-product-price">${p.price === 0 ? 'Hubungi Kami' : 'Rp ' + p.price.toLocaleString('id-ID')}</div>
+        </th>`;
+      });
+      html += '</tr></thead><tbody>';
+
+      // Basic info rows
+      html += '<tr><td>Brand</td>';
+      compareProducts.forEach(p => html += `<td>${p.brand}</td>`);
+      html += '</tr>';
+
+      html += '<tr><td>Kategori</td>';
+      compareProducts.forEach(p => html += `<td>${getCategoryLabel(p.category)}</td>`);
+      html += '</tr>';
+
+      html += '<tr><td>Harga</td>';
+      const minPrice = Math.min(...compareProducts.filter(p => p.price > 0).map(p => p.price));
+      compareProducts.forEach(p => {
+        const isBest = p.price === minPrice && p.price > 0;
+        html += `<td class="${isBest ? 'compare-best' : ''}">${p.price === 0 ? 'Hubungi Kami' : 'Rp ' + p.price.toLocaleString('id-ID')}${isBest ? ' ✓' : ''}</td>`;
+      });
+      html += '</tr>';
+
+      // Spec rows
+      allSpecKeys.forEach(key => {
+        html += `<tr><td>${key}</td>`;
+        compareProducts.forEach(p => {
+          const val = p.specs ? p.specs[key] : '—';
+          html += `<td>${val || '—'}</td>`;
+        });
+        html += '</tr>';
+      });
+
+      // Features row
+      html += '<tr><td>Fitur Utama</td>';
+      compareProducts.forEach(p => {
+        const features = p.features ? p.features.slice(0, 3).join('<br>') : '—';
+        html += `<td style="text-align:left; font-size:0.8rem;">${features}</td>`;
+      });
+      html += '</tr>';
+
+      // Action row
+      html += '<tr><td>Aksi</td>';
+      compareProducts.forEach(p => {
+        html += `<td>
+          <a href="produk-detail.html?id=${p.id}" style="display:inline-block; padding:8px 16px; background:var(--blue-600); color:white; border-radius:8px; text-decoration:none; font-size:0.8rem; font-weight:600;">Detail</a>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20${encodeURIComponent(p.name)}" target="_blank" style="display:inline-block; padding:8px 16px; background:#25D366; color:white; border-radius:8px; text-decoration:none; font-size:0.8rem; font-weight:600; margin-top:4px;">WhatsApp</a>
+        </td>`;
+      });
+      html += '</tr>';
+
+      html += '</tbody>';
+      table.innerHTML = html;
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCompareModal() {
+      document.getElementById('compareModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on overlay click
+    document.getElementById('compareModal').addEventListener('click', function(e) {
+      if (e.target === this) closeCompareModal();
+    });
   </script>
 </body>
 </html>
