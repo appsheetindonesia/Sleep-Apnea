@@ -49,6 +49,37 @@
   });
 
   // ==========================================
+  // MOBILE MENU
+  // ==========================================
+  function toggleMobileMenu() {
+    var menu = document.getElementById('mobileMenu');
+    var toggle = document.querySelector('.mobile-toggle');
+    if (menu) {
+      menu.classList.toggle('active');
+      menu.setAttribute('aria-hidden', !menu.classList.contains('active'));
+      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+      // Animate hamburger icon
+      if (toggle) {
+        toggle.classList.toggle('active');
+      }
+    }
+  }
+
+  // Close mobile menu on resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      var menu = document.getElementById('mobileMenu');
+      var toggle = document.querySelector('.mobile-toggle');
+      if (menu && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (toggle) toggle.classList.remove('active');
+      }
+    }
+  });
+
+  // ==========================================
   // NAVBAR
   // ==========================================
   function initNavbar() {
