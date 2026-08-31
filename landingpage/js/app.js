@@ -665,7 +665,7 @@
 
     // Redirect to WhatsApp
     var whatsappUrl =
-      'https://wa.me/6281234567890?text=' + encodeURIComponent(message);
+      'https://wa.me/6281384626118?text=' + encodeURIComponent(message);
     window.open(whatsappUrl, '_blank');
 
     // Show success
