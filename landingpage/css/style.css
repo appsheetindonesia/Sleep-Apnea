@@ -6,14 +6,25 @@
 
 /* ---------- CSS Variables / Design Tokens ---------- */
 :root {
-  /* Primary Palette */
-  --blue-900: #1e3a5f;
-  --blue-700: #1e40af;
-  --blue-600: #2563eb;
-  --blue-500: #3b82f6;
-  --blue-400: #60a5fa;
-  --blue-100: #dbeafe;
-  --blue-50: #eff6ff;
+  /* Primary Palette - Klinik Kita Navy & Teal */
+  --blue-900: #0d1b3e;
+  --blue-800: #142850;
+  --blue-700: #1a3565;
+  --blue-600: #1e4d8c;
+  --blue-500: #2196F3;
+  --blue-400: #42a5f5;
+  --blue-300: #90caf9;
+  --blue-100: #bbdefb;
+  --blue-50: #e3f2fd;
+
+  /* Teal Accent - Klinik Kita Logo */
+  --teal-700: #00838f;
+  --teal-600: #00acc1;
+  --teal-500: #00bcd4;
+  --teal-400: #26c6da;
+  --teal-300: #4dd0e1;
+  --teal-100: #b2ebf2;
+  --teal-50: #e0f7fa;
 
   /* Secondary - Green (Health) */
   --green-700: #047857;
@@ -223,13 +234,13 @@ input, select, textarea {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+  background: linear-gradient(135deg, var(--teal-500), var(--teal-600));
   color: var(--white);
   box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--orange-600), #dc2626);
+  background: linear-gradient(135deg, var(--teal-600), #dc2626);
   box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
   transform: translateY(-2px);
 }
@@ -363,7 +374,14 @@ input, select, textarea {
   gap: var(--space-3);
   font-size: var(--font-size-xl);
   font-weight: 800;
-  color: var(--blue-700);
+  color: var(--blue-900);
+  text-decoration: none;
+}
+
+.navbar-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar-brand svg {
@@ -431,7 +449,7 @@ input, select, textarea {
 
 .navbar-cta {
   padding: var(--space-2) var(--space-5);
-  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+  background: linear-gradient(135deg, var(--teal-500), var(--teal-600));
   color: var(--white);
   font-size: var(--font-size-sm);
   font-weight: 600;
@@ -572,7 +590,7 @@ input, select, textarea {
 }
 
 .hero-title .highlight-orange {
-  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+  background: linear-gradient(135deg, var(--teal-500), var(--teal-600));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -681,7 +699,7 @@ input, select, textarea {
 }
 
 .hero-card-icon.orange {
-  background: var(--orange-100);
+  background: var(--teal-100);
 }
 
 .hero-card-title {
@@ -823,7 +841,7 @@ input, select, textarea {
 }
 
 .service-card:nth-child(2)::before { background: linear-gradient(135deg, var(--green-500), var(--green-600)); }
-.service-card:nth-child(3)::before { background: linear-gradient(135deg, var(--orange-500), var(--orange-600)); }
+.service-card:nth-child(3)::before { background: linear-gradient(135deg, var(--teal-500), var(--teal-600)); }
 .service-card:nth-child(4)::before { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 .service-card:nth-child(5)::before { background: linear-gradient(135deg, #ec4899, #db2777); }
 .service-card:nth-child(6)::before { background: linear-gradient(135deg, #06b6d4, #0891b2); }
@@ -841,7 +859,7 @@ input, select, textarea {
 
 .service-icon.blue { background: var(--blue-100); }
 .service-icon.green { background: var(--green-100); }
-.service-icon.orange { background: var(--orange-100); }
+.service-icon.orange { background: var(--teal-100); }
 .service-icon.purple { background: #ede9fe; }
 .service-icon.pink { background: #fce7f3; }
 .service-icon.cyan { background: #cffafe; }
@@ -1183,7 +1201,7 @@ input, select, textarea {
   top: var(--space-3);
   left: var(--space-3);
   padding: var(--space-1) var(--space-3);
-  background: var(--orange-500);
+  background: var(--teal-500);
   color: var(--white);
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -1318,7 +1336,7 @@ input, select, textarea {
    BUNDLE DEALS SECTION
    ============================================ */
 .bundles-section {
-  background: linear-gradient(180deg, var(--orange-100) 0%, var(--white) 100%);
+  background: linear-gradient(180deg, var(--teal-100) 0%, var(--white) 100%);
 }
 
 .bundles-grid {
@@ -1337,7 +1355,7 @@ input, select, textarea {
 }
 
 .bundle-card.featured {
-  border-color: var(--orange-500);
+  border-color: var(--teal-500);
   box-shadow: 0 8px 30px rgba(249, 115, 22, 0.15);
 }
 
@@ -1352,7 +1370,7 @@ input, select, textarea {
   left: 50%;
   transform: translateX(-50%);
   padding: var(--space-1) var(--space-4);
-  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+  background: linear-gradient(135deg, var(--teal-500), var(--teal-600));
   color: var(--white);
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -1552,7 +1570,7 @@ input, select, textarea {
 
 .therapy-feature-icon.blue { background: var(--blue-100); }
 .therapy-feature-icon.green { background: var(--green-100); }
-.therapy-feature-icon.orange { background: var(--orange-100); }
+.therapy-feature-icon.orange { background: var(--teal-100); }
 
 .therapy-feature-text h4 {
   font-weight: 700;
@@ -2461,7 +2479,7 @@ input, select, textarea {
   display: block;
   width: 100%;
   padding: var(--space-4);
-  background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+  background: linear-gradient(135deg, var(--teal-500), var(--teal-600));
   color: var(--white);
   font-size: var(--font-size-base);
   font-weight: 600;
