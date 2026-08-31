@@ -518,35 +518,34 @@ input, select, textarea {
   position: relative;
 }
 
-.theme-btn {
+.theme-btn-icon-only {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   background: var(--gray-100);
   border: 2px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--gray-700);
+  border-radius: 50%;
+  font-size: 1.25rem;
   cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
-.theme-btn:hover {
-  background: var(--gray-200);
+.theme-btn-icon-only:hover {
+  background: var(--teal-100);
   border-color: var(--teal-400);
+  transform: rotate(20deg);
 }
 
-.dark .theme-btn {
+.dark .theme-btn-icon-only {
   background: var(--gray-100);
   border-color: var(--gray-200);
-  color: var(--gray-600);
 }
 
-.theme-btn-icon {
-  font-size: var(--font-size-lg);
+.dark .theme-btn-icon-only:hover {
+  background: rgba(0, 188, 212, 0.2);
+  border-color: var(--teal-400);
 }
 
 /* Theme Dropdown */
@@ -2530,6 +2529,22 @@ input, select, textarea {
     display: none;
   }
 
+  .navbar-cta {
+    font-size: 0;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .navbar-cta::before {
+    content: '📅';
+    font-size: var(--font-size-lg);
+  }
+
+  .theme-btn-icon-only {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
   .hero {
     min-height: auto;
     padding: calc(72px + var(--space-10)) 0 var(--space-16);
@@ -2803,10 +2818,6 @@ input, select, textarea {
 }
 
 /* Dark Mode Logo Styles */
-.dark .navbar-logo-img {
-  content: url('../img/logo-dark.svg');
-  filter: drop-shadow(0 2px 8px rgba(0, 188, 212, 0.4));
-}
 
 .dark .navbar-brand:hover .navbar-logo-img {
   filter: drop-shadow(0 4px 16px rgba(0, 188, 212, 0.7));
@@ -2827,16 +2838,8 @@ input, select, textarea {
 }
 
 /* Footer Logo Dark Mode */
-.dark .footer-logo img {
-  content: url('../img/logo-dark.svg');
-  filter: drop-shadow(0 2px 6px rgba(0, 188, 212, 0.3));
-}
 
 /* Mobile Menu Logo Dark Mode */
-.dark .mobile-menu-header img {
-  content: url('../img/logo-dark.svg');
-  filter: drop-shadow(0 2px 6px rgba(0, 188, 212, 0.3));
-}
 
 .dark .nav-link {
   color: var(--gray-400);

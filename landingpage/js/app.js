@@ -847,5 +847,22 @@
     if (darkOption) {
       darkOption.classList.toggle('active', currentTheme === 'dark');
     }
+
+    // Update all logos on page
+    updateLogos(isDark);
+  }
+
+  function updateLogos(isDark) {
+    var logoSrc = isDark ? 'img/logo-dark.svg' : 'img/logo.png';
+    var logos = document.querySelectorAll('.navbar-logo-img, .footer-logo img, .mobile-menu-header img');
+    logos.forEach(function(logo) {
+      logo.src = logoSrc;
+    });
+
+    // Update hero logo if exists
+    var heroLogo = document.querySelector('.hero-logo');
+    if (heroLogo) {
+      heroLogo.src = logoSrc;
+    }
   }
 })();
