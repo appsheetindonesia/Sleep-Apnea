@@ -313,6 +313,18 @@
       background: var(--gray-200);
     }
 
+    .produk-btn-cart {
+      background: var(--orange-500);
+      color: var(--white);
+      flex: 0 0 40px;
+      padding: var(--space-2);
+      font-size: var(--font-size-base);
+    }
+
+    .produk-btn-cart:hover {
+      background: var(--orange-600);
+    }
+
     /* No Results */
     .no-results {
       text-align: center;
@@ -754,6 +766,7 @@
       </div>
 
       <div class="navbar-actions">
+        <a href="cart.html" class="btn btn-outline btn-sm" style="position:relative;">🛒 Keranjang <span id="cartBadge" style="display:none; position:absolute; top:-6px; right:-6px; background:#ef4444; color:white; border-radius:50%; width:18px; height:18px; font-size:10px; display:flex; align-items:center; justify-content:center;"></span></a>
         <a href="index.html#booking" class="btn btn-primary btn-sm">Booking Sekarang</a>
         <button class="navbar-toggle" id="navToggle" onclick="toggleNav()" aria-label="Toggle menu">
           <span></span>
@@ -1317,7 +1330,8 @@
               }
             </div>
             <div class="produk-card-actions">
-              <a href="produk-detail.html?id=${p.id}" class="produk-btn produk-btn-detail">Detail</a>
+              <a href="produk-detail.html?id=${p.id}" class="produk-btn produk-btn-detail" onclick="event.stopPropagation()">Detail</a>
+              <button class="produk-btn produk-btn-cart" onclick="event.stopPropagation(); addToCart(${p.id})">🛒</button>
               <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20${encodeURIComponent(p.name)}" class="produk-btn produk-btn-whatsapp" target="_blank" onclick="event.stopPropagation()">WhatsApp</a>
             </div>
           </div>
@@ -1332,6 +1346,44 @@
       const labels = { cpap: 'Auto CPAP', bipap: 'Auto BiPAP', masker: 'Masker', diagnostic: 'Diagnostic', accessories: 'Aksesoris' };
       return labels[cat] || cat;
     }
+
+    // ==========================================
+    // ADD TO CART
+    // ==========================================
+    function addToCart(productId) {
+      let cart = JSON.parse(localStorage.getItem('sleepwell_cart') || '[]');
+      const existing = cart.find(i => i.id === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id: productId, qty: 1 });
+      }
+      localStorage.setItem('sleepwell_cart', JSON.stringify(cart));
+      updateCartBadge();
+
+      // Show toast
+      const toast = document.createElement('div');
+      toast.style.cssText = 'position:fixed; bottom:80px; right:24px; z-index:3000; background:#059669; color:white; padding:12px 20px; border-radius:12px; font-size:14px; font-weight:600; box-shadow:0 4px 12px rgba(0,0,0,0.15); animation:slideUp 0.3s ease;';
+      toast.textContent = '✅ Ditambahkan ke keranjang!';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2500);
+    }
+
+    function updateCartBadge() {
+      const cart = JSON.parse(localStorage.getItem('sleepwell_cart') || '[]');
+      const total = cart.reduce((a, b) => a + b.qty, 0);
+      const badge = document.getElementById('cartBadge');
+      if (badge) {
+        if (total > 0) {
+          badge.style.display = 'flex';
+          badge.textContent = total;
+        } else {
+          badge.style.display = 'none';
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartBadge);
 
     // Navbar toggle
     function toggleNav() {

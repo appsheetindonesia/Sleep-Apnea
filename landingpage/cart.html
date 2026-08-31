@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keranjang — SleepWell</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .cart-hero {
+      padding: calc(72px + var(--space-10)) 0 var(--space-10);
+      background: var(--gray-50);
+    }
+    .cart-hero-title {
+      font-size: var(--font-size-3xl);
+      font-weight: 800;
+      color: var(--gray-900);
+    }
+    .cart-section {
+      padding: var(--space-10) 0 var(--space-16);
+    }
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: var(--space-8);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    /* Cart Items */
+    .cart-items { display: flex; flex-direction: column; gap: var(--space-4); }
+    .cart-item {
+      display: flex; gap: var(--space-5); align-items: center;
+      background: var(--white); border-radius: var(--radius-xl); padding: var(--space-5);
+      border: 1px solid var(--gray-100); transition: box-shadow 0.2s;
+    }
+    .cart-item:hover { box-shadow: var(--shadow-md); }
+    .cart-item-img {
+      width: 100px; height: 100px; object-fit: contain;
+      border-radius: var(--radius-lg); background: var(--gray-50);
+      padding: var(--space-2); flex-shrink: 0;
+    }
+    .cart-item-info { flex: 1; }
+    .cart-item-brand {
+      font-size: var(--font-size-xs); font-weight: 600; color: var(--blue-600);
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-1);
+    }
+    .cart-item-name { font-size: var(--font-size-base); font-weight: 700; color: var(--gray-900); margin-bottom: var(--space-2); }
+    .cart-item-price { font-size: var(--font-size-lg); font-weight: 800; color: var(--blue-700); }
+    .cart-item-original { font-size: var(--font-size-sm); color: var(--gray-400); text-decoration: line-through; margin-left: var(--space-2); }
+    .cart-item-actions { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-3); }
+
+    /* Quantity */
+    .qty-control {
+      display: flex; align-items: center; border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg); overflow: hidden;
+    }
+    .qty-btn {
+      width: 36px; height: 36px; border: none; background: var(--gray-50);
+      font-size: var(--font-size-lg); font-weight: 700; color: var(--gray-600);
+      cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center;
+    }
+    .qty-btn:hover { background: var(--gray-100); }
+    .qty-value {
+      width: 48px; text-align: center; font-size: var(--font-size-base);
+      font-weight: 700; border: none; border-left: 1px solid var(--gray-200);
+      border-right: 1px solid var(--gray-200); padding: var(--space-2) 0;
+    }
+    .cart-item-remove {
+      background: none; border: none; color: var(--gray-400); cursor: pointer;
+      font-size: var(--font-size-sm); padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-md); transition: all 0.2s;
+    }
+    .cart-item-remove:hover { color: #ef4444; background: #fef2f2; }
+
+    /* Order Summary */
+    .order-summary {
+      position: sticky; top: 80px; align-self: start;
+      background: var(--white); border-radius: var(--radius-2xl);
+      border: 1px solid var(--gray-100); overflow: hidden;
+    }
+    .order-summary-header {
+      padding: var(--space-5) var(--space-6);
+      background: var(--blue-600); color: var(--white);
+    }
+    .order-summary-title { font-size: var(--font-size-lg); font-weight: 700; }
+    .order-summary-body { padding: var(--space-6); }
+    .summary-row {
+      display: flex; justify-content: space-between; padding: var(--space-3) 0;
+      font-size: var(--font-size-sm); color: var(--gray-600);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row.total {
+      font-size: var(--font-size-lg); font-weight: 800; color: var(--gray-900);
+      border-top: 2px solid var(--gray-200); margin-top: var(--space-3); padding-top: var(--space-4);
+    }
+    .summary-row.save { color: var(--green-600); font-weight: 700; }
+
+    /* Checkout Form */
+    .checkout-form { margin-top: var(--space-6); }
+    .form-title {
+      font-size: var(--font-size-base); font-weight: 700; color: var(--gray-900);
+      margin-bottom: var(--space-4); padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .form-group { margin-bottom: var(--space-4); }
+    .form-label { display: block; font-size: var(--font-size-sm); font-weight: 600; color: var(--gray-700); margin-bottom: var(--space-2); }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: var(--space-3) var(--space-4); border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg); font-size: var(--font-size-sm); font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(30,64,175,0.1);
+    }
+    .form-textarea { resize: vertical; min-height: 80px; }
+
+    /* Checkout Buttons */
+    .checkout-buttons { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-6); }
+    .checkout-btn {
+      width: 100%; padding: var(--space-4); border-radius: var(--radius-xl);
+      font-size: var(--font-size-base); font-weight: 700; text-align: center;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: var(--space-2);
+    }
+    .checkout-btn-whatsapp { background: #25D366; color: var(--white); }
+    .checkout-btn-whatsapp:hover { background: #128C7E; transform: translateY(-2px); }
+    .checkout-btn-outline { background: var(--white); color: var(--blue-600); border: 2px solid var(--blue-600); }
+    .checkout-btn-outline:hover { background: var(--blue-50); }
+
+    /* Empty Cart */
+    .empty-cart {
+      text-align: center; padding: var(--space-16) 0; grid-column: 1 / -1;
+    }
+    .empty-cart-icon { font-size: 5rem; margin-bottom: var(--space-4); opacity: 0.3; }
+    .empty-cart-text { font-size: var(--font-size-xl); font-weight: 700; color: var(--gray-700); margin-bottom: var(--space-2); }
+    .empty-cart-sub { color: var(--gray-500); margin-bottom: var(--space-6); }
+
+    /* Trust Bar */
+    .trust-bar {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4);
+      padding: var(--space-6); background: var(--gray-50); border-radius: var(--radius-xl);
+      margin-top: var(--space-6);
+    }
+    .trust-item { text-align: center; }
+    .trust-icon { font-size: 1.5rem; margin-bottom: var(--space-1); }
+    .trust-text { font-size: var(--font-size-xs); font-weight: 600; color: var(--gray-600); }
+
+    /* Success Toast */
+    .toast {
+      position: fixed; bottom: 80px; right: 24px; z-index: 3000;
+      background: var(--green-600); color: white; padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-lg); font-size: var(--font-size-sm); font-weight: 600;
+      box-shadow: var(--shadow-lg); transform: translateX(120%); transition: transform 0.3s ease;
+    }
+    .toast.show { transform: translateX(0); }
+
+    @media (max-width: 768px) {
+      .cart-layout { grid-template-columns: 1fr; }
+      .cart-item { flex-direction: column; align-items: flex-start; }
+      .cart-item-img { width: 80px; height: 80px; }
+      .trust-bar { grid-template-columns: repeat(2, 1fr); }
+      .order-summary { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <span class="navbar-logo">🌙</span>
+        <span class="navbar-brand-text">SleepWell</span>
+      </a>
+      <div class="navbar-links" id="navLinks">
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="produk.html" class="nav-link">Produk</a>
+        <a href="bundle-deals.html" class="nav-link">Bundle Deals</a>
+        <a href="index.html#services" class="nav-link">Layanan</a>
+        <a href="index.html#screening" class="nav-link">Screening</a>
+        <a href="index.html#booking" class="nav-link">Konsultasi</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="index.html#booking" class="btn btn-primary btn-sm">Booking Sekarang</a>
+        <button class="navbar-toggle" id="navToggle" onclick="toggleNav()" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="cart-hero">
+    <div class="container">
+      <h1 class="cart-hero-title">🛒 Keranjang Belanja</h1>
+    </div>
+  </section>
+
+  <!-- CART SECTION -->
+  <section class="cart-section">
+    <div class="cart-layout">
+      <!-- Cart Items -->
+      <div class="cart-items" id="cartItems">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Empty Cart -->
+      <div class="empty-cart" id="emptyCart" style="display:none;">
+        <div class="empty-cart-icon">🛒</div>
+        <div class="empty-cart-text">Keranjang Anda kosong</div>
+        <p class="empty-cart-sub">Mulai belanja produk CPAP dan aksesoris terbaik.</p>
+        <a href="produk.html" class="btn btn-primary btn-lg">🛍️ Mulai Belanja</a>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="order-summary" id="orderSummary">
+        <div class="order-summary-header">
+          <div class="order-summary-title">📋 Ringkasan Pesanan</div>
+        </div>
+        <div class="order-summary-body">
+          <div class="summary-row">
+            <span>Subtotal (<span id="summaryCount">0</span> item)</span>
+            <span id="summarySubtotal">Rp 0</span>
+          </div>
+          <div class="summary-row">
+            <span>Pengiriman</span>
+            <span style="color:var(--green-600); font-weight:600;">GRATIS</span>
+          </div>
+          <div class="summary-row save">
+            <span>Penghematan</span>
+            <span id="summarySave">-Rp 0</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="summaryTotal">Rp 0</span>
+          </div>
+
+          <!-- Checkout Form -->
+          <div class="checkout-form">
+            <div class="form-title">📝 Data Diri</div>
+            <div class="form-group">
+              <label class="form-label">Nama Lengkap *</label>
+              <input type="text" class="form-input" id="customerName" placeholder="Masukkan nama lengkap" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nomor WhatsApp *</label>
+              <input type="tel" class="form-input" id="customerPhone" placeholder="08xxxxxxxxxx" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" id="customerEmail" placeholder="email@contoh.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Alamat Pengiriman *</label>
+              <textarea class="form-textarea" id="customerAddress" placeholder="Alamat lengkap pengiriman" required></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Kota</label>
+              <input type="text" class="form-input" id="customerCity" placeholder="Jakarta, Surabaya, dll">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Metode Pembayaran</label>
+              <select class="form-select" id="paymentMethod">
+                <option value="transfer">Transfer Bank (BCA, Mandiri, BRI)</option>
+                <option value="ewallet">E-Wallet (GoPay, OVO, DANA)</option>
+                <option value="cod">Cash on Delivery (COD)</option>
+                <option value="cc">Credit Card (3x cicilan 0%)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Catatan / Keterangan</label>
+              <textarea class="form-textarea" id="customerNote" placeholder="Catatan tambahan untuk pesanan Anda..." rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="checkout-buttons">
+            <button class="checkout-btn checkout-btn-whatsapp" onclick="checkoutWhatsApp()">
+              💬 Pesan via WhatsApp
+            </button>
+            <a href="produk.html" class="checkout-btn checkout-btn-outline">
+              🛍️ Lanjut Belanja
+            </a>
+          </div>
+
+          <div class="trust-bar">
+            <div class="trust-item">
+              <div class="trust-icon">✅</div>
+              <div class="trust-text">100% Original</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon">🛡️</div>
+              <div class="trust-text">Garansi Resmi</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon">🚚</div>
+              <div class="trust-text">Free Shipping</div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon">💬</div>
+              <div class="trust-text">Konsultasi Gratis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 SleepWell — Unified Sleep Healthcare Platform. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20butuh%20bantuan%20belanja" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
+    💬
+    <span class="whatsapp-fab-tooltip">Chat via WhatsApp</span>
+  </a>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Cart Data (from localStorage)
+    let cart = JSON.parse(localStorage.getItem('sleepwell_cart') || '[]');
+
+    const products = [
+      { id: 1, name: "ResMed AirSense 11 AutoSet", brand: "resmed", price: 13500000, originalPrice: 15000000, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/Air10.jpg?v=1777789483" },
+      { id: 2, name: "ResMed AirFit F30i Full Face Mask", brand: "resmed", price: 3200000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/F20.jpg?v=1777791982" },
+      { id: 3, name: "ResMed AirFit N30i Nasal Mask", brand: "resmed", price: 2400000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/N30i.jpg?v=1777791982" },
+      { id: 4, name: "ResMed AirSense 11 Filter Set (24pcs)", brand: "resmed", price: 450000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/hypo_as10.png?v=1772166294" },
+      { id: 5, name: "ResMed AirCurve 10 VAuto BiLevel", brand: "resmed", price: 18500000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/AirCurve.jpg?v=1777789568" },
+      { id: 6, name: "ResMed AirFit P10 Nasal Pillow Mask", brand: "resmed", price: 2200000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/P10.jpg?v=1777791440" },
+      { id: 7, name: "Philips DreamStation 2 Auto CPAP", brand: "philips", price: 11200000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/BundleDeal_16.jpg?v=1728466197" },
+      { id: 8, name: "Philips DreamWear Gel Nasal Pillow", brand: "philips", price: 1800000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/P10.jpg?v=1777791440" },
+      { id: 9, name: "Philips DreamStation GO Travel CPAP", brand: "philips", price: 8500000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/products/DSGo3copy.jpg?v=1586859168" },
+      { id: 10, name: "BMC M1 Mini Travel Auto CPAP", brand: "bmc", price: 4800000, originalPrice: 5500000, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/M1Mini.png?v=1775127523" },
+      { id: 11, name: "BMC G3 A20 Auto CPAP", brand: "bmc", price: 14500000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/BMC-Luna-G3-3.png?v=1777789630" },
+      { id: 12, name: "BMC G3 B25A Auto BiPAP", brand: "bmc", price: 26000000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/B25F6s.jpg?v=1778943145" },
+      { id: 13, name: "BMC F5A+ Full Face Mask", brand: "bmc", price: 2000000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/BMC_F5A.jpg?v=1777794229" },
+      { id: 14, name: "BMC N5A+ Nasal Mask", brand: "bmc", price: 1500000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/bmc_N5A.jpg?v=1777794229" },
+      { id: 15, name: "BMC P6s Nasal Pillow Mask", brand: "bmc", price: 1200000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/BMC_P6s.jpg?v=1777794275" },
+      { id: 16, name: "Nox T3s Home Sleep Test", brand: "nox", price: 0, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/Apnealink_4_2bc8e3e8-e89a-425b-83b5-f298b551eb6e.jpg?v=1787555441" },
+      { id: 17, name: "Nox A1s Sleep Diagnostic System", brand: "nox", price: 0, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/ApnealinkSleepScreening1.jpg?v=1710514905" },
+      { id: 18, name: "BMC G3 A20 + F5A+ Bundle", brand: "bmc", price: 16500000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/G3_F5A_1.jpg?v=1778641684" },
+      { id: 19, name: "BMC G3 A20 + N5A+ Bundle", brand: "bmc", price: 16500000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/G3N5Aplus.jpg?v=1778940380" },
+      { id: 20, name: "ResMed AirMini AutoTravel CPAP", brand: "resmed", price: 9800000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/8_d3318743-4e6b-413a-b7b6-9678bc94b0da.png?v=1771831450" },
+      { id: 21, name: "ResMed AirFit F40 Full Face Mask", brand: "resmed", price: 2800000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/F40.jpg?v=1777791982" },
+      { id: 22, name: "ResMed Lumis 150 VPAP ST", brand: "resmed", price: 22000000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/products/LumisST3.jpg?v=1668585949" },
+      { id: 23, name: "Philips DreamStation Reusable Filter", brand: "philips", price: 350000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/products/Filter-DS5.jpg?v=1679489655" },
+      { id: 24, name: "BMC G3 B25A + P6s Bundle", brand: "bmc", price: 26000000, originalPrice: null, image: "https://cdn.shopify.com/s/files/1/0006/0001/4963/files/B25P6s.jpg?v=1778941079" }
+    ];
+
+    // Render Cart
+    function renderCart() {
+      const cartItems = document.getElementById('cartItems');
+      const emptyCart = document.getElementById('emptyCart');
+      const orderSummary = document.getElementById('orderSummary');
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '';
+        emptyCart.style.display = 'block';
+        orderSummary.style.display = 'none';
+        return;
+      }
+
+      emptyCart.style.display = 'none';
+      orderSummary.style.display = 'block';
+
+      let subtotal = 0;
+      let totalSave = 0;
+
+      cartItems.innerHTML = cart.map(item => {
+        const product = products.find(p => p.id === item.id);
+        if (!product) return '';
+        const itemTotal = product.price * item.qty;
+        const save = product.originalPrice ? (product.originalPrice - product.price) * item.qty : 0;
+        subtotal += itemTotal;
+        totalSave += save;
+
+        return `
+          <div class="cart-item">
+            <img src="${product.image}" alt="${product.name}" class="cart-item-img" loading="lazy">
+            <div class="cart-item-info">
+              <div class="cart-item-brand">${product.brand}</div>
+              <div class="cart-item-name">${product.name}</div>
+              <div>
+                <span class="cart-item-price">Rp ${product.price.toLocaleString('id-ID')}</span>
+                ${product.originalPrice ? `<span class="cart-item-original">Rp ${product.originalPrice.toLocaleString('id-ID')}</span>` : ''}
+              </div>
+              <div class="cart-item-actions">
+                <div class="qty-control">
+                  <button class="qty-btn" onclick="updateQty(${product.id}, -1)">−</button>
+                  <input type="text" class="qty-value" value="${item.qty}" readonly>
+                  <button class="qty-btn" onclick="updateQty(${product.id}, 1)">+</button>
+                </div>
+                <button class="cart-item-remove" onclick="removeFromCart(${product.id})">🗑️ Hapus</button>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+
+      document.getElementById('summaryCount').textContent = cart.reduce((a, b) => a + b.qty, 0);
+      document.getElementById('summarySubtotal').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+      document.getElementById('summarySave').textContent = '-Rp ' + totalSave.toLocaleString('id-ID');
+      document.getElementById('summaryTotal').textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+    }
+
+    function updateQty(productId, delta) {
+      const item = cart.find(i => i.id === productId);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) cart = cart.filter(i => i.id !== productId);
+        saveCart();
+        renderCart();
+        showToast('Keranjang diperbarui');
+      }
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(i => i.id !== productId);
+      saveCart();
+      renderCart();
+      showToast('Produk dihapus dari keranjang');
+    }
+
+    function saveCart() {
+      localStorage.setItem('sleepwell_cart', JSON.stringify(cart));
+      // Update badge
+      if (typeof updateCartBadge === 'function') updateCartBadge();
+    }
+
+    function checkoutWhatsApp() {
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('customerPhone').value.trim();
+      const address = document.getElementById('customerAddress').value.trim();
+      const city = document.getElementById('customerCity').value.trim();
+      const email = document.getElementById('customerEmail').value.trim();
+      const payment = document.getElementById('paymentMethod').value;
+      const note = document.getElementById('customerNote').value.trim();
+
+      if (!name) { alert('Nama lengkap wajib diisi!'); return; }
+      if (!phone) { alert('Nomor WhatsApp wajib diisi!'); return; }
+      if (!address) { alert('Alamat pengiriman wajib diisi!'); return; }
+
+      // Build order message
+      let msg = '🛍️ *PESANAN BARU - SleepWell*\n\n';
+      msg += '👤 *Data Pelanggan:*\n';
+      msg += `• Nama: ${name}\n`;
+      msg += `• WhatsApp: ${phone}\n`;
+      if (email) msg += `• Email: ${email}\n`;
+      msg += `• Alamat: ${address}\n`;
+      if (city) msg += `• Kota: ${city}\n`;
+      msg += '\n📦 *Item Pesanan:*\n';
+
+      let total = 0;
+      cart.forEach(item => {
+        const p = products.find(pr => pr.id === item.id);
+        if (p) {
+          const itemTotal = p.price * item.qty;
+          total += itemTotal;
+          msg += `• ${p.name} x${item.qty} = Rp ${itemTotal.toLocaleString('id-ID')}\n`;
+        }
+      });
+
+      msg += `\n💰 *Total: Rp ${total.toLocaleString('id-ID')}*\n`;
+      msg += `💳 Pembayaran: ${payment}\n`;
+      if (note) msg += `\n📝 Catatan: ${note}\n`;
+      msg += '\nMohon konfirmasi pesanan saya. Terima kasih! 🙏';
+
+      window.open('https://wa.me/6281234567890?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', renderCart);
+  </script>
+</body>
+</html>
