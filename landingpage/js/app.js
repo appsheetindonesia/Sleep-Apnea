@@ -54,16 +54,18 @@
   function toggleMobileMenu() {
     var menu = document.getElementById('mobileMenu');
     var toggle = document.querySelector('.mobile-toggle');
-    if (menu) {
-      menu.classList.toggle('active');
-      menu.setAttribute('aria-hidden', !menu.classList.contains('active'));
-      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-      // Animate hamburger icon
-      if (toggle) {
-        toggle.classList.toggle('active');
-      }
+    if (!menu) return;
+    menu.classList.toggle('active');
+    var isOpen = menu.classList.contains('active');
+    menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (toggle) {
+      toggle.classList.toggle('active', isOpen);
     }
   }
+
+  // Expose globally for onclick handlers in HTML
+  window.toggleMobileMenu = toggleMobileMenu;
 
   // Close mobile menu on resize
   window.addEventListener('resize', function() {
@@ -129,18 +131,14 @@
     });
   }
 
-  // ==========================================
-  // MOBILE MENU (global, for onclick handlers in HTML)
-  // ==========================================
-  window.toggleMobileMenu = function () {
-    toggleMobileMenu();
-  };
-
-  // Close on click outside
+  // Close mobile menu when clicking the backdrop (outside menu content)
   document.addEventListener('click', function (e) {
-    const menu = document.getElementById('mobileMenu');
-    if (menu && menu.classList.contains('active') && e.target === menu) {
-      toggleMobileMenu();
+    var menu = document.getElementById('mobileMenu');
+    if (menu && menu.classList.contains('active')) {
+      // Close if clicked on the backdrop (the overlay), not inside menu-content
+      if (e.target === menu || e.target.classList.contains('mobile-menu') && !e.target.closest('.mobile-menu-content')) {
+        toggleMobileMenu();
+      }
     }
   });
 
