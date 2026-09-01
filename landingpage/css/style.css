@@ -2493,7 +2493,26 @@ input, select, textarea {
   }
 
   .hero-visual {
-    display: none;
+    display: block;
+    order: -1;
+  }
+  .hero-illustration {
+    max-width: 320px;
+  }
+  .hero-card {
+    padding: 8px 12px;
+  }
+  .hero-card-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .hero-card-title {
+    font-size: 0.75rem;
+  }
+  .hero-card-desc {
+    font-size: 0.65rem;
   }
 
   .services-grid {
@@ -2657,6 +2676,10 @@ input, select, textarea {
 @media (max-width: 480px) {
   .products-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-illustration {
+    max-width: 260px;
   }
 
   .hero-stats {
