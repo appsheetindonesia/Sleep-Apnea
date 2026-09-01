@@ -125,17 +125,21 @@
       const scrollY = window.scrollY;
 
       // Navbar background
-      if (scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
+      if (navbar) {
+        if (scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
       }
 
       // Scroll to top button
-      if (scrollY > 500) {
-        scrollTop.classList.add('visible');
-      } else {
-        scrollTop.classList.remove('visible');
+      if (scrollTop) {
+        if (scrollY > 500) {
+          scrollTop.classList.add('visible');
+        } else {
+          scrollTop.classList.remove('visible');
+        }
       }
 
       // Active nav link
