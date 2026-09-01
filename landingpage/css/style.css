@@ -2514,16 +2514,16 @@ input, select, textarea {
     padding: 6px 10px;
   }
   .hero-card-1 {
-    top: 5%;
-    left: -15%;
+    top: 2%;
+    left: 5%;
   }
   .hero-card-2 {
-    top: 18%;
-    right: -18%;
+    top: 15%;
+    right: 2%;
   }
   .hero-card-3 {
-    bottom: 8%;
-    left: -12%;
+    bottom: 5%;
+    left: 8%;
   }
   .hero-card-icon {
     width: 28px;
@@ -2714,16 +2714,16 @@ input, select, textarea {
     height: 80px;
   }
   .hero-card-1 {
-    top: 3%;
-    left: -18%;
+    top: 0;
+    left: 2%;
   }
   .hero-card-2 {
-    top: 15%;
-    right: -20%;
+    top: 12%;
+    right: 0;
   }
   .hero-card-3 {
-    bottom: 5%;
-    left: -15%;
+    bottom: 3%;
+    left: 5%;
   }
 
   .hero-stats {
