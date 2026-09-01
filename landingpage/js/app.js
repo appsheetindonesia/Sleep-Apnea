@@ -130,27 +130,16 @@
   }
 
   // ==========================================
-  // MOBILE MENU
+  // MOBILE MENU (global, for onclick handlers in HTML)
   // ==========================================
   window.toggleMobileMenu = function () {
-    const menu = document.getElementById('mobileMenu');
-    const isOpen = menu.classList.contains('open');
-
-    if (isOpen) {
-      menu.classList.remove('open');
-      menu.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    } else {
-      menu.classList.add('open');
-      menu.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
+    toggleMobileMenu();
   };
 
   // Close on click outside
   document.addEventListener('click', function (e) {
     const menu = document.getElementById('mobileMenu');
-    if (menu.classList.contains('open') && e.target === menu) {
+    if (menu && menu.classList.contains('active') && e.target === menu) {
       toggleMobileMenu();
     }
   });
@@ -715,10 +704,12 @@
   function initDateMin() {
     var dateInput = document.getElementById('bookDate');
     if (dateInput) {
-      var today = new Date();
-      var yyyy = today.getFullYear();
-      var mm = String(today.getMonth() + 1).padStart(2, '0');
-      var dd = String(today.getDate()).padStart(2, '0');
+      // BR-07: Booking minimal 1 hari sebelum kunjungan
+      var tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      var yyyy = tomorrow.getFullYear();
+      var mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+      var dd = String(tomorrow.getDate()).padStart(2, '0');
       dateInput.setAttribute('min', yyyy + '-' + mm + '-' + dd);
     }
   }

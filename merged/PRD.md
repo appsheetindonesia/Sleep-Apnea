@@ -574,7 +574,11 @@ CREATE TABLE patients (
     neck_cm DECIMAL(4,1),
     blood_pressure VARCHAR(10),
     -- Calculated
-    bmi DECIMAL(5,1) GENERATED ALWAYS AS (weight_kg / ((height_cm/100) * (height_cm/100))) STORED,
+    bmi DECIMAL(5,1) GENERATED ALWAYS AS (
+        CASE WHEN height_cm > 0
+        THEN weight_kg / ((height_cm/100.0) * (height_cm/100.0))
+        ELSE NULL END
+    ) STORED,
     -- Insurance
     insurance_provider VARCHAR(255),
     insurance_number VARCHAR(100),

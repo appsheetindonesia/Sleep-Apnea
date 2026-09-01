@@ -225,6 +225,7 @@ CREATE INDEX idx_screenings_patient ON screenings(patient_id);
 CREATE INDEX idx_screenings_risk ON screenings(risk_level);
 CREATE INDEX idx_screenings_status ON screenings(status);
 CREATE INDEX idx_screenings_created ON screenings(created_at DESC);
+CREATE INDEX idx_screenings_patient_created ON screenings(patient_id, created_at DESC); -- for 30-day cooldown check
 
 -- BOOKINGS (Unified: consultation, HST, PSG, mask fitting, etc.)
 CREATE TABLE bookings (

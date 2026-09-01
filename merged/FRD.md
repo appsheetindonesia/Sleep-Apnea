@@ -19,7 +19,7 @@ Dokumen ini mendefinisikan secara komprehensif semua kebutuhan fungsional Unifie
 - **`FR-XXX`**: Functional Requirement ID
 - **Prioritas**: P0 (Must Have), P1 (Should Have), P2 (Nice to Have)
 
-### 1.2 Ringkasan Modul
+### 1.3 Ringkasan Modul
 
 | Module | Nama | Source | Total FRs |
 |--------|------|--------|-----------|
