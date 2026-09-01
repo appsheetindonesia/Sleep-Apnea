@@ -2657,8 +2657,14 @@ input, select, textarea {
   }
 
   .trust-grid {
-    justify-content: center;
-    gap: var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: var(--space-5);
+  }
+  .trust-item:first-child {
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 
   .footer-grid {
