@@ -46,6 +46,7 @@
     initLanguageToggle();
     initLazyLoading();
     initDarkMode();
+    initMobileMenuActivePage();
   });
 
   // ==========================================
@@ -80,6 +81,36 @@
       }
     }
   });
+
+  // Highlight active page in mobile menu
+  function initMobileMenuActivePage() {
+    var mobileLinks = document.querySelectorAll('.mobile-menu-link');
+    var currentPath = window.location.pathname;
+    var currentHash = window.location.hash;
+    var currentPage = currentPath.split('/').pop() || 'index.html';
+
+    mobileLinks.forEach(function(link) {
+      var href = link.getAttribute('href') || '';
+      var linkPage = href.split('/').pop().split('#')[0] || 'index.html';
+      var linkHash = href.includes('#') ? '#' + href.split('#')[1] : '';
+
+      // Match by page name
+      var isSamePage = (linkPage === currentPage) ||
+        (linkPage === '' && currentPage === 'index.html') ||
+        (linkPage === 'index.html' && (currentPage === '' || currentPage === 'index.html'));
+n      // For index.html, also match by section hash
+      if (isSamePage && currentPage === 'index.html' && linkHash && currentHash) {
+        if (linkHash === currentHash) {
+          link.classList.add('active');
+        }
+      } else if (isSamePage && !linkHash && !currentHash) {
+        link.classList.add('active');
+      } else if (isSamePage && linkPage !== 'index.html') {
+        // Non-index pages: highlight the page link itself
+        link.classList.add('active');
+      }
+    });
+  }
 
   // ==========================================
   // NAVBAR
