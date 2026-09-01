@@ -2495,7 +2495,8 @@ input, select, textarea {
 
   .hero-visual {
     display: block;
-    order: -1;
+    order: 1;
+    text-align: center;
   }
   .hero-illustration {
     max-width: 360px;
