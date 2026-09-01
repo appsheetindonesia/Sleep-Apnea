@@ -518,6 +518,32 @@ input, select, textarea {
   position: relative;
 }
 
+.navbar-cart-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--gray-100);
+  border: 2px solid var(--gray-200);
+  border-radius: 50%;
+  color: var(--gray-600);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-cart-icon:hover {
+  background: var(--blue-50);
+  border-color: var(--blue-200);
+  color: var(--blue-600);
+}
+
+.dark .navbar-cart-icon {
+  background: var(--gray-700);
+  border-color: var(--gray-600);
+  color: var(--gray-300);
+}
+
 .theme-btn-icon-only {
   display: flex;
   align-items: center;

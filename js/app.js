@@ -47,6 +47,7 @@
     initLazyLoading();
     initDarkMode();
     initMobileMenuActivePage();
+    updateCartBadge();
   });
 
   // ==========================================
@@ -98,7 +99,8 @@
       var isSamePage = (linkPage === currentPage) ||
         (linkPage === '' && currentPage === 'index.html') ||
         (linkPage === 'index.html' && (currentPage === '' || currentPage === 'index.html'));
-n      // For index.html, also match by section hash
+
+      // For index.html, also match by section hash
       if (isSamePage && currentPage === 'index.html' && linkHash && currentHash) {
         if (linkHash === currentHash) {
           link.classList.add('active');
@@ -916,4 +918,25 @@
       heroLogo.src = logoSrc;
     }
   }
+
+  // ==========================================
+  // CART BADGE
+  // ==========================================
+  function updateCartBadge() {
+    var cart = JSON.parse(localStorage.getItem('sleepwell_cart') || '[]');
+    var total = cart.reduce(function(a, b) { return a + b.qty; }, 0);
+    // Update all badge elements (text + icon variants)
+    var badges = document.querySelectorAll('#cartBadge, #cartBadgeMobile, .cart-badge');
+    badges.forEach(function(badge) {
+      if (total > 0) {
+        badge.style.display = 'flex';
+        badge.textContent = total;
+      } else {
+        badge.style.display = 'none';
+      }
+    });
+  }
+
+  // Expose globally for addToCart in other scripts
+  window.updateCartBadge = updateCartBadge;
 })();
