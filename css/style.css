@@ -2594,7 +2594,8 @@ input, select, textarea {
     --container-padding: 1rem;
   }
 
-  .navbar-menu {
+  .navbar-menu,
+  .navbar-links {
     display: none;
   }
 
